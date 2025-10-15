@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # official action from GitHub, no pinning required
+      - name: Install uv
+        uses: astral-sh/setup-uv@3259c6206f993105e3a61b142c2d97bf4b9ef83d  # v7.1.0 (2025-10-12)
+        with:
+          version: "latest"
+      - name: Build the pages
+        run: |
+          ./build.bash
+          cp -r archive/public/. public
+      - name: Upload build result
+        uses: actions/upload-pages-artifact@v3  # official action from GitHub, no pinning required
+        with:
+          path: public
+
+  publish:
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5  # official action from GitHub, no pinning required
