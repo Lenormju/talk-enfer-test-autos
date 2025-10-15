@@ -15,21 +15,21 @@ Notes:
 * TODO :
   * illustration de chapitre ?
 
----
+-v-
 
 ## Disclaimer on n'est pas parfaits
 
 Notes:
 * on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 
----
+-v-
 
 ## Sondage : qui trouve que c'est l'enfer
 
 Notes:
 * qui trouve que les tests c'est l'enfer ? Qui trouve que c'est le paradis ? le purgatoire ?
 
----
+-v-
 
 ## Présentation
 
@@ -41,11 +41,12 @@ Notes:
 * TODO :
   * garder cette section ici ?
 
----
+-v-
 
-## Préambule : c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
+## Tester ?
 
 Notes:
+* c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
 * action, réaction, stimuli, SUT
 * Qualité avec un grand Q : (d'après Rambo Python) fiabilité, maintenabilité, évolutivité, sécurité
     * mentionner ISO-truc pour une autre définition (plus large)
@@ -60,7 +61,7 @@ Notes:
   * @Julien refaire une passe sur les répétitions (cf réunion du mercredi 08 octobre)
   * scientific proofs of efficiency ?
 
----
+-v-
 
 ## Confiance
 
@@ -69,7 +70,7 @@ Notes:
 * mise en prod le vendredi après-midi
 * confiance dans ce qui a changé, confiance dans ce qui n'a pas changé
 
----
+-v-
 
 ## Feedback rapide
 
@@ -78,7 +79,7 @@ Notes:
 * la qualité c'est une démarche, un tamis, un empilement (vrai sens de Kanban), une culture (LEAN, Kanban "right the first time")
 * facile à exécuter : un clic et c'est bon, ça part en prod
 
----
+-v-
 
 ## Qualité (fiabilité) du code
 
@@ -93,7 +94,7 @@ Notes:
 * exécution automatique/systématique -> pas besoin de devoir s'en souvenir (CI, make, ...)
 * empêche le "Fear driven development"
 
----
+-v-
 
 ## Éthique professionnelle
 
@@ -105,7 +106,7 @@ Notes:
 * livraison, recette
 * maturité professionnelle
 
----
+-v-
 
 ## Rentabilité
 
@@ -113,11 +114,11 @@ Notes:
 * Accelerate
 * TODO autres preuves d'efficacité ? (cf scientific proofs)
 
----
+-v-
 
 ## Seul moyen de tenir la cadence
 
----
+-v-
 
 ## C'est vachement bien !
 
@@ -136,14 +137,14 @@ Notes:
 * TODO: le formuler de façon à répondre au chemin de crête ?
 * TODO: ajouter des exemples concrets à chacun
 
----
+-v-
 
 ## Chemin de crête
 
 Notes:
 * métaphore du chemin de crête : facile de tomber
 
----
+-v-
 
 ## Pas appris
 
@@ -159,7 +160,7 @@ Notes:
     * le cours de dernière année
         * @Julien TODO quentin pigné
 
----
+-v-
 
 ## Vocabulaire confusant
 
@@ -194,7 +195,7 @@ Notes:
 * QA vs QE vs testeur vs "dev" vs IVVQ vs ...
 * Test error vs test failure : le test n'a pas abouti pour une raison technique (problème de test), le test a abouti mais n'a pas produit le résultat attendu (problème fonctionnel on espère !)
 
----
+-v-
 
 ## Trop de tests
 
@@ -202,7 +203,7 @@ Notes:
 * explosion combinatoire
 * cible mouvante et floue
 
----
+-v-
 
 ## Pratique réticente
 
@@ -210,7 +211,7 @@ Notes:
 * des tonnes d'outils différents, les différents types de tests évoqués, les différents métiers, l'insertion dans le process de production, ...
 * s'organiser, planifier et réaliser sont des tâches complexes
 
----
+-v-
 
 ## Punition
 
@@ -219,7 +220,7 @@ Notes:
 * > On peut conduire un cheval à l'abreuvoir, mais pas le forcer à boire
 * comme beaucoup de sujets, c'est pas un casse-pied de service qu'il faut, mais un changement de culture (beaucoup plus compliqué, cf Agile bullshit)
 
----
+-v-
 
 ## Inutile
 
@@ -227,7 +228,7 @@ Notes:
 * convaincre (le management et/ou les devs) que c'est utile, avant de se manger une mise-en-prod foirée
 * dépense versus économie
 
----
+-v-
 
 ## Test impossible
 
@@ -236,7 +237,7 @@ Notes:
 * exemple board farm Schneider
 * exemple Windows 10 LTSC 2019 à Thales
 
----
+-v-
 
 ## Code intestable
 
@@ -246,7 +247,7 @@ Notes:
 * exemple : code des bornes qui échoue le 29 Février
 * exemple : code du Edge qui est correct sur la timezone 6 mois par an
 
----
+-v-
 
 ## Fragile
 
@@ -258,14 +259,14 @@ Notes:
   * l'équivalent de "ptèt bin qu'oui, ptèt bin qu'non"
   * suffit de les relancer plusieurs fois mdr, ~zéro confiance
 
----
+-v-
 
 ## Illisible
 
 Notes:
 * exemple d'Eric (Schneider)
 
----
+-v-
 
 ## Lent
 
@@ -275,7 +276,7 @@ Notes:
 * exemple de Schneider : board farms
 * exemple de Schneider : code dont le run dure des centaines jours !! (à travers les timezones :p)
 
----
+-v-
 
 ## Bug ou feature ou code mort ?
 
@@ -285,7 +286,7 @@ Notes:
   * bug ou feature ?
 * source de vérité = code ou spec Word ?
 
----
+-v-
 
 ## En Bref
 
@@ -305,14 +306,14 @@ Notes:
   * le formuler de façon à répondre au chemin de crête
   * mentionner "se rendre dispensable" ? (vis-à-vis du scaling humain)
 
----
+-v-
 
 ## Chemin de crête
 
 Notes:
 * comment le naviguer ? comment être/devenir/rester rigoureux ?
 
----
+-v-
 
 ## Culture de la qualité
 
@@ -329,7 +330,7 @@ Notes:
 * "Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités"
 * Humilité de devoir tester
 
----
+-v-
 
 ## Stratégie de test
 
@@ -344,7 +345,7 @@ Notes:
 * considérer les niveaux de test : Fonctionnalités techniques (endpoint) versus user
 * Quadrant des tests !! Axes : business vs tech, pour le produit vs èquipe
 
----
+-v-
 
 ## Moyens de test
 
@@ -354,7 +355,7 @@ Notes:
 * avoir des specs ! (claires)
 * pas de bras, pas de chocolat
 
----
+-v-
 
 ## Renoncer
 
@@ -375,7 +376,7 @@ Notes:
 * garder des tests qu'on apprécie : rapides (ou moins rapides en CI mais + couvrants), fiables, maintenables, estimer le ROI
 * OK de supprimer un test inutile
 
----
+-v-
 
 ## Processus
 
@@ -383,7 +384,7 @@ Notes:
 * (reprendre des tamis) : tres amigos, example mapping, BDD, prise en compte de la testabilité dès la (pré-)conception, compter le coût du test dans l'estimation de la story, les tests font partie de la dette technique du projet, analyse d'impact lors de nouveaux devs, découpage en équipe Dev versus QA ??
   * identifier les manquements dans son équipe, sur son projet, et trouver comment communiquer dessus avec les autres, avoir des idées à proposer
 
----
+-v-
 
 ## Scénarios
 
@@ -396,7 +397,7 @@ Notes:
 * value streams, risques, manque de confiance, ...
 * smoke tests (cf origine du mot "smoke test" en logiciel)
 
----
+-v-
 
 ## Architecture testable
 
@@ -419,7 +420,7 @@ Notes:
   * cf https://yoan-thirion.gitbook.io/knowledge-base/xtrem-reading/resources/book-notes/team-topologies#software-boundaries-or-fracture-planes
 * sans architecture testable, la strat s'effondre !
 
----
+-v-
 
 ## Surface d'interface
 
@@ -433,14 +434,14 @@ Notes:
 * Quantité de test versus qualité
 * contravariance, tester l'interface plutôt que l'implémentation, cf Uncle Bob https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html
 
----
+-v-
 
 ## Feedback
 
 Notes:
 * fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability
 
----
+-v-
 
 ## Fluide
 
@@ -451,7 +452,7 @@ Notes:
   * comme un évier plein de vaisselle (cercle vicieux)
 * Blague du docteur : "j'ai mal quand je suis debout" "alors arrêtez de vous lever"
 
----
+-v-
 
 ## Investissement
 
@@ -466,7 +467,7 @@ Notes:
 * exemple de SQLite (x 590)
 * Vraiment à retenir : ne pas penser le test comme un après, mais comme un même temps, voire enabler
 
----
+-v-
 
 ## Ecriture
 
@@ -475,7 +476,7 @@ Notes:
 * FIRST : https://stackoverflow.com/questions/18024785/tdd-first-principle Fast Indep Repeat Self-Check Timely (pas écrit dans 1000 ans mais avec le code à tester)
   * double i : isolation ?
 
----
+-v-
 
 ## Techniques
 
@@ -489,7 +490,7 @@ Notes:
   * TODO: ne pas mentionner les 2 écoles, mettre en aller en + loin
 * DB in-memory
 
----
+-v-
 
 ## techniques avancées
 

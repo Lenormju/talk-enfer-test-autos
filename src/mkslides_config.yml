@@ -1,9 +1,11 @@
 slides:
   theme: "white"  # custom CSS filepath/URL, or https://revealjs.com/themes/
   highlight_theme: "stackoverflow-light"  # custom CSS filepath/URL, or https://highlightjs.org/examples
+  separator_vertical: ^\s*-v-\s*$
 revealjs:  # https://revealjs.com/config/
   height: 1080
   width: 1920
-  navigationMode: grid  # "linear" or "grid" (default)
-  slideNumber: h.v
+  navigationMode: "default"  # default/linear/grid
+  mouseWheel: true
+  slideNumber: c/t
   transition: slide
