@@ -4,7 +4,7 @@ set -euo pipefail
 mkdir -p public
 uv tool run mkslides \
     build \
-    --config-file 'src/mkslides_config.yml' \
+    --config-file 'mkslides_config.yml' \
     --site-dir 'public' \
     --strict \
     'src/slides.md'
