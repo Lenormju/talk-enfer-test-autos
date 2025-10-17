@@ -18,10 +18,16 @@ Notes:
 
 -v-
 
-## Disclaimer
+## Présentation
+
+Julien Lenormand 😇
+
+Jonathan Gaffiot 👹
+@ Kaizen Solutions
 
 Notes:
-* on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
+* plutôt qu'un disclaimer, penser à expliciter qu'on a le choix entre :
+  écrire ses tests, ou tester manuellement, et bien souvent en prod
 
 -v-
 
@@ -32,33 +38,41 @@ Notes:
 
 -v-
 
-## Présentation
 
-Julien Lenormand 😇
-
-Jonathan Gaffiot 👹
-@ Kaizen Solutions
-
-Notes:
-* TODO :
-  * garder cette section ici ?
-
--v-
-
-## Tester ?
+## C'est quoi tester ?
 
 Notes:
 * c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
-* action, réaction, stimuli, SUT
+* action, réaction, stimuli, SUT, oracle
   * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
-* Qualité avec un grand Q : (d'après Rambo Python) fiabilité, maintenabilité, évolutivité, sécurité
-    * mentionner ISO-truc pour une autre définition (plus large)
+  * expliciter les pièges :
+    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
+    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
+    + quel stimulus ? quelle réponse ? comment j'y accède ?
+    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
+
+-v-
+
+## Pourquoi tester ?
+
+* Qualité avec un grand Q :
+    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences
+    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité
+
+* 😇 Mais aussi une spécificité du logiciel : complexité, fluidité, immatériel
+  + immatériel => pas d'expérience immédiate, visuelle, du système => faut tester
+  + complexité => chaque ligne est une action, effets de bord, combinatoire => faut tester
+  + fluidité => changements rapides et tout le temps => faut tester
+
+* 😈 le code c'est trop dur pour vos petites cervelles d'humains !
 
 ---
 
 # 1. Pourquoi c'est important les tests autos ?
 
-il faut le rappeller !
+😇 Pour garder la maitrise de la qualité de son code au fur et à mesure de son développement !
+
+😈 qui veut mettre en prod 2 ans de code jamais testé ?
 
 Notes:
 * TODO :
@@ -69,11 +83,10 @@ Notes:
 
 ## Confiance
 
-* vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
-* vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
-* vérifier que tout fonctionne encore  <!-- .element: class="fragment" -->
-* mise en prod le vendredi ?  <!-- .element: class="fragment" -->
-* 😌  <!-- .element: class="fragment" -->
+* 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
+* 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
+* 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
+* 😈 mise en prod le vendredi !  <!-- .element: class="fragment" -->
 
 Notes:
 * sérénité
@@ -84,14 +97,16 @@ Notes:
 
 ## Feedback rapide
 
-* 😕 bug trouvé lors de la PR  <!-- .element: class="fragment" -->
-* 😩 bug trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
-* 😢 bug trouvé en prod  <!-- .element: class="fragment" -->
+* UN BUG 😈 !
+  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
+  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
+  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
 
-.  <!-- .element: class="fragment" -->
-
-* facile à exécuter  <!-- .element: class="fragment" -->
-* indépendance, pas besoin de "QA"  <!-- .element: class="fragment" -->
+* Un feedback rapide 😇 <!-- .element: class="fragment" -->
+  - facile à exécuter  <!-- .element: class="fragment" -->
+  - résultat rapide <!-- .element: class="fragment" -->
+  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
+  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
 
 Notes:
 * ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
@@ -99,12 +114,13 @@ Notes:
 
 -v-
 
-## Qualité (fiabilité) du code
+## Fiabilité du code
 
-* le code, c'est compliqué : erreurs de design, dette technique, ...  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : chacun doit se familiariser longuement avec la codebase  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : il faut tout le temps le changer !  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : ça casse tout le temps  <!-- .element: class="fragment" -->
+* le code, c'est compliqué :
+  - erreurs de design, dette technique, ...  <!-- .element: class="fragment" -->
+  - chacun doit se familiariser longuement avec la codebase  <!-- .element: class="fragment" -->
+  - il faut tout le temps le changer !  <!-- .element: class="fragment" -->
+  - ça casse tout le temps  <!-- .element: class="fragment" -->
 * les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
   * on peut refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
   * on a des preuves qu'il fonctionne correctement  <!-- .element: class="fragment" -->
@@ -136,6 +152,9 @@ Notes:
 * Sens strict de refactoring, pas de refactoring sans garantie que le comportement "observable" (externe) n'a pas évolué
   * nécessaire pour dompter la dette technique
 
+* trop gros slide, à splitter en ~3
+* premier bullet point déjà un peu discuté
+
 -v-
 
 ## Éthique professionnelle
@@ -161,6 +180,7 @@ Notes:
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
 * Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : Google, Microsoft, Netflix, Apple le font !!!!!!!!  <!-- .element: class="fragment" -->
+* et tous les projets libres sur lesquels on bati tous !
 * se concentrer sur des tâches à forte valeur ajoutée  <!-- .element: class="fragment" -->
 * seul moyen de tenir la cadence  <!-- .element: class="fragment" -->
 
@@ -204,7 +224,22 @@ Notes:
 
 Notes:
 * métaphore du chemin de crête : facile de tomber
-* TODO @jonathan : si tu as une meilleure image que celle-ci, hésite pas
+* @Julien : une crête a 2 versants, ça donne l'image qu'on peut tomber de chaque côté.
+  Ici on peut surtout tomber d'un côté (code qui a bien grandi, et pas de test),
+  mais l'autre côté n'est pas symétrique (trop de tests, du temps perdu, surqualité ?).
+  Proposition de métaphore : tourner autour d'un trou noir. Tant que je fais l'effort,
+  je reste en orbite, si je me relâche, je spirale vers le bas, et il faut bcp de boulot
+  pour remonter.
+
+-v-
+
+## Pas le temps
+
+* Pas prévu dans le planning/sprint
+* Mon chef/Product truc me dit de faire des features
+* Deadline en vue
+* Jamais budgeté, jamais valorisé
+* Projet géré par le marketing sans aucune expérience de la technique
 
 -v-
 
@@ -212,6 +247,7 @@ Notes:
 
 Notes:
 * sauf pour les testeurs de métier, les moldus s'en passeront bien ?
+* et encore les testeurs apprennent pas les TU
 * pas de formation dans la plupart des cursus master, ou bien théorique ou très court
 * assez peu présent dans la littérature généraliste, malgré sa prévalence et importance (cf biblio)
 * pas un sujet "sexy" (formation continue, conférences, ...)
@@ -251,12 +287,12 @@ Notes:
         * test de performance et test de charge
         * test d'interface
         * test de sécurité.
-      * Cours de génie logiciel abordant notamment les cycles de développement : cela permet de situer correctement le test dans une activité de développement.  
-      * Bonnes connaissances en algorithmique et programmation : être capable d'analyser un programme, de l'exécuter symboliquement "à la main", fait partie des activités du testeur et est une compétence indispensable pour comprendre les techniques fondées sur l'analyse du code.  
+      * Cours de génie logiciel abordant notamment les cycles de développement : cela permet de situer correctement le test dans une activité de développement.
+      * Bonnes connaissances en algorithmique et programmation : être capable d'analyser un programme, de l'exécuter symboliquement "à la main", fait partie des activités du testeur et est une compétence indispensable pour comprendre les techniques fondées sur l'analyse du code.
       * Langages et automates : une partie du cours porte sur de modèles et en particulier des machines d'états finis exploitées pour engendrer des tests de conformité.
       * Bibliographie :
-        * Aditya P. Mathur:Foundations of Spftware Testing, Pearson 2008.  
-        * J-F. Pradat-Peyre, J. Printz: Pratique des tests logiciels, Dunod 2009.  
+        * Aditya P. Mathur:Foundations of Spftware Testing, Pearson 2008.
+        * J-F. Pradat-Peyre, J. Printz: Pratique des tests logiciels, Dunod 2009.
         * Myers, G.J. : The Art of Software Testing. Wiley 1979; réédité 2004.
     * le cours de dernière année
       * @Julien TODO zip de quentin pigné
@@ -475,7 +511,7 @@ Notes:
 * culture qualité, formation (cours, conférences, livres, exercices, katas, ...)
 * cf nos recos à la fin, expérience (empirisme)
 * compréhension du business et des stakeholders,
-* tournure d'esprit (cf joke "un testeur rentre dans un bar, il commande -1 bière, NaN bière, demande où sont les toilettes ..."), "vicieux" pour "casser le code" et non pas seulement montrer qu'il fonctionne 
+* tournure d'esprit (cf joke "un testeur rentre dans un bar, il commande -1 bière, NaN bière, demande où sont les toilettes ..."), "vicieux" pour "casser le code" et non pas seulement montrer qu'il fonctionne
 * exemple : SQLite testing, test code ratio, test harnesses, ... (+évolution dans le temps)
 * le code il faut le malmener
 * la qualité c'est un ensemble de tamis successifs : empilement de couches pour attraper les bugs, du besoin, design, archi, implem, test, validation, déploiement
@@ -550,7 +586,7 @@ Notes:
 * hybrid possible aussi (soit manuel assisté par autom, soit autom avec verif manuelle) : continuum Automatisé-automatisable-manuel
 * Sans jugement : un pas après l'autre, on hérite de codebases, on essaye de faire mieux
   * incrémental
-* tester ne prouve pas l'absence de bugs, mais en élimine certains  
+* tester ne prouve pas l'absence de bugs, mais en élimine certains
 * process avec des rendements décroissants, trouver le bon curseur, le bon équilibre
 * garder des tests qu'on apprécie : rapides (ou moins rapides en CI mais + couvrants), fiables, maintenables, estimer le ROI
 * OK de supprimer un test inutile
@@ -948,7 +984,7 @@ Notes:
 * [Christophe Bréheret-Girardin - Comment une architecture influence votre stratégie de test ?](https://m.youtube.com/watch?v=IeOa6XWxkxg)
 * [Ham Vocke - The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) : des exemples concrets dans un contexte clair de différents types de test, et des limitations de la pyramide de Mike Cohn
 * [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) : définitions claires de tous les "*test doubles*" (dummy, stub, fake, spy, mock) par Martin Fowler
-  * [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
+* [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
 * [Anaël Lefebvre - Comment en finir avec la fragilité des tests unitaires](https://www.sqli.com/fr-fr/insights/comment-en-finir-avec-la-fragilite-des-tests-unitaires) : un contexte clair, une explication de FIRST, et une méthodo ("ZOMBIES") pour identifier les cas de test
 * [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selontleurs propriétés techniques
 * [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html) : un ensemble de conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
@@ -966,6 +1002,9 @@ Notes:
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
+
+Notes:
+  * trop de recommandations, faut en garder que 3, 4, ou 5
 
 ---
 
