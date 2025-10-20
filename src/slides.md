@@ -22,7 +22,7 @@ Notes:
 
 Julien Lenormand 😇
 
-Jonathan Gaffiot 👹
+Jonathan Gaffiot 😈
 @ Kaizen Solutions
 
 Notes:
@@ -86,7 +86,7 @@ Notes:
 * 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
 * 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
 * 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
-* 😈 mise en prod le vendredi !  <!-- .element: class="fragment" -->
+* 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
 
 Notes:
 * sérénité
@@ -180,7 +180,7 @@ Notes:
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
 * Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : Google, Microsoft, Netflix, Apple le font !!!!!!!!  <!-- .element: class="fragment" -->
-* et tous les projets libres sur lesquels on bati tous !
+* et tous les projets libres sur lesquels on bati tous !  <!-- .element: class="fragment" -->
 * se concentrer sur des tâches à forte valeur ajoutée  <!-- .element: class="fragment" -->
 * seul moyen de tenir la cadence  <!-- .element: class="fragment" -->
 
@@ -984,7 +984,7 @@ Notes:
 * [Christophe Bréheret-Girardin - Comment une architecture influence votre stratégie de test ?](https://m.youtube.com/watch?v=IeOa6XWxkxg)
 * [Ham Vocke - The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) : des exemples concrets dans un contexte clair de différents types de test, et des limitations de la pyramide de Mike Cohn
 * [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) : définitions claires de tous les "*test doubles*" (dummy, stub, fake, spy, mock) par Martin Fowler
-* [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
+  * [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
 * [Anaël Lefebvre - Comment en finir avec la fragilité des tests unitaires](https://www.sqli.com/fr-fr/insights/comment-en-finir-avec-la-fragilite-des-tests-unitaires) : un contexte clair, une explication de FIRST, et une méthodo ("ZOMBIES") pour identifier les cas de test
 * [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selontleurs propriétés techniques
 * [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html) : un ensemble de conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
