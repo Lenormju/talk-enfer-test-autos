@@ -175,8 +175,9 @@ Notes:
 
 ## Le paradis !
 
-* fin de la conférence ?
-* TODO @julien retouche image
+fin de la conférence ?  <!-- .element: class="fragment" -->
+
+![](./10845744.jpg)  <!-- .element: class="fragment" -->
 
 Notes:
 * une fois qu'on s'est dit ça, ça paraît vachement bien, donc y'a aucune raison de pas en faire
@@ -199,8 +200,11 @@ Notes:
 
 ## Chemin de crête
 
+![](./Starorobociański_Wierch_a3.jpg)
+
 Notes:
 * métaphore du chemin de crête : facile de tomber
+* TODO @jonathan : si tu as une meilleure image que celle-ci, hésite pas
 
 -v-
 
@@ -867,7 +871,7 @@ Manquants :
 # Crédits photos
 
 Notes:
-* [mème de source inconnue](https://s00.yaplakal.com/pics/pics_preview/4/4/7/10845744.jpg)
+* [mème de source inconnue, sur yaplakal.com](https://s00.yaplakal.com/pics/pics_preview/4/4/7/10845744.jpg)
 * [image de crète, sur Wikimedia](https://commons.wikimedia.org/wiki/File:Starorobocia%C5%84ski_Wierch_a3.jpg)
 * TODO later
 
