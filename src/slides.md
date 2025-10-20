@@ -64,7 +64,6 @@ Notes:
 * TODO :
   * illustration de chapitre ?
   * @Julien refaire une passe sur les répétitions (cf réunion du mercredi 08 octobre)
-  * scientific proofs of efficiency ?
 
 -v-
 
@@ -170,6 +169,7 @@ Notes:
 * TODO autres preuves d'efficacité ? (cf scientific proofs)
 * se concentrer sur des activités à forte valeur ajoutée, par rapport à répéter des tests
 * Seul moyen de tenir la cadence
+* TODO: est-ce qu'il est vrai que les bugs coûtent + cher à corriger s'ils sont découverts plus tard ? (preuves !!)
 
 -v-
 
@@ -306,6 +306,8 @@ Notes:
 * Sanity vs smoke ?
 * test fonctionnel + non-fonctionnel : si la perf fait partie des requirements, alors fonctionnel ou pas ?
 * [le glossaire ISTQB](https://glossary.istqb.org/en_US/search?term=) donne 601 résultats en anglais, 559 en français
+* personne n'est d'accord sur les tests, car personne n'utilise les mêmes définition
+  * démonstration : pain au chocolat
 
 -v-
 
@@ -429,19 +431,45 @@ Notes:
 * TODO:
   * orienté solution cf partie précédente orienté problème ?
   * le formuler de façon à répondre au chemin de crête
-  * mentionner "se rendre dispensable" ? (vis-à-vis du scaling humain)
+    * osef ?
+  * @julien à chaque section mettre un exemple !!!
 
 -v-
 
 ## Chemin de crête
 
 Notes:
+* TODO remettre la photo ?
 * comment le naviguer ? comment être/devenir/rester rigoureux ?
   * discipline d'un moine bouddhiste, ou d'un garde de la reine d'Angleterre
 
 -v-
 
 ## Culture de la qualité
+
+> Culture eats strategy for breakfast. -- Peter Drucker (apocryphe !!)
+
+* il faut avant tout changer la Culture équipe/projet
+  * implication des stakeholders
+  * démarche d'équipe, pas juste avoir un casse-pied de service
+  * tournure d'esprit requise pour malmener le code ("vicieux")
+    * "un testeur rentre dans un bar, il commande ..."
+  * humilité
+  * responsabilité individuelle + équipe"
+* tamis successifs pour attraper les bugs : du besoin à la prod, et toutes les étapes intermédiaires
+* avoir de l'expérience est un vrai plus
+
+-v-
+
+Petit florilège :
+
+> Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités
+
+> you get paid for "software", not "maintainable software" -- joncroks, https://news.ycombinator.com/item?id=13130991
+
+> Move fast and break things -- Facebook (jusqu'en 2014)
+
+> I get paid for code that works, not for tests [...] -- Kent Beck (tronqué !!)
 
 Notes:
 * culture qualité, formation (cours, conférences, livres, exercices, katas, ...)
@@ -451,7 +479,7 @@ Notes:
 * exemple : SQLite testing, test code ratio, test harnesses, ... (+évolution dans le temps)
 * le code il faut le malmener
 * la qualité c'est un ensemble de tamis successifs : empilement de couches pour attraper les bugs, du besoin, design, archi, implem, test, validation, déploiement
-  * processus/démarche au niveau deDéfinition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière l'équipe/projet/entreprise/...
+  * processus/démarche au niveau de l'équipe/projet/entreprise/...
 * exemple : NDP Systems
 * "Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités"
 * Humilité de devoir tester
@@ -460,8 +488,8 @@ Notes:
 * Avoir un "Patrick" (ou whatever name) dans son équipe, éternellement vigilant, le "relou"
 * comme beaucoup de sujets, c'est pas un casse-pied de service qu'il faut, mais un changement de culture (beaucoup plus compliqué, cf Agile bullshit, sécurité, ...)
 * Responsabilité individuelle et d'équipe
-* Lean, faire bien du premier coup, kanban, "right the first time"
 * la qualité c'est une démarche, un tamis, un empilement (vrai sens de Kanban), une culture (LEAN, Kanban "right the first time")
+* market cap de Facebook en 2014 >= 140 milliards de $
 
 -v-
 
@@ -489,15 +517,26 @@ Notes:
 
 ## Moyens de test
 
+> Pas de bras, pas de chocolat ! -- Omar Sy
+
+* Pas de spec ...
+* Pas le temps ...
+* Pas les compétences ...
+* Pas les outils ...
+* Pas le hardware ...
+* Pas les moyens de déployer ...
+* Pas de data de test ...
+
 Notes:
 * humains, techniques, temporels, ...
 * outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
 * avoir des specs ! (claires)
-* pas de bras, pas de chocolat
 
 -v-
 
 ## Renoncer
+
+> Choisir, c'est renoncer -- citation fausse d'André Gide
 
 Notes:
 * renoncer à tout automatiser (quadrants, moyens insuffisants, ...), ROI
@@ -563,14 +602,18 @@ Notes:
   * cf https://teamtopologies.com/key-concepts-content/finding-good-stream-boundaries-with-independent-service-heuristics
   * cf https://yoan-thirion.gitbook.io/knowledge-base/xtrem-reading/resources/book-notes/team-topologies#software-boundaries-or-fracture-planes
 * sans architecture testable, la strat s'effondre !
+* introduire des interfaces au bon endroit pour casser la combinatoire (passer de la multiplicaton des cas à l'addition)
 
 -v-
 
 ## Surface d'interface
 
+> good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
+> -- grugbrain.dev
+
 Notes:
 * TODO: sous-partie de l'architecture testable ?
-* maîtriser la surface de test du code
+* un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
 * Tester aux frontières d'une interface, que ce soit une méthode privée, publique, classe, module, programme, sous-système, système, sur-systeme
 * facile pour des modules narrow-interface mais deep, impossible pour des hubs
 * les "unit" tests n'ont pas vocation à tester le moinds de lignes possible, mais à tester des APIs
@@ -591,9 +634,29 @@ Notes:
 
 ## Feedback
 
+* les tests sont les premiers utilisateurs de notre code
+  * du code peu testable se voit immédiatement ! et ça se propage !
+* A la fin du dev, il est parfois très tard pour corriger le tir : Shift Left
+  * il fallait le prendre en compte lors de l'implémentation, du design, du poker, de la story ...
+* A la fin du dev, il est parfois trop tôt pour corriger le tir : Shift Right
+  * ça part en prod en on surveille (feature toggle, monitoring, metrics)
+  * (beaucoup plus sérieux que dire "je teste en prod")
+* le test est une considération tout du long du process : TestOps, Full Cycle
+  * éviter la loi de Conway : les testeurs testent, les autres s'en fichent (cf Culture)
+
+-v-
+
+* un test qui pète, c'est une bonne nouvelle : un bug de moins en prod !
+* les bugs ne sont pas que dans le code, mais aussi dans la code review, la spec, le process, les communications ...
+* les bugs ne sont pas que des erreurs mais aussi des occasions d'améliorer
+  * (beaucoup plus sérieux que dire "c'est pas un bug mais une feature")
+* un signal (au sens de la "théorie de l'information")
+* le bon test : il ne passe tout le temps ni n'échoue tout le temps, il échoue pour les bonnes raisons
+  * le bon chasseur ...
+
 Notes:
-* fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability
-* Feedback lors du dev, test, code review, design, recette, bugs en prod : tout renseigne sur ce qui mérite d'être testé et comment
+* fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability (shift right)
+* Feedback lors du dev, test, code review, design, recette, bugs en prod : tout renseigne sur ce qui mérite d'être testé et comment (shift left)
 * tester en prod avec le devops : canary, green-blue, ...
 * Les tests doivent planter de temps en temps, pour les bonnes raisons
   * Signal et feedback
@@ -601,26 +664,63 @@ Notes:
 * Les tests qui pètent (pour une bonne raison) c'est moins de bugs en prod, qui est l'objectif principal.
 * luter contre la "loi de conway" : les devs versus les testeurs, cf Full Cycle
 * pas de "ça marche sur ma machine"
+* du code difficile à tester va engendrer + de tests fragiles, sans améliorer le design, qui va empirer, et ainsi de suite
 
 -v-
 
 ## Fluide
 
+Pente glissante de la qualité :
+* Si les tests sont difficiles à lancer, ils ne le seront pas souvent, de moins en moins
+* Si les résultats des tests sont peu fiables/lisibles, ils ne seront pas beaucoup regardés, de moins en moins
+* Si les tests sont lents à s'exécuter, les tests rajoutés seront lents aussi, de plus en plus
+
+> Docteur, quand j'appuie là, j'ai mal !
+> Alors n'appuyez pas là.
+> -- blague
+
+-v-
+
+> If it hurts, do it more often.
+> -- core XP principle
+
+Identifier les "pain points" et les résoudre :
+* ajouter un test doit être simple et rapide
+* lancer les tests doit être simple et rapide
+
+Corolaire : éviter (ant que possible)
+
+* les micro-services
+* les submodules
+* les tests dans un repo à part
+* ...
+
 Notes:
-* ajouter un test doit être simple, s'il y a de la friction alors ça décourage de tester, il faut éliminer la friction
-* sentir la douleur : "If it hurts, do it more often" (core XP principle)
 * ne pas être capable de réaliser les tests rapidement diminue l'itérativité, la qualité, l'agréabilité, ... la probabilité qu'ils soient écrit tout court
   * comme un évier plein de vaisselle (cercle vicieux)
-* Blague du docteur : "j'ai mal quand je suis debout" "alors arrêtez de vous lever"
-* éviter les micro-services, les submodules, les tests pas dans le même repo que le code (tant que possible)
-* Pente glissante de la qualité:
-  * Si les tests sont difficiles à lancer, ils ne le seront pas souvent
-  * Si les résultats des tests sont peu fiables/lisibles, il ne seront pas regardés
-  * Si les tests sont lents à s'éxécuter, les tests rajoutés seront lents aussi
 
 -v-
 
 ## Investissement
+
+* une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
+* il s'agit d'un second système, qui sert à stabiliser le premier
+  * il n'apporte pas de valeur en soi, mais aide le premier à continuer d'en apporter (comme la doc, la CI, le marketing, ...)
+  * il nécessite de l'investissement (temps, compétences, argent, ...)
+  * le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
+  * il est d'autant plus rentable qu'on l'utilise (enabler !)
+  * (il peut être une gêne si on préfère une extrême flexibilité : sécurité versus frein)
+  * il engendre des risques
+  * analyse coût-bénéfice, ROI (return on time invested)
+* exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
+
+-v-
+
+![xkcd 974 "The General problem"](./the_general_problem.png)
+
+> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
+
+![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)
 
 Notes:
 * investissement dans un second logiciel pour mieux produire le premier
@@ -647,6 +747,15 @@ Notes:
 
 ## Ecriture
 
+quelques règles d'écriture pour les tests :
+
+* setup et teardown pour préparer/décomissionner les ressources nécessaires
+* structure du test en Assert-Arrange-Act (ou Given-When-Then)
+* au moins un assert (ou composite)
+* une seule action ou plusieurs actions ?
+* FIRST = Fast, Independant, Repeatable, Self-Checking, Timely
+* différencier "erreur" (pas de résultat de test) versus "échec" (résultat négatif)
+
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
 * FIRST : https://stackoverflow.com/questions/18024785/tdd-first-principle Fast Indep Repeat Self-Check Timely (pas écrit dans 1000 ans mais avec le code à tester)
@@ -660,7 +769,15 @@ Notes:
 
 ## Techniques
 
+le minimum à maîtriser selon nous :
+
+* mettre en place un "harnais de test" (environnement testable)
+* utiliser un framework
+* savoir utiliser des fakes (in-memory), des mocks, des TestContainers, ...
+* comprendre les conséquences de ses décisions (vitesse, fiabilité, facilité, maintenabilité)
+
 Notes:
+* @TODO jonathan est-ce que tu vois autre chose à rajouter ?
 * ce qu'on considère le minimum à maîtriser pour tester
 * test harness
 * TestContainers
@@ -671,14 +788,25 @@ Notes:
 
 -v-
 
-## techniques avancées
+## Techniques avancées
+
+* snapshot/golden-master/approval-testing
+* property-based testing + fuzzing
+* tests d'architecture
+* IA
+* Page Object Model (POM) pour les tests d'UI
+* Accelerate
+* ...
+* juste le sommet de l'iceberg (le reste dans les sources)
 
 Notes:
-* TODO trier/ordonner ces techniques, dégager des catégories ?
-  * quelques-unes principales, d'autres justes énoncées ?
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
   * types de test
     * TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
+      * 3 axes :
+        * vérification de la valeur de retour
+        * vérification de l'état
+        * vérification de la collaboration
     * ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
     * Bdd mindset versus bdd outil
     * snapshot/golden-master/approval
@@ -689,7 +817,9 @@ Notes:
       * user acceptance
     * security testing
       * exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners
-    * load testing (rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario)
+    * test de perf
+      * rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario
+      * typologie selon https://grafana.com/load-testing/types-of-load-testing/ : smoke, average load, stress, soak, breakpoint, spike, ...
     * full simulation (à la Matrix)
       * [What's the big deal about Deterministic Simulation Testing?](https://notes.eatonphil.com/2024-08-20-deterministic-simulation-testing.html)
       * [Pierre Zemb : Et si on faisait du simulation-driven development ?](https://www.youtube.com/watch?v=12LO_l90vDk)
@@ -705,10 +835,8 @@ Notes:
     * [ISO 25010](https://iso25000.com/images/figures/iso_25010_en.png) et [ISO 25019 orienté usage](https://latavernedutesteur.fr/wp-content/uploads/2023/07/image-1-1024x217.png)
     * Black box / white /glass
     * tests d'architecture (Java = ArchUnit, Python = PyTestArch)
-    * test de perf
-      * TODO @julien K6 typologie : breakpoint, soak, stress, load, ...
     * test data management
-    * "statiques" (versus dynamiques) :Linter, typechecker, SonarQube, ... (compilation)
+    * tests "statiques" (versus dynamiques) :Linter, typechecker, SonarQube, ... (compilation)
       * des tests qu'il n'y a pas besoin d'écrire, et qui peuvent s'exécuter sans exécuter le code (statiques)
       * Rust, tooling
     * Test d'échafaudage (scaffolding)
@@ -720,7 +848,7 @@ Notes:
       * tests unitaires : sociables vs solitaires (est-ce que les objets testés ont leurs dépendances réelles ou mockées), from "Working Effectively with Unit Tests" de Jay Fields
   * techniques et outils pour tester
     * IA
-      * rôle de l'IA dans les tests ? (cf Tao blue/red team)
+      * rôle de l'IA dans les tests ? (cf [Tao blue/red team](https://mathstodon.xyz/@tao/114915604830689046))
     * advanced features of pytest (or your framework), know your tools
       * fixture
       * mock
@@ -751,9 +879,8 @@ Notes:
     * historisation (visuelle) des résultats, pour repérer les tendances, les patterns
     * Technique de refactoring du sandwich (snowcamp) : push IO to the edge (functional core, imperative shell)
     * systrace/ptrace pour interception et fake des appels systèmes (cf libfaketime pour exemple)
-    * HTTPS Man-in-the-Middle (MITM proxy par exemple)
+    * HTTPS Man-in-the-Middle (MITM proxy par exemple) plutôt que `ssl_verify=False`
     * trucage DNS via `/etc/hosts` ou `/etc/resolv.conf`
-    * `ssl_verify=False`
     * anonymiser des données (de prod)
     * risk-based testing : détermination de quels tests exécuter en fonction de la criticité de la fonctionnalité couverte
     * test impact analysis : détermination de quels tests exécuter en fonction de quel code a été modifié
@@ -763,12 +890,12 @@ Notes:
       * Mon tddd : testable design
       * "Tdd malgrè son nom n'est pas une technique de test mais de design"
     * [sans-io](https://sans-io.readthedocs.io/)
-    * architecture héxagonale
+    * architecture héxagonale / clean / onion / ...
     * programmation fonctionnelle
     * profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
       * surveiller la performance des tests autos, ne correspond pas aux tests de performance
     * trunk-based development + feature flags
-    * dependency injection (D de SOLID), SRP
+    * dependency inversion (D de SOLID), SRP
     * inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
   * philosophie et process
     * Accelerate
@@ -805,6 +932,7 @@ Notes:
 
 Notes:
 * TODO @jonathan d'autres à rajouter ?
+* TODO @julien sort par catégories + multi-pages
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
 * [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
 * [Joel "on Software" Spolsky - Hard-assed Bug Fixin’](https://www.joelonsoftware.com/2001/07/31/hard-assed-bug-fixin/) : est-ce que tous les bugs devraient être corrigés ? ça dépend.
@@ -835,6 +963,9 @@ Notes:
 * [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
 * [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
+* [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
+* [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
+* [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 ---
 
@@ -882,6 +1013,7 @@ Notes:
 
 Notes:
 * TODO image
+* TODO lien vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
 
 ---
 
