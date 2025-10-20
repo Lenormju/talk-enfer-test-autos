@@ -471,7 +471,7 @@ Notes:
 * quoi pourquoi pour quoi comment qui quand ...
 * spécifications, Exigences et Requirements, business (value stream) et risques business, quadrants, matrice confiance versus risque, moyens (et toute la suite)
   * cartographier les flux d’information, les cas d’usage, les frontières techniques et les domaines de l’application afin de discerner les frontières des tests
-* construisez votre "pyramide" (demander à une IA diK6 typologie : breakpoint, soak, stress, load, ...fférente pyramides, de plein de formes différentes à la Dali), en se basant sur les moyens de test
+* construisez votre "pyramide" (demander à une IA différente pyramides, de plein de formes différentes à la Dali), en se basant sur les moyens de test
 * à adapter/repenser régulièrement, comme tout le reste
 * pourquoi, pour quoi, quoi, où, qui, quand et comment, ...
 * trust boundaries (dépendences externes, parties peu fiables, risque métier, responsabilité, vitesse d'évolution, ...)
@@ -674,119 +674,113 @@ Notes:
 ## techniques avancées
 
 Notes:
-* outils et techniques <<avancés>>, pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
 * TODO trier/ordonner ces techniques, dégager des catégories ?
   * quelques-unes principales, d'autres justes énoncées ?
-* advanced features of pytest (or your framework), know your tools
-  * fixture
-  * mock
-  * plugins
-* TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
-* TDD (cf on peut pas oublier de les faire à la fin si on les fait au début), différents sens du mot TDD, ...
-  * cf slides ABC + Discovery Day
-  * Mon tddd : testable design
-  * "Tdd malgrè son nom n'est pas une technique de test mais de design"
-* mock et doublures : mock fake stub spy
-  * Cf martinfowler (en ref à la fin)
-* chaos monkey + chaos engineering, cf Netflix + [Chaos Monkey Army](https://github.com/Netflix/SimianArmy/wiki/The-Chaos-Monkey-Army)
-* ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
-  * Bdd mindset versus bdd outil
-* snapshot/golden-master/approval
-  * normatif versus descriptif
-  * Approval Testing == Snapshot Testing == Golden Master ?
-* fake time (freezegun en Python, libfaketime + LD_PRELOAD), Reactive instead of passive polling ou sleeping, 
-* Ab testing
-  * canary release, alpha testing, beta testing, blue-green, ...
-  * Field testing (schneider)Dimensions de la pyramide : vitesse d'exécution, coût à écrire/maintenir, quantité de code exercée, fidélité utilisateur, 
-  * user acceptance ?
-* sans io
-* architecture héxagonale
-* programmation fonctionnelle
-* IA
-* mesure de la couverture de test
-  * Code coverage : line/branch/cond
-  * 80 ? 90 ? 99 ?
-  * Ne suffit pas !!!
-  * Cf "1 / 0" avec 100% de coverage.
-  * Ou "foo.update()" si foo est null
-  * Il y a des branches invisibles (exceptions, données mal modelées)
-* test guidé par la couverture (sans mention de pourcentage)
-  * pour orienter les tests
-* surveiller la performance des tests autos
-  * ne correspond pas aux tests de performance
-* security testing
-* load testing (rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario)
-* table testing
-* full simulation (à la Matrix)
-  * [What's the big deal about Deterministic Simulation Testing?](https://notes.eatonphil.com/2024-08-20-deterministic-simulation-testing.html)
-  * [Pierre Zemb : Et si on faisait du simulation-driven development ?](https://www.youtube.com/watch?v=12LO_l90vDk)
-* contract testing
-  * Test d'interface d'une third-party (rupture d'API, ...)
-* recording/replaying (VCR)
-* monkey testing (Doublures de test : des inputs au hasard, le test n'est pas structuré)
-* profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
-* property-based testing + fuzzing
-* trunk-based development + feature flags
-* tests de maintenabilité ISO 25010 (tests de modularité, réutilisabilité, analysabilité, modifiabilité, testabilité), cf https://latavernedutesteur.fr/2018/11/19/types-de-tests-iso-25-010-les-tests-de-maintenabilite-7-8/
-* coverage-based testing
-* mother object, method factories for test objects, data builders, ... https://martinfowler.com/bliki/ObjectMother.html
-* parallélisation de tests
-* dependency injection (D de SOLID), SRP
-* Accelerate
-  * https://dora.dev/capabilities/ : **test automation + test data management**, but also indirectly code maintainability, documentation quality, job satisfaction, continuous delivery, streamlining change approval, trunk-based development, working in small batches, continuous integration
-* DevOps (cf slide)
-* test utilisateurices/accessibilité
-* test de sécu (automatisé)
-* mutation testing
-  * du code de prod, et du code de test
-* Snapshot-testing (approval, golden master)
-* Formal methods, preuves
-* ISO/IEC 25010:2023
-  * https://www.iso.org/fr/standard/78176.html
-  * https://iso25000.com/images/figures/iso_25010_en.png
-  * + critères d'usage ISO 25019
-* DDD
-* boundary analysis et extreme values
-* Page object model (POM)
-* gestion des erreurs souvent peu poussée, manque de contexte dans les logs
-  * error model
-* Technique de refactoring du sandwich (snowcamp) : push IO to the edge (functional core, imperative shell)
-* Test d'èchafaudage (scaffolding)
-* Mockist vs Behaviorist (detroit vs london)
-* (London "Mockist"/"Behaviorist" versus Detroit "Classicist")
-  * exemple dans un post Linkedin : https://www.linkedin.com/posts/francois-baveye_met-tes-tests-unitaires-%C3%A0-la-poubelle-activity-7370443832401747968-Uc1O
-  * tests unitaires : sociables vs solitaires (est-ce que les objets testés ont leurs dépendances réelles ou mockées), from "Working Effectively with Unit Tests" de Jay Fields
-* tests d'architecture (Java = ArchUnit, Python = PyTestArch)
-* Security testing : automated tools
-* Clean Test = 3 things : readability, readability, readability
-  * Evolving/surfacing a "testing language" to reveal intent
-    * = POM ?
-* Black box / white /glass
-* Baseline perf comparison testing
-* Pairwise pour la couverture, en contrant l'explosion combinatoire (produit cartésien des paramètres)
-* risk-based testing
-* test data management
-* "test impact analysis"
-* Linter, typechecker, SonarQube, ... (compilation) des tests qu'il n'y a pas besoin d'écrire (tests statiques)
-  * Rust, tooling
-* inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
-* historisation (visuelle) des résultats, pour repérer les tendances, les patterns
-* time : freezegun en Python, libfaketime avec LD_PRELOAD sinon
-  * exemple : tester du code qui doit s'exécuter pendant des mois (harness de test d'endurance)
-* rôle de l'IA dans les tests ? (cf Tao blue/red team)
-*  property vs fuzzing (cf [article sur la différence](https://www.tedinski.com/2018/12/11/fuzzing-and-property-testing.html))
-  * oracle parfois difficile à obtenir, parfois évident
-* advanced features of pytest (or your framework), know your tools
-* sans_io
-* systrace/ptrace
-* LD_PRELOAD
-* HTTPS Man-in-the-Middle (MITM proxy par exemple)
-* trucage DNS via `/etc/hosts` ou `/etc/resolv.conf`
-* `ssl_verify=False`
-* test des logs/metrics (cf mon post LinkedIn)
-* test hybride : test auto avec vérif humDéfinition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontièreaine, ou test manuel avec assistance autom
-* anonymiser des données (de prod)
-* générer des données
+* pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
+  * types de test
+    * TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
+    * ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
+    * Bdd mindset versus bdd outil
+    * snapshot/golden-master/approval
+      * normatif versus descriptif
+      * Approval Testing == Snapshot Testing == Golden Master ?
+    * en prod : canary release, alpha testing, beta testing, blue-green, ...
+      * Field testing (schneider)
+      * user acceptance
+    * security testing
+      * exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners
+    * load testing (rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario)
+    * full simulation (à la Matrix)
+      * [What's the big deal about Deterministic Simulation Testing?](https://notes.eatonphil.com/2024-08-20-deterministic-simulation-testing.html)
+      * [Pierre Zemb : Et si on faisait du simulation-driven development ?](https://www.youtube.com/watch?v=12LO_l90vDk)
+    * contract testing
+      * Test d'interface d'une third-party (comportement fidèle aux attentes, rupture d'API, ...), un d'un composant interne à un autre
+    * property-based testing + fuzzing
+      * property vs fuzzing (cf [article sur la différence](https://www.tedinski.com/2018/12/11/fuzzing-and-property-testing.html))
+      * oracle parfois difficile à obtenir, parfois évident
+      * monkey testing (des inputs au hasard, le test n'est pas structuré, aucun scénario)
+    * tests de maintenabilité ISO 25010 (= modularité + réutilisabilité + analysabilité + modifiabilité + testabilité), cf https://latavernedutesteur.fr/2018/11/19/types-de-tests-iso-25-010-les-tests-de-maintenabilite-7-8/
+    * test d'accessibilité
+    * Formal methods, preuves
+    * [ISO 25010](https://iso25000.com/images/figures/iso_25010_en.png) et [ISO 25019 orienté usage](https://latavernedutesteur.fr/wp-content/uploads/2023/07/image-1-1024x217.png)
+    * Black box / white /glass
+    * tests d'architecture (Java = ArchUnit, Python = PyTestArch)
+    * test de perf
+      * TODO @julien K6 typologie : breakpoint, soak, stress, load, ...
+    * test data management
+    * "statiques" (versus dynamiques) :Linter, typechecker, SonarQube, ... (compilation)
+      * des tests qu'il n'y a pas besoin d'écrire, et qui peuvent s'exécuter sans exécuter le code (statiques)
+      * Rust, tooling
+    * Test d'échafaudage (scaffolding)
+      * on les met le temps des travaux, puis on les enlève
+    * test hybride : test auto avec vérif humaine, ou test manuel avec assistance autom
+    * test des logs/metrics (cf [mon post LinkedIn](https://www.linkedin.com/posts/julien-lenormand_est-ce-quil-faut-tester-les-logs-je-suis-activity-7285926322604752896-SC6z))
+    * London "Mockist"/"Behaviorist" versus Detroit "Classicist"
+      * exemple dans un post Linkedin : https://www.linkedin.com/posts/francois-baveye_met-tes-tests-unitaires-%C3%A0-la-poubelle-activity-7370443832401747968-Uc1O
+      * tests unitaires : sociables vs solitaires (est-ce que les objets testés ont leurs dépendances réelles ou mockées), from "Working Effectively with Unit Tests" de Jay Fields
+  * techniques et outils pour tester
+    * IA
+      * rôle de l'IA dans les tests ? (cf Tao blue/red team)
+    * advanced features of pytest (or your framework), know your tools
+      * fixture
+      * mock
+      * plugins
+    * mock et doublures : mock fake stub spy
+      * Cf Martin Fowler (en ref à la fin)
+    * chaos testing : chaos monkey + chaos engineering, cf Netflix + [Chaos Monkey Army](https://github.com/Netflix/SimianArmy/wiki/The-Chaos-Monkey-Army)
+    * fake time (freezegun en Python, libfaketime + LD_PRELOAD), Reactive instead of passive polling ou sleeping
+      * exemple : tester du code qui doit s'exécuter pendant des mois (harness de test d'endurance)
+    * mesure de la couverture de test
+      * Code coverage : line/branch/cond
+      * 80 ? 90 ? 99 ?
+      * Ne suffit pas !!!
+      * Cf "1 / 0" avec 100% de coverage.
+      * Ou "foo.update()" si foo est null
+      * Il y a des branches invisibles (exceptions, données mal modelées)
+      * test guidé par la couverture (sans mention de pourcentage), pour orienter les tests
+    * table testing
+    * recording/replaying (VCR)
+    * mother object, method factories for test objects, data builders, ... https://martinfowler.com/bliki/ObjectMother.html
+    * parallélisation de tests
+    * mutation testing
+      * du code de prod, et du code de test, pour mesurer la sensibilité et spécificité des tests à la base de code
+    * boundary analysis et extreme values
+    * règle du : "0, 1, 2 (many), 99999 (too many), error/exception"
+    * Page object model (POM)
+    * Pairwise pour la couverture, en contrant l'explosion combinatoire (produit cartésien des paramètres)
+    * historisation (visuelle) des résultats, pour repérer les tendances, les patterns
+    * Technique de refactoring du sandwich (snowcamp) : push IO to the edge (functional core, imperative shell)
+    * systrace/ptrace pour interception et fake des appels systèmes (cf libfaketime pour exemple)
+    * HTTPS Man-in-the-Middle (MITM proxy par exemple)
+    * trucage DNS via `/etc/hosts` ou `/etc/resolv.conf`
+    * `ssl_verify=False`
+    * anonymiser des données (de prod)
+    * risk-based testing : détermination de quels tests exécuter en fonction de la criticité de la fonctionnalité couverte
+    * test impact analysis : détermination de quels tests exécuter en fonction de quel code a été modifié
+  * techniques de design
+    * TDD (cf on peut pas oublier de les faire à la fin si on les fait au début), différents sens du mot TDD, ...
+      * cf slides ABC + Discovery Day
+      * Mon tddd : testable design
+      * "Tdd malgrè son nom n'est pas une technique de test mais de design"
+    * [sans-io](https://sans-io.readthedocs.io/)
+    * architecture héxagonale
+    * programmation fonctionnelle
+    * profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
+      * surveiller la performance des tests autos, ne correspond pas aux tests de performance
+    * trunk-based development + feature flags
+    * dependency injection (D de SOLID), SRP
+    * inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
+  * philosophie et process
+    * Accelerate
+      * https://dora.dev/capabilities/ : **test automation + test data management**, but also indirectly code maintainability, documentation quality, job satisfaction, continuous delivery, streamlining change approval, trunk-based development, working in small batches, continuous integration
+    * DevOps (cf slide)
+    * Domain-Driven Development (DDD)
+    * [ISO/IEC 25010:2023](https://www.iso.org/fr/standard/78176.html)
+    * gestion des erreurs souvent peu poussée, manque de contexte dans les logs
+      * error model
+    * "Clean Test = 3 things : readability, readability, readability" cf Martin Fowler
+      * Evolving/surfacing a "testing language" to reveal intent
+        * = POM ?
 
 ---
 
