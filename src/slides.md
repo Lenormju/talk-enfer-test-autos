@@ -170,6 +170,7 @@ Notes:
 * TODO autres preuves d'efficacité ? (cf scientific proofs)
 * se concentrer sur des activités à forte valeur ajoutée, par rapport à répéter des tests
 * Seul moyen de tenir la cadence
+* TODO: est-ce qu'il est vrai que les bugs coûtent + cher à corriger s'ils sont découverts plus tard ? (preuves !!)
 
 -v-
 
@@ -306,6 +307,8 @@ Notes:
 * Sanity vs smoke ?
 * test fonctionnel + non-fonctionnel : si la perf fait partie des requirements, alors fonctionnel ou pas ?
 * [le glossaire ISTQB](https://glossary.istqb.org/en_US/search?term=) donne 601 résultats en anglais, 559 en français
+* personne n'est d'accord sur les tests, car personne n'utilise les mêmes définition
+  * démonstration : pain au chocolat
 
 -v-
 
@@ -563,6 +566,7 @@ Notes:
   * cf https://teamtopologies.com/key-concepts-content/finding-good-stream-boundaries-with-independent-service-heuristics
   * cf https://yoan-thirion.gitbook.io/knowledge-base/xtrem-reading/resources/book-notes/team-topologies#software-boundaries-or-fracture-planes
 * sans architecture testable, la strat s'effondre !
+* introduire des interfaces au bon endroit pour casser la combinatoire (passer de la multiplicaton des cas à l'addition)
 
 -v-
 
@@ -592,8 +596,8 @@ Notes:
 ## Feedback
 
 Notes:
-* fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability
-* Feedback lors du dev, test, code review, design, recette, bugs en prod : tout renseigne sur ce qui mérite d'être testé et comment
+* fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability (shift right)
+* Feedback lors du dev, test, code review, design, recette, bugs en prod : tout renseigne sur ce qui mérite d'être testé et comment (shift left)
 * tester en prod avec le devops : canary, green-blue, ...
 * Les tests doivent planter de temps en temps, pour les bonnes raisons
   * Signal et feedback
@@ -601,6 +605,7 @@ Notes:
 * Les tests qui pètent (pour une bonne raison) c'est moins de bugs en prod, qui est l'objectif principal.
 * luter contre la "loi de conway" : les devs versus les testeurs, cf Full Cycle
 * pas de "ça marche sur ma machine"
+* du code difficile à tester va engendrer + de tests fragiles, sans améliorer le design, qui va empirer, et ainsi de suite
 
 -v-
 
@@ -679,6 +684,10 @@ Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
   * types de test
     * TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
+      * 3 axes :
+        * vérification de la valeur de retour
+        * vérification de l'état
+        * vérification de la collaboration
     * ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
     * Bdd mindset versus bdd outil
     * snapshot/golden-master/approval
@@ -805,6 +814,7 @@ Notes:
 
 Notes:
 * TODO @jonathan d'autres à rajouter ?
+* TODO @julien sort par catégories + multi-pages
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
 * [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
 * [Joel "on Software" Spolsky - Hard-assed Bug Fixin’](https://www.joelonsoftware.com/2001/07/31/hard-assed-bug-fixin/) : est-ce que tous les bugs devraient être corrigés ? ça dépend.
@@ -835,6 +845,9 @@ Notes:
 * [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
 * [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
+* [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
+* [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
+* [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 ---
 
