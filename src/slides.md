@@ -10,7 +10,7 @@ Notes:
 
 ---
 
-# 0. Introduction
+# Introduction
 
 Notes:
 * TODO :
@@ -20,7 +20,10 @@ Notes:
 
 ## Merci aux sponsors
 
-TODO
+- Kaizen Solutions
+- ?
+
+-v-
 
 ## Présentation
 
@@ -30,55 +33,24 @@ Jonathan Gaffiot 😈
 @ Kaizen Solutions
 
 Notes:
+* on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 * plutôt qu'un disclaimer, penser à expliciter qu'on a le choix entre :
   écrire ses tests, ou tester manuellement, et bien souvent en prod
-* on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 
 -v-
 
 ## Sondage
 
-Notes:
-* qui trouve que les tests c'est l'enfer ? Qui trouve que c'est le paradis ? le purgatoire ?
+* Qui trouve que les tests c'est l'enfer ? <!-- .element: class="fragment" -->
+* Qui trouve que c'est le paradis ? <!-- .element: class="fragment" -->
+* Le monde des mortels entre les deux ? <!-- .element: class="fragment" -->
 
--v-
-
-
-## C'est quoi tester ?
-
-* c'est toujours difficile (et chiant !) les définitions  <!-- .element: class="fragment" -->
-* tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier  <!-- .element: class="fragment" -->
-  * réponse attendue ?  <!-- .element: class="fragment" -->
-  * certain état ?  <!-- .element: class="fragment" -->
-  * quel stimulus ?  <!-- .element: class="fragment" -->
-  * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
-
-Notes:
-* c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
-* action, réaction, stimuli, SUT, oracle
-  * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
-  * expliciter les pièges :
-    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
-    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
-    + quel stimulus ? quelle réponse ? comment j'y accède ?
-    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
-
--v-
-
-## Pourquoi tester ?
-
-* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
-    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
-    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
-* Faire du logiciel ce n'est pas si simple  <!-- .element: class="fragment" -->
 
 ---
 
-# 1. Pourquoi c'est important les tests autos ?
+# Tester c'est le Bien
 
-😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
-
-😈 qui veut mettre en prod 2 ans de code jamais testé ?
+😇 😇 😇 
 
 Notes:
 * TODO :
@@ -87,59 +59,58 @@ Notes:
 
 -v-
 
-## Confiance
+## Oui mais... c'est quoi tester ?
 
-* 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
-* 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
-* 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
-* 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
+* tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier   <!-- .element: class="fragment" -->
+  * réponse attendue ?  <!-- .element: class="fragment" -->
+  * certain état ?  <!-- .element: class="fragment" -->
+  * quel stimulus ?  <!-- .element: class="fragment" -->
+  * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
+* plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
+
 
 Notes:
-* sérénité
+* c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
+* c'est toujours difficile (et chiant !) les définitions  !
+* action, réaction, stimuli, SUT, oracle
+  * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
+  * expliciter les pièges :
+    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
+    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
+    + quel stimulus ? quelle réponse ? comment j'y accède ?
+    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
+* on est pas bien avancé...
 
 -v-
 
-## Feedback rapide
+## Pourquoi tester ?
 
-* UN BUG 😈 !  <!-- .element: class="fragment" -->
-  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
-  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
-  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
-
-* Un feedback rapide 😇 <!-- .element: class="fragment" -->
-  - facile à exécuter  <!-- .element: class="fragment" -->
-  - résultat rapide <!-- .element: class="fragment" -->
-  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
-  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
+* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
+    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
+    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
 
 Notes:
-* ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
-* facile à exécuter : un clic et c'est bon, ça part en prod
+* Faire du logiciel ce n'est pas si simple  <!-- .element: class="fragment" -->
 
 -v-
 
 ## Fiabilité du code
 
-* Le logiciel est une industrie particulière : complexité, fluidité, immatériel  <!-- .element: class="fragment" -->
-  + complexité => chaque ligne est une action, effets de bord, combinatoire  <!-- .element: class="fragment" -->
-  + immatériel => pas d'expérience immédiate, visuelle, du système  <!-- .element: class="fragment" -->
-  + fluidité => changements rapides et tout le temps  <!-- .element: class="fragment" -->
+* Le logiciel est particulier : complexe, fluide, immatériel  <!-- .element: class="fragment" -->
+  + complexe  <!-- .element: class="fragment" -->
+    - chaque ligne est une action
+    - nécessairement des effets de bord
+    - explosion combinatoire des chemins d'exécution
+    - empilement de couches de fonctions, d'objets, de librairies
+  + immatériel <!-- .element: class="fragment" -->
+    - pas d'expérience immédiate, visuelle
+    - pas d'inspection
+    - pas d'expérience dans la vie de tous les jours
+  + fluide <!-- .element: class="fragment" -->
+    - change facilement
+    - partageable, réutilisable
+    - tempo technologique frénétique
 * 😈 le code c'est trop dur pour vos petites cervelles d'humains !  <!-- .element: class="fragment" -->
-* 😇 les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
-  * on peut refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
-  * on a des preuves qu'il fonctionne correctement  <!-- .element: class="fragment" -->
-  * d'autres personnes peuvent le modifier  <!-- .element: class="fragment" -->
-
--v-
-
-* les tests sont un ingrédient pour la stabilité :  <!-- .element: class="fragment" -->
-  * dans le temps  <!-- .element: class="fragment" -->
-  * à travers les technologies  <!-- .element: class="fragment" -->
-  * malgré les évolutions  <!-- .element: class="fragment" -->
-  * pour détecter les régressions  <!-- .element: class="fragment" -->
-  * survivre à une absence imprévue (bus factor)  <!-- .element: class="fragment" -->
-  * augmenter efficacement la taille de l'équipe  <!-- .element: class="fragment" -->
-* pas de test automatisé = risque projet  <!-- .element: class="fragment" -->
 
 Notes:
 * et les autres aspects de la qualité d'après Rambo Python ? maintenabilité/évolutivité/sécurité !
@@ -158,6 +129,25 @@ Notes:
 * non-reg
 * Sens strict de refactoring, pas de refactoring sans garantie que le comportement "observable" (externe) n'a pas évolué
   * nécessaire pour dompter la dette technique
+
+-v-
+
+## Confiance et sérénité
+
+* 😇 les tests aident à résoudre ces problèmes :
+  + 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
+  + 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
+  + 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
+  + 😇 plus de "tombé en marche"
+  + 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
+
+* on peut donc :  <!-- .element: class="fragment" -->
+  * refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
+  * avoir des preuves qu'il fonctionne correctement  <!-- .element: class="fragment" -->
+  * laisser d'autres personnes le modifier  <!-- .element: class="fragment" -->
+
+Notes:
+* sérénité
 
 -v-
 
@@ -192,6 +182,48 @@ Notes:
 * se concentrer sur des activités à forte valeur ajoutée, par rapport à répéter des tests
 * Seul moyen de tenir la cadence
 * TODO: est-ce qu'il est vrai que les bugs coûtent + cher à corriger s'ils sont découverts plus tard ? (preuves !!)
+
+-v-
+
+## Pourquoi c'est important les tests autos en particulier ?
+
+😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
+ * exécution automatique et systématique -> pas d'oubli ! pas de flemme !
+
+😈 qui veut mettre en prod 2 ans de code jamais testé ?
+😈😈😈 qui veut valider 2 ans de code jamais testé ? 😈😈😈
+
+-v-
+
+## Feedback rapide
+
+* UN BUG 😈 !  <!-- .element: class="fragment" -->
+  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
+  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
+  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
+
+* Un feedback rapide 😇 <!-- .element: class="fragment" -->
+  - facile à exécuter  <!-- .element: class="fragment" -->
+  - résultat rapide <!-- .element: class="fragment" -->
+  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
+  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
+
+Notes:
+* ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
+* facile à exécuter : un clic et c'est bon, ça part en prod
+
+-v-
+
+## Cruciaux pour l'évolutivité et la maintenabilité
+
+* les tests sont un ingrédient pour la stabilité :  <!-- .element: class="fragment" -->
+  * dans le temps  <!-- .element: class="fragment" -->
+  * à travers les technologies  <!-- .element: class="fragment" -->
+  * malgré les évolutions  <!-- .element: class="fragment" -->
+  * pour détecter les régressions  <!-- .element: class="fragment" -->
+  * pour survivre à une absence imprévue (bus factor)  <!-- .element: class="fragment" -->
+  * pour augmenter efficacement la taille de l'équipe  <!-- .element: class="fragment" -->
+* pas de test automatisé = risque projet  <!-- .element: class="fragment" -->
 
 -v-
 
