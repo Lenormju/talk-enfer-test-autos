@@ -82,12 +82,8 @@ Notes:
 
 Notes:
 * TODO :
-<<<<<<< HEAD
   * illustration de chapitre ?
   * @Julien refaire une passe sur les répétitions (cf réunion du mercredi 08 octobre)
-=======
-  * illustration de chapitre
->>>>>>> 89d9343 (apply review comments)
 
 -v-
 
@@ -201,14 +197,9 @@ Notes:
 
 ## Le paradis !
 
-<<<<<<< HEAD
 fin de la conférence ?  <!-- .element: class="fragment" -->
 
 ![](./10845744.jpg)  <!-- .element: class="fragment" -->
-=======
-* fin de la conférence ?  <!-- .element: class="fragment" -->
-* TODO @julien retouche image  <!-- .element: class="fragment" -->
->>>>>>> 89d9343 (apply review comments)
 
 Notes:
 * une fois qu'on s'est dit ça, ça paraît vachement bien, donc y'a aucune raison de pas en faire
@@ -235,16 +226,12 @@ Notes:
 
 Notes:
 * métaphore du chemin de crête : facile de tomber
-<<<<<<< HEAD
 * @Julien : une crête a 2 versants, ça donne l'image qu'on peut tomber de chaque côté.
   Ici on peut surtout tomber d'un côté (code qui a bien grandi, et pas de test),
   mais l'autre côté n'est pas symétrique (trop de tests, du temps perdu, surqualité ?).
   Proposition de métaphore : tourner autour d'un trou noir. Tant que je fais l'effort,
   je reste en orbite, si je me relâche, je spirale vers le bas, et il faut bcp de boulot
   pour remonter.
-=======
-* TODO : fusionner avec slide au-dessus ?
->>>>>>> 89d9343 (apply review comments)
 
 -v-
 
@@ -989,16 +976,12 @@ Notes:
 * [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selon leurs propriétés techniques
 * [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html) : un ensemble de conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
-<<<<<<< HEAD
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 Notes:
-  * trop de recommandations, faut en garder que 3, 4, ou 5
-=======
 * et + en annexe !
->>>>>>> 89d9343 (apply review comments)
 
 ---
 
