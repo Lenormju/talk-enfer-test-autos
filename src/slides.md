@@ -10,7 +10,7 @@ Notes:
 
 ---
 
-# 0. Introduction
+# Introduction
 
 Notes:
 * TODO :
@@ -20,7 +20,10 @@ Notes:
 
 ## Merci aux sponsors
 
-TODO
+- Kaizen Solutions
+- ?
+
+-v-
 
 ## Présentation
 
@@ -30,55 +33,24 @@ Jonathan Gaffiot 😈
 @ Kaizen Solutions
 
 Notes:
+* on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 * plutôt qu'un disclaimer, penser à expliciter qu'on a le choix entre :
   écrire ses tests, ou tester manuellement, et bien souvent en prod
-* on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 
 -v-
 
 ## Sondage
 
-Notes:
-* qui trouve que les tests c'est l'enfer ? Qui trouve que c'est le paradis ? le purgatoire ?
+* Qui trouve que les tests c'est l'enfer ? <!-- .element: class="fragment" -->
+* Qui trouve que c'est le paradis ? <!-- .element: class="fragment" -->
+* Le monde des mortels entre les deux ? <!-- .element: class="fragment" -->
 
--v-
-
-
-## C'est quoi tester ?
-
-* c'est toujours difficile (et chiant !) les définitions  <!-- .element: class="fragment" -->
-* tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier  <!-- .element: class="fragment" -->
-  * réponse attendue ?  <!-- .element: class="fragment" -->
-  * certain état ?  <!-- .element: class="fragment" -->
-  * quel stimulus ?  <!-- .element: class="fragment" -->
-  * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
-
-Notes:
-* c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
-* action, réaction, stimuli, SUT, oracle
-  * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
-  * expliciter les pièges :
-    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
-    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
-    + quel stimulus ? quelle réponse ? comment j'y accède ?
-    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
-
--v-
-
-## Pourquoi tester ?
-
-* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
-    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
-    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
-* Faire du logiciel ce n'est pas si simple  <!-- .element: class="fragment" -->
 
 ---
 
-# 1. Pourquoi c'est important les tests autos ?
+# Tester c'est le Bien
 
-😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
-
-😈 qui veut mettre en prod 2 ans de code jamais testé ?
+😇 😇 😇
 
 Notes:
 * TODO :
@@ -87,59 +59,58 @@ Notes:
 
 -v-
 
-## Confiance
+## Oui mais... c'est quoi tester ?
 
-* 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
-* 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
-* 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
-* 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
+* tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier   <!-- .element: class="fragment" -->
+  * réponse attendue ?  <!-- .element: class="fragment" -->
+  * certain état ?  <!-- .element: class="fragment" -->
+  * quel stimulus ?  <!-- .element: class="fragment" -->
+  * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
+* plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
+
 
 Notes:
-* sérénité
+* c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
+* c'est toujours difficile (et chiant !) les définitions  !
+* action, réaction, stimuli, SUT, oracle
+  * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
+  * expliciter les pièges :
+    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
+    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
+    + quel stimulus ? quelle réponse ? comment j'y accède ?
+    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
+* on est pas bien avancé...
 
 -v-
 
-## Feedback rapide
+## Pourquoi tester ?
 
-* UN BUG 😈 !  <!-- .element: class="fragment" -->
-  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
-  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
-  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
-
-* Un feedback rapide 😇 <!-- .element: class="fragment" -->
-  - facile à exécuter  <!-- .element: class="fragment" -->
-  - résultat rapide <!-- .element: class="fragment" -->
-  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
-  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
+* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
+    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
+    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
 
 Notes:
-* ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
-* facile à exécuter : un clic et c'est bon, ça part en prod
+* Faire du logiciel ce n'est pas si simple
 
 -v-
 
 ## Fiabilité du code
 
-* Le logiciel est une industrie particulière : complexité, fluidité, immatériel  <!-- .element: class="fragment" -->
-  + complexité => chaque ligne est une action, effets de bord, combinatoire  <!-- .element: class="fragment" -->
-  + immatériel => pas d'expérience immédiate, visuelle, du système  <!-- .element: class="fragment" -->
-  + fluidité => changements rapides et tout le temps  <!-- .element: class="fragment" -->
+* Le logiciel est particulier : complexe, fluide, immatériel  <!-- .element: class="fragment" -->
+  + complexe  <!-- .element: class="fragment" -->
+    - chaque ligne est une action
+    - nécessairement des effets de bord
+    - explosion combinatoire des chemins d'exécution
+    - empilement de couches de fonctions, d'objets, de librairies
+  + immatériel <!-- .element: class="fragment" -->
+    - pas d'expérience immédiate, visuelle
+    - pas d'inspection
+    - pas d'expérience dans la vie de tous les jours
+  + fluide <!-- .element: class="fragment" -->
+    - change facilement
+    - partageable, réutilisable
+    - tempo technologique frénétique
 * 😈 le code c'est trop dur pour vos petites cervelles d'humains !  <!-- .element: class="fragment" -->
-* 😇 les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
-  * on peut refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
-  * on a des preuves qu'il fonctionne correctement  <!-- .element: class="fragment" -->
-  * d'autres personnes peuvent le modifier  <!-- .element: class="fragment" -->
-
--v-
-
-* les tests sont un ingrédient pour la stabilité :  <!-- .element: class="fragment" -->
-  * dans le temps  <!-- .element: class="fragment" -->
-  * à travers les technologies  <!-- .element: class="fragment" -->
-  * malgré les évolutions  <!-- .element: class="fragment" -->
-  * pour détecter les régressions  <!-- .element: class="fragment" -->
-  * survivre à une absence imprévue (bus factor)  <!-- .element: class="fragment" -->
-  * augmenter efficacement la taille de l'équipe  <!-- .element: class="fragment" -->
-* pas de test automatisé = risque projet  <!-- .element: class="fragment" -->
 
 Notes:
 * et les autres aspects de la qualité d'après Rambo Python ? maintenabilité/évolutivité/sécurité !
@@ -161,13 +132,32 @@ Notes:
 
 -v-
 
+## Confiance et sérénité
+
+* les tests aident à résoudre ces problèmes :
+  + 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
+  + 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
+  + 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
+  + 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
+
+* on peut donc :  <!-- .element: class="fragment" -->
+  * refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
+  * avoir des preuves qu'il fonctionne correctement (plus de "tombé en marche") <!-- .element: class="fragment" -->
+  * laisser d'autres personnes le modifier  <!-- .element: class="fragment" -->
+
+Notes:
+* sérénité
+
+-v-
+
 ## Éthique professionnelle
 
 * le code peut être une passion 😇   <!-- .element: class="fragment" -->
 * ... et donc une torture ! 😈   <!-- .element: class="fragment" -->
-* responsabilité perso/pro/presta  <!-- .element: class="fragment" -->
-* "élever le niveau" - devise des crafteurs  <!-- .element: class="fragment" -->
-* une question de maturité pro ?  <!-- .element: class="fragment" -->
+* livrer du "bon" code :
+  * responsabilité perso/pro  <!-- .element: class="fragment" -->
+  * "élever le niveau" - devise des crafteurs  <!-- .element: class="fragment" -->
+  * une question de maturité ?  <!-- .element: class="fragment" -->
 
 Notes:
 * cf Craft et déontologie
@@ -181,10 +171,10 @@ Notes:
 
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
 * Accelerate ?  <!-- .element: class="fragment" -->
-* argument d'autorité : Google, Microsoft, Netflix, Apple le font !!!!!!!!  <!-- .element: class="fragment" -->
-  * et tous les projets libres qu'on utilise tous les jours !  <!-- .element: class="fragment" -->
+* argument d'autorité : <!-- .element: class="fragment" -->
+  * Google, Microsoft, Netflix, Apple le font !!!  <!-- .element: class="fragment" -->
+  * et tous les projets libres qu'on utilise tous les jours !!!!  <!-- .element: class="fragment" -->
 * se concentrer sur des tâches à forte valeur ajoutée  <!-- .element: class="fragment" -->
-* seul moyen de tenir la cadence  <!-- .element: class="fragment" -->
 
 Notes:
 * Accelerate
@@ -195,9 +185,57 @@ Notes:
 
 -v-
 
+## Pourquoi c'est important les tests autos en particulier ?
+
+😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
+ * exécution automatique et systématique -> pas d'oubli ! pas de flemme !
+
+-v-
+
+## Feedback rapide
+
+* UN BUG 😈 !  <!-- .element: class="fragment" -->
+  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
+  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
+  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
+
+* Un feedback rapide 😇 <!-- .element: class="fragment" -->
+  - facile à exécuter  <!-- .element: class="fragment" -->
+  - résultat rapide <!-- .element: class="fragment" -->
+  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
+  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
+  - seul moyen de tenir la cadence <!-- .element: class="fragment" -->
+
+Notes:
+* ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
+* facile à exécuter : un clic et c'est bon, ça part en prod
+
+-v-
+
+## Évolutivité et maintenabilité
+
+* les tests sont un ingrédient pour la stabilité :  <!-- .element: class="fragment" -->
+  * dans le temps  <!-- .element: class="fragment" -->
+  * à travers les technologies  <!-- .element: class="fragment" -->
+  * malgré les évolutions  <!-- .element: class="fragment" -->
+  * pour détecter les régressions  <!-- .element: class="fragment" -->
+  * pour survivre à une absence imprévue (bus factor)  <!-- .element: class="fragment" -->
+  * pour augmenter efficacement la taille de l'équipe  <!-- .element: class="fragment" -->
+* pas de test automatisé = risque projet  <!-- .element: class="fragment" -->
+
+Sondage : <!-- .element: class="fragment" -->
+
+😈 Qui veut mettre en prod 2 ans de code jamais testé ? <!-- .element: class="fragment" -->
+
+😈😈😈 Qui veut faire les tests de 2 ans code d'un coup ? 😈😈😈  <!-- .element: class="fragment" -->
+
+-v-
+
 ## Le paradis !
 
-fin de la conférence ?  <!-- .element: class="fragment" -->
+Fin de la conférence ?
+
+Sauf que...  <!-- .element: class="fragment" -->
 
 ![](./10845744.jpg)  <!-- .element: class="fragment" -->
 
@@ -212,7 +250,7 @@ Notes:
 
 # 2. Pourquoi c'est difficile les tests autos ?
 
-il faut bien l'avouer !
+Faut bien l'avouer !
 
 Notes:
 * TODO: formuler les sections de façon à répondre au chemin de crête ?
@@ -232,20 +270,32 @@ Notes:
   Proposition de métaphore : tourner autour d'un trou noir. Tant que je fais l'effort,
   je reste en orbite, si je me relâche, je spirale vers le bas, et il faut bcp de boulot
   pour remonter.
+* @Julien : en fait je trouve qu'on a même pas besoin de cette image
 
 -v-
 
 ## Pas le temps
 
 * Pas prévu dans le planning/sprint
-* Mon chef/Product truc me dit de faire des features
+* Mon chef/Product Truc me dit de faire des features
 * Deadline en vue
 * Jamais budgeté, jamais valorisé
 * Projet géré par le marketing sans aucune expérience de la technique
+* De toute façon y'aura bie une validation du produit final...
 
 -v-
 
+Notes:
+* convaincre (le management et/ou les devs) que c'est utile, avant de se manger une mise-en-prod foirée
+* dépense versus économie
+* Résultats intangibles
+
 ## Pas appris
+
+* 😈 Rarement au programme des formations de dev <!-- .element: class="fragment" -->
+  * Et alors théorique et très court... 😈 <!-- .element: class="fragment" -->
+* 😈 Peu présent dans la littérature (livres, blogs...), les confs, les formations <!-- .element: class="fragment" -->
+  * Alors que c'est souvent ~50% des LoC 😈 <!-- .element: class="fragment" -->
 
 Notes:
 * sauf pour les testeurs de métier, les moldus s'en passeront bien ?
@@ -303,7 +353,13 @@ Notes:
 
 -v-
 
-## Vocabulaire confusant
+## Mais de quoi on parle ?
+
+* 😈 Personne n'est d'accord sur rien !
+  * C'est quoi un test unitaire ? Combien j'en fait ? 😈 <!-- .element: class="fragment" -->
+  * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? 😈 <!-- .element: class="fragment" -->
+  * Plus de pyramides de tests qu'en Egypte ! 😈 <!-- .element: class="fragment" -->
+  * Quel métier ? QA, testeur, dev, IVVQ, quality manager ?  😈 <!-- .element: class="fragment" -->
 
 Notes:
 * personne n'est d'accord sur rien : 47 pyramides différentes, le vocabulaire du test,~~les perspectives tech~~, les rôles, les niveaux de test
@@ -349,26 +405,50 @@ Notes:
 
 -v-
 
-## Trop de tests
+## Trop de tests, pas assez ?
+
+* 😈 Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)
+  * Mais ils prennent des plombes ! 😈 <!-- .element: class="fragment" -->
+  * Et ils cassent tout le temps ! 😈 <!-- .element: class="fragment" -->
+  * Et je peux pas les automatiser, il faut que je rentre mes identifiants !  😈 <!-- .element: class="fragment" -->
+    * (bon on va créer un user de test... harcoder son mdp quelque part... chut ! 😈) <!-- .element: class="fragment" -->
+
+* 😈 10 ans de tests accumulés <!-- .element: class="fragment" -->
+  * Chaque fonction est testée 10 fois ! 😈 <!-- .element: class="fragment" -->
+  * Plus de 1000 exigences dans le plan de test ! 😈 <!-- .element: class="fragment" -->
+  * Ça prend des plombes ! 😈 <!-- .element: class="fragment" -->
+  * Y'en a toujours 4 ou 5 qui plantent, évidemment qu'on regarde plus si c'est rouge ! 😈 <!-- .element: class="fragment" -->
+  * Chaque fois que je touche une ligne j'ai 10 tests à modifier ! 😈 <!-- .element: class="fragment" -->
+
+* 😈 Et pourtant on découvre toujours des bugs ! <!-- .element: class="fragment" -->
 
 Notes:
 * explosion combinatoire
 * cible mouvante et floue
 * L'explosion combinatoire rend l'exhaustivité impossible
+* couplage versus maintenabilité en carton, tests cassés pas réparés ("vitre cassée"), maintenance des tests vécue comme un fardeau
+  * le summum : test de mock !
+* Tester le mauvais 80% : métaphore du streetlight problem ("plus simple de chercher dans la lumière")
+* test flaky
+  * l'équivalent de "ptèt bin qu'oui, ptèt bin qu'non"
+  * suffit de les relancer plusieurs fois mdr, ~zéro confiance
+* lenteur, car tests lents et/ou trop de tests
+* exemple de Xavier Nopre (cf [post LinkedIn](https://www.linkedin.com/posts/xnopre_pourquoi-jai-mis-plus-de-3-jours-%C3%A0-trouver-activity-7316027544934191104-Otww)), je lui ai dit qu'il y avait un problème, c'est pas censé être aussi lent
+* exemple de Schneider : board farms
+* exemple de Schneider : code dont le run dure des centaines jours !! (à travers les timezones :p)
 
 -v-
 
-## Pratique réticente
+## Punition ou mauvaise volonté ?
+
+* 😈 J'ai pas envie d'écrire des tests, j'ai testé à la mano ça marche !  <!-- .element: class="fragment" -->
+* 😈 Mes specs sont dans un Word de 200 pages, je peux pas les tester une par une ! <!-- .element: class="fragment" -->
+* 😈 Pas mon boulot les tests E2E, je fais que mes tests unitaires sur mon code ! <!-- .element: class="fragment" -->
+* 😈 De toute façon c'est du C++, c'est trop chiant de gérer les effets de bord !  <!-- .element: class="fragment" -->
 
 Notes:
 * des tonnes d'outils différents, les différents types de tests évoqués, les différents métiers, l'insertion dans le process de production, ...
 * s'organiser, planifier et réaliser sont des tâches complexes
-
--v-
-
-## Punition
-
-Notes:
 * l'absence de testeur/expertise/culture dans les projets (des gens formés, motivés, avec le mindset adéquat)
 * > On peut conduire un cheval à l'abreuvoir, mais pas le forcer à boire
 * certifications ISTQB par le CFTL
@@ -376,27 +456,21 @@ Notes:
 
 -v-
 
-## Inutile
+## C'est impossible !
 
-Notes:
-* convaincre (le management et/ou les devs) que c'est utile, avant de se manger une mise-en-prod foirée
-* dépense versus économie
-* Résultats intangibles
-
--v-
-
-## Test impossible
+Je peux pas tester...
+* j'ai pas le droit de taper sur l'API, elle est payante <!-- .element: class="fragment" -->
+* faudrait la DB <!-- .element: class="fragment" -->
+* faudrait des identifiants <!-- .element: class="fragment" -->
+* c'est de l'embarqué sur une carte maison <!-- .element: class="fragment" -->
+* c'est un OS propriétaire obsolète depuis longtemps <!-- .element: class="fragment" -->
+* une simu prends 3 jours sur le cluster <!-- .element: class="fragment" -->
+* c'est pas reproductible <!-- .element: class="fragment" -->
 
 Notes:
 * imitations techniques, matérielles, de coût, ... variabilité selon les environnements, pas de données de test (réalistes)
 * exemple board farm Schneider
 * exemple Windows 10 LTSC 2019 à Thales
-
--v-
-
-## Code intestable
-
-Notes:
 * Ennemis : side-effects ("spooky action at a distance", "que fait cette méthode ?"), (global/static) state, IO, singletons, time, locale, network, files, env, GPU, unclear pre/post-conditions, non-determinism, (G)UI vs API, concurrency et threading, random (non-deterministic), complex outputs and high dimensionality
 * différence entre "c'est compliqué de réaliser le test" (limitations tech) versus "c'est compliqué d'écrire le test" (iceberg, gorille)
 * exemple : code des bornes qui échoue le 29 Février
@@ -413,36 +487,13 @@ Notes:
 
 -v-
 
-## Fragile
+## Trop tard
 
-Notes:
-* couplage versus maintenabilité en carton, tests cassés pas réparés ("vitre cassée"), maintenance des tests vécue comme un fardeau
-  * le summum : test de mock !
-* Tester le mauvais 80% : métaphore du streetlight problem ("plus simple de chercher dans la lumière")
-* test flaky
-  * l'équivalent de "ptèt bin qu'oui, ptèt bin qu'non"
-  * suffit de les relancer plusieurs fois mdr, ~zéro confiance
-
--v-
-
-## Illisible
-
-Notes:
-* exemple d'Eric (Schneider)
-
--v-
-
-## Lent
-
-Notes:
-* lenteur, car tests lents et/ou trop de tests
-* exemple de Xavier Nopre (cf [post LinkedIn](https://www.linkedin.com/posts/xnopre_pourquoi-jai-mis-plus-de-3-jours-%C3%A0-trouver-activity-7316027544934191104-Otww)), je lui ai dit qu'il y avait un problème, c'est pas censé être aussi lent
-* exemple de Schneider : board farms
-* exemple de Schneider : code dont le run dure des centaines jours !! (à travers les timezones :p)
-
--v-
-
-## Bug ou feature ou code mort ?
+* De toute façon y'a jamais eu de tests sur ce projet, c'est trop tard ! <!-- .element: class="fragment" -->
+* Ça sert à rien de tester ma feature, le reste est pas testé, pis ça m'a pris tellement de temps ! <!-- .element: class="fragment" -->
+* Comment j'injecte mon code de test ? Y'a rien qu'est prévu ! <!-- .element: class="fragment" -->
+* Comment je sais ce qui se passe ? Y'a à peine de logs et on peut se brancher sur rien ! <!-- .element: class="fragment" -->
+* Je teste quoi ? Que ça marce comme maintenant ? Parce que c'est pas clair ce que ça devrait faire ! <!-- .element: class="fragment" -->
 
 Notes:
 * descriptivism vs prescriptivism (cf Romeu)
@@ -454,6 +505,47 @@ Notes:
 -v-
 
 ## L'enfer !
+<style>
+  /* Définition de la classe pour empiler les images */
+  .stacked {
+    position: absolute; /* Positionne les images par rapport au parent */
+    top: 1000;
+    left: 50%; /* Positionne les images à 50% de la largeur de la page */
+    transform: translateX(-50%); /* Ajuste la position pour que l'image soit centrée */
+    width: auto;
+    height: auto; /* Laisse la hauteur s'ajuster selon les proportions naturelles */
+    z-index: 1; /* Définit l'ordre d'affichage des images */
+  }
+
+  /* Animation pour faire apparaître chaque image progressivement */
+  .stacked.fragment {
+    z-index: 10; /* Chaque fragment aura un index plus élevé que le précédent */
+    animation: fadeIn 1s forwards; /* Animation de fade-in pour l'apparition des images */
+  }
+
+  /* Définition de l'animation fade-in */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;  /* L'image commence avec une opacité de 0 (invisible) */
+    }
+    to {
+      opacity: 1;  /* L'image termine avec une opacité de 1 (visible) */
+    }
+  }
+</style>
+
+Trop difficile de savoir quoi faire, comment faire, de le faire, à exécuter, à analyser,
+à maintenir, à faire confiance, pas assez, pas assez bien, pas assez rapide...
+
+On test en prod alors ???  <!-- .element: class="fragment" -->
+
+![](./test-in-prod7.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod.png)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod2.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod5.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod6.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod3.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod4.jpeg)  <!-- .element: class="fragment stacked" -->
 
 Notes:
 * difficile de savoir quoi faire, comment faire, de le faire, à exécuter, à analyser, à maintenir, à faire confiance, pas assez, pas assez bien, pas assez rapide, ...
