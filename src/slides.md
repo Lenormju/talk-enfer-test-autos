@@ -584,14 +584,14 @@ Notes:
 
 > Culture eats strategy for breakfast. -- Peter Drucker (apocryphe !!)
 
-* Il faut avant tout changer la culture de l'organisation / de l'équipe
-  * implication de toutes les parties prenantes
-  * démarche commune et adoptée, pas juste avoir un casse-pied de service
-  * tournure d'esprit requise pour malmener le code ("vicieux")
-    * "un testeur rentre dans un bar, il commande ..."
-  * humilité
-  * responsabilité individuelle + équipe
-* Avoir de l'expérience est un vrai plus
+* Il faut avant tout changer la culture de l'organisation / de l'équipe <!-- .element: class="fragment" -->
+  * implication de toutes les parties prenantes <!-- .element: class="fragment" -->
+  * démarche commune et adoptée, pas juste avoir un casse-pied de  <!-- .element: class="fragment" -->service
+  * tournure d'esprit requise pour malmener le code ("vicieux") <!-- .element: class="fragment" -->
+    * "un testeur rentre dans un bar, il commande ..." <!-- .element: class="fragment" -->
+  * humilité <!-- .element: class="fragment" -->
+  * responsabilité individuelle + équipe <!-- .element: class="fragment" -->
+* Avoir de l'expérience est un vrai plus <!-- .element: class="fragment" -->
 
 -v-
 
@@ -599,11 +599,11 @@ Petit florilège :
 
 > Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités
 
-> you get paid for "software", not "maintainable software" -- joncroks, https://news.ycombinator.com/item?id=13130991
+> you get paid for "software", not "maintainable software" -- joncroks, https://news.ycombinator.com/item?id=13130991  <!-- .element: class="fragment" -->
 
-> Move fast and break things -- Facebook (jusqu'en 2014)
+> Move fast and break things -- Facebook (jusqu'en 2014)  <!-- .element: class="fragment" -->
 
-> I get paid for code that works, not for tests [...] -- Kent Beck (tronqué !!)
+> I get paid for code that works, not for tests [...] -- Kent Beck (tronqué !!)  <!-- .element: class="fragment" -->
 
 Notes:
 * culture qualité, formation (cours, conférences, livres, exercices, katas, ...)
@@ -629,15 +629,30 @@ Notes:
 
 ## Investissement
 
-* Une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
-* Il s'agit d'un second système, qui sert à stabiliser le premier
-  * Il n'apporte pas de valeur directe au client, mais aide le premier à en apporter (comme la doc, la CI, le marketing...)
-  * Il engendre des risques
-* C'est un investissement (temps, compétences, argent, ...)
-  * Le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
-  * Il est d'autant plus rentable qu'on l'utilise (enabler !)
-  * Analyse coût-bénéfice, ROI (return on time invested)
-* Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
+> Pas de bras, pas de chocolat ! -- Omar Sy
+
+* Une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre <!-- .element: class="fragment" -->
+* Il s'agit d'un second système, qui sert à stabiliser le premier <!-- .element: class="fragment" -->
+  * Il n'apporte pas de valeur directe au client, mais aide le premier à en apporter (comme la doc, la CI, le marketing...) <!-- .element: class="fragment" -->
+  * Il engendre des risques <!-- .element: class="fragment" -->
+* C'est un investissement <!-- .element: class="fragment" -->
+  * Il faut des ressources : temps, compétences, hardware, runner de CI, données... <!-- .element: class="fragment" -->
+  * Le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui <!-- .element: class="fragment" -->
+  * Il est d'autant plus rentable qu'on l'utilise (enabler !) <!-- .element: class="fragment" -->
+  * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
+* Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod <!-- .element: class="fragment" -->
+
+Notes:
+* Pas de spec ...
+* Pas le temps ...
+* Pas les compétences ...
+* Pas les outils ...
+* Pas le hardware ...
+* Pas les moyens de déployer ...
+* Pas de data de test ...
+* humains, techniques, temporels, ...
+* outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
+* avoir des specs ! (claires)
 
 -v-
 
@@ -673,22 +688,22 @@ Notes:
 ## Stratégie de test
 
 * Première question : *pourquoi* je teste ? Qu'est-que je veux obtenir ?
-* Exemple de raisons de tester :
-  * Garantir la qualité
-  * Eviter les régressions
-  * Valider les spécifications
-  * Se rassurer
-  * Apprendre à tester, essayer le TDD
-  * Diluer les responsabilités
-  * Cocher une case
-* Deuxième question : quelles sont mes contraintes et mes ressources ?
-* Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ?
-* Maintenant on peut définir quel code on va tester, et jusqu'où
+* Exemple de raisons de tester : <!-- .element: class="fragment" -->
+  * Garantir la qualité <!-- .element: class="fragment" -->
+  * Eviter les régressions <!-- .element: class="fragment" -->
+  * Valider les spécifications <!-- .element: class="fragment" -->
+  * Se rassurer <!-- .element: class="fragment" -->
+  * Apprendre à tester, essayer le TDD <!-- .element: class="fragment" -->
+  * Diluer les responsabilités <!-- .element: class="fragment" -->
+  * Cocher une case <!-- .element: class="fragment" -->
+* Deuxième question : quelles sont mes contraintes et mes ressources ? <!-- .element: class="fragment" -->
+* Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ? <!-- .element: class="fragment" -->
+* Maintenant on peut définir quel code on va tester, et jusqu'où <!-- .element: class="fragment" -->
   * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs
     * plein de petits tests de fonctions, quelques tests de l'ensemble
     * du besoin à la prod, et toutes les étapes intermédiaires
-* Une stratégie à écrire !
-* Une stratégie à faire évoluer au fur et à mesure !
+* Une stratégie à écrire ! <!-- .element: class="fragment" -->
+* Une stratégie à faire évoluer au fur et à mesure ! <!-- .element: class="fragment" -->
 
 Notes:
 * quoi pourquoi pour quoi comment qui quand ...
@@ -714,7 +729,15 @@ Notes:
 
 > Choisir, c'est renoncer -- citation fausse d'André Gide
 
-* Impossible de tout tester (explosion combinatoire...)
+* Impossible de tout tester, tester c'est choisir <!-- .element: class="fragment" -->
+  * Impossible de tester toutes les entrées possibles <!-- .element: class="fragment" -->
+  * Impossible de tester tous les chemins d'exécution   <!-- .element: class="fragment" -->
+  * Pas forcément pertinent de viser les 100% de couverture <!-- .element: class="fragment" -->
+* Pas toujours pertinent d'automatiser : trop compliqué, trop cher... <!-- .element: class="fragment" -->
+  * Il faut alors prévoir une procédure de tests manuels ! <!-- .element: class="fragment" -->
+* Mettre les efforts sur les parties critiques <!-- .element: class="fragment" -->
+* Tenir compte du retour d'expérience (qu'est-ce qui a buggué méchamment ?) <!-- .element: class="fragment" -->
+* On peut supprimer des tests : pas fiables, trop lents, redondants... <!-- .element: class="fragment" -->
 
 Notes:
 * renoncer à tout automatiser (quadrants, moyens insuffisants, ...), ROI
@@ -740,6 +763,8 @@ Notes:
 
 ## Scénarios
 
+* stuff
+
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
 * TODO retravailler cette section, semble un peu redite avec la stratégie
@@ -749,12 +774,6 @@ Notes:
 * value streams, risques, manque de confiance, ...
 * smoke tests (cf origine du mot "smoke test" en logiciel)
 * quoi tester ? critique ou sujet à forte régression, et stable, fréquence d'exécution
-
--v-
-
-## Processus
-
-Notes:
 * (reprendre des tamis) : tres amigos, example mapping, BDD, prise en compte de la testabilité dès la (pré-)conception, compter le coût du test dans l'estimation de la story, les tests font partie de la dette technique du projet, analyse d'impact lors de nouveaux devs, découpage en équipe Dev versus QA ??
   * identifier les manquements dans son équipe, sur son projet, et trouver comment communiquer dessus avec les autres, avoir des idées à proposer
 
@@ -781,25 +800,6 @@ Notes:
   * cf https://yoan-thirion.gitbook.io/knowledge-base/xtrem-reading/resources/book-notes/team-topologies#software-boundaries-or-fracture-planes
 * sans architecture testable, la strat s'effondre !
 * introduire des interfaces au bon endroit pour casser la combinatoire (passer de la multiplicaton des cas à l'addition)
-
--v-
-
-## Moyens de test
-
-> Pas de bras, pas de chocolat ! -- Omar Sy
-
-* Pas de spec ...
-* Pas le temps ...
-* Pas les compétences ...
-* Pas les outils ...
-* Pas le hardware ...
-* Pas les moyens de déployer ...
-* Pas de data de test ...
-
-Notes:
-* humains, techniques, temporels, ...
-* outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
-* avoir des specs ! (claires)
 
 -v-
 
@@ -924,15 +924,14 @@ Notes:
 
 ## Techniques
 
-le minimum à maîtriser selon nous :
+Le minimum à maîtriser selon nous :
 
-* mettre en place un "harnais de test" (environnement testable)
-* utiliser un framework
-* savoir utiliser des fakes (in-memory), des mocks, des TestContainers, ...
-* comprendre les conséquences de ses décisions (vitesse, fiabilité, facilité, maintenabilité)
+* la mise en place de son environnement de test, en local et en CI
+* le framework de test standard de son langage
+* les techniques d'isolation des effets de bord : fakes, mocks, TestContainers...
+* les techniques de lisibilité et de factorisation des tests
 
 Notes:
-* @TODO jonathan est-ce que tu vois autre chose à rajouter ?
 * ce qu'on considère le minimum à maîtriser pour tester
 * test harness
 * TestContainers
@@ -945,9 +944,11 @@ Notes:
 
 ## Techniques avancées
 
-* snapshot/golden-master/approval-testing
-* property-based testing + fuzzing
+* couverture de test
+* snapshot testing
+* fuzzing
 * tests d'architecture
+* tests de performance et de charge
 * IA
 * Page Object Model (POM) pour les tests d'UI
 * Accelerate
