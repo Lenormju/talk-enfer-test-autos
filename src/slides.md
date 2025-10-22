@@ -248,7 +248,7 @@ Notes:
 
 ---
 
-# 2. Pourquoi c'est difficile les tests autos ?
+# Pourquoi c'est difficile les tests autos ?
 
 Faut bien l'avouer !
 
@@ -555,7 +555,9 @@ Notes:
 
 ---
 
-# 3. Comment faire pour bien tester auto ? (il faut s'aider !)
+# Redescendre sur Terre
+
+Comment faire pour bien tester auto ? Il faut s'aider !
 
 Notes:
 * TODO:
@@ -563,6 +565,11 @@ Notes:
   * le formuler de façon à répondre au chemin de crête
     * osef ?
   * @julien à chaque section mettre un exemple !!!
+* TODO : exemples de test
+  * fonction pure (mais avec de la complexité interne), quelques cas d'erreur prévus -> tests fonc, table, edge cases, fuzz, property-based
+  * fonction qui lit un fichier
+  * fonction qui tape une API web : mock, contrat, VCR, fake d'API
+  * fonction qui tape une grosse Postgres legacy, nouvelle feature
 
 -v-
 
@@ -579,15 +586,14 @@ Notes:
 
 > Culture eats strategy for breakfast. -- Peter Drucker (apocryphe !!)
 
-* il faut avant tout changer la Culture équipe/projet
-  * implication des stakeholders
-  * démarche d'équipe, pas juste avoir un casse-pied de service
+* Il faut avant tout changer la culture de l'organisation / de l'équipe
+  * implication de toutes les parties prenantes
+  * démarche commune et adoptée, pas juste avoir un casse-pied de service
   * tournure d'esprit requise pour malmener le code ("vicieux")
     * "un testeur rentre dans un bar, il commande ..."
   * humilité
-  * responsabilité individuelle + équipe"
-* tamis successifs pour attraper les bugs : du besoin à la prod, et toutes les étapes intermédiaires
-* avoir de l'expérience est un vrai plus
+  * responsabilité individuelle + équipe
+* Avoir de l'expérience est un vrai plus
 
 -v-
 
@@ -623,6 +629,53 @@ Notes:
 
 -v-
 
+
+## Investissement
+
+* Tamis successifs pour attraper les bugs : du besoin à la prod, et toutes les étapes intermédiaires
+
+* une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
+* il s'agit d'un second système, qui sert à stabiliser le premier
+  * il n'apporte pas de valeur en soi, mais aide le premier à continuer d'en apporter (comme la doc, la CI, le marketing, ...)
+  * il nécessite de l'investissement (temps, compétences, argent, ...)
+  * le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
+  * il est d'autant plus rentable qu'on l'utilise (enabler !)
+  * (il peut être une gêne si on préfère une extrême flexibilité : sécurité versus frein)
+  * il engendre des risques
+  * analyse coût-bénéfice, ROI (return on time invested)
+* exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
+
+-v-
+
+![xkcd 974 "The General problem"](./the_general_problem.png)
+
+> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
+
+![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)
+
+Notes:
+* investissement dans un second logiciel pour mieux produire le premier
+* outils de test
+* investir dans le futur
+* projet logiciel = le code qui part en prod, mais pas seulement, aussi : la doc, la CI, les specs, et donc aussi les tests, ...
+* "Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités" (et les fonctionnalités non plus d'ailleurs, ça dépend si elles sont connues, utilisées, ...)
+* Second-système de stabilisation du premier, par opposition à la flexibilité
+* Une sécurité, ou un frein ? les deux ?
+* exemple de SQLite (x 590)
+* Vraiment à retenir : ne pas penser le test comme un après, mais comme un même temps, voire enabler
+* estimer le ROI de l'automatisation : gain versus coût ? matrice
+  * c'est un gros sujet pour les Test Managers, et les chefs de projets
+* le meilleur moment pour commencer à mettre des tests sur le projet c'était le premier jour, le second meilleur moment c'est aujourd'hui
+* https://xkcd.com/974/ "The General problem" (et sa caption : perception de perfectionniste versus maître-artisan)
+* https://xkcd.com/1205/ "Is it worth the time?"
+* Le code pourrit sans test auto, mais les tests auto eux-mêmes pourrissent, ou peuvent pourrir (vérouiller) le code
+* J'avais un problème, maintenant j'en ai deux (un nouveau)
+* le test c'est une analyse coût-bénéfice : combien je veux mettre dans mes tests, pour le run de mon dev et de ma prod
+* des tests systèmes pas effectués = risque business
+  * exemples : 8 bcs biologic, 50 bornes schneider, ...
+
+-v-
+
 ## Stratégie de test
 
 Notes:
@@ -642,25 +695,6 @@ Notes:
 * Plan de test au format IEEE 29119-3 (ou pas !)
 * Le système testé peut faire partie d'un sur-système, et se composer de sous-systèmes, les composants des uns sont les acceptation des autres
   * Ce qui dépend de nous versus ce qui ne dèpend pas (stoïcisme)
-
--v-
-
-## Moyens de test
-
-> Pas de bras, pas de chocolat ! -- Omar Sy
-
-* Pas de spec ...
-* Pas le temps ...
-* Pas les compétences ...
-* Pas les outils ...
-* Pas le hardware ...
-* Pas les moyens de déployer ...
-* Pas de data de test ...
-
-Notes:
-* humains, techniques, temporels, ...
-* outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
-* avoir des specs ! (claires)
 
 -v-
 
@@ -690,14 +724,6 @@ Notes:
 
 -v-
 
-## Processus
-
-Notes:
-* (reprendre des tamis) : tres amigos, example mapping, BDD, prise en compte de la testabilité dès la (pré-)conception, compter le coût du test dans l'estimation de la story, les tests font partie de la dette technique du projet, analyse d'impact lors de nouveaux devs, découpage en équipe Dev versus QA ??
-  * identifier les manquements dans son équipe, sur son projet, et trouver comment communiquer dessus avec les autres, avoir des idées à proposer
-
--v-
-
 ## Scénarios
 
 Notes:
@@ -709,6 +735,14 @@ Notes:
 * value streams, risques, manque de confiance, ...
 * smoke tests (cf origine du mot "smoke test" en logiciel)
 * quoi tester ? critique ou sujet à forte régression, et stable, fréquence d'exécution
+
+-v-
+
+## Processus
+
+Notes:
+* (reprendre des tamis) : tres amigos, example mapping, BDD, prise en compte de la testabilité dès la (pré-)conception, compter le coût du test dans l'estimation de la story, les tests font partie de la dette technique du projet, analyse d'impact lors de nouveaux devs, découpage en équipe Dev versus QA ??
+  * identifier les manquements dans son équipe, sur son projet, et trouver comment communiquer dessus avec les autres, avoir des idées à proposer
 
 -v-
 
@@ -733,6 +767,25 @@ Notes:
   * cf https://yoan-thirion.gitbook.io/knowledge-base/xtrem-reading/resources/book-notes/team-topologies#software-boundaries-or-fracture-planes
 * sans architecture testable, la strat s'effondre !
 * introduire des interfaces au bon endroit pour casser la combinatoire (passer de la multiplicaton des cas à l'addition)
+
+-v-
+
+## Moyens de test
+
+> Pas de bras, pas de chocolat ! -- Omar Sy
+
+* Pas de spec ...
+* Pas le temps ...
+* Pas les compétences ...
+* Pas les outils ...
+* Pas le hardware ...
+* Pas les moyens de déployer ...
+* Pas de data de test ...
+
+Notes:
+* humains, techniques, temporels, ...
+* outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
+* avoir des specs ! (claires)
 
 -v-
 
@@ -798,7 +851,7 @@ Notes:
 
 -v-
 
-## Fluide
+## Rester fluide
 
 Pente glissante de la qualité :
 * Si les tests sont difficiles à lancer, ils ne le seront pas souvent, de moins en moins
@@ -831,49 +884,6 @@ Notes:
 
 -v-
 
-## Investissement
-
-* une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
-* il s'agit d'un second système, qui sert à stabiliser le premier
-  * il n'apporte pas de valeur en soi, mais aide le premier à continuer d'en apporter (comme la doc, la CI, le marketing, ...)
-  * il nécessite de l'investissement (temps, compétences, argent, ...)
-  * le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
-  * il est d'autant plus rentable qu'on l'utilise (enabler !)
-  * (il peut être une gêne si on préfère une extrême flexibilité : sécurité versus frein)
-  * il engendre des risques
-  * analyse coût-bénéfice, ROI (return on time invested)
-* exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
-
--v-
-
-![xkcd 974 "The General problem"](./the_general_problem.png)
-
-> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
-
-![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)
-
-Notes:
-* investissement dans un second logiciel pour mieux produire le premier
-* outils de test
-* investir dans le futur
-* projet logiciel = le code qui part en prod, mais pas seulement, aussi : la doc, la CI, les specs, et donc aussi les tests, ...
-* "Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités" (et les fonctionnalités non plus d'ailleurs, ça dépend si elles sont connues, utilisées, ...)
-* Second-système de stabilisation du premier, par opposition à la flexibilité
-* Une sécurité, ou un frein ? les deux ?
-* exemple de SQLite (x 590)
-* Vraiment à retenir : ne pas penser le test comme un après, mais comme un même temps, voire enabler
-* estimer le ROI de l'automatisation : gain versus coût ? matrice
-  * c'est un gros sujet pour les Test Managers, et les chefs de projets
-* le meilleur moment pour commencer à mettre des tests sur le projet c'était le premier jour, le second meilleur moment c'est aujourd'hui
-* https://xkcd.com/974/ "The General problem" (et sa caption : perception de perfectionniste versus maître-artisan)
-* https://xkcd.com/1205/ "Is it worth the time?"
-* Le code pourrit sans test auto, mais les tests auto eux-mêmes pourrissent, ou peuvent pourrir (vérouiller) le code
-* J'avais un problème, maintenant j'en ai deux (un nouveau)
-* le test c'est une analyse coût-bénéfice : combien je veux mettre dans mes tests, pour le run de mon dev et de ma prod
-* des tests systèmes pas effectués = risque business
-  * exemples : 8 bcs biologic, 50 bornes schneider, ...
-
--v-
 
 ## Ecriture
 
@@ -1041,24 +1051,14 @@ Notes:
 
 ---
 
-# 4. Cas pratique
-
-Notes:
-* TODO : 3 exemples de test
-  * fonction pure (mais avec de la complexité interne), quelques cas d'erreur prévus -> tests fonc, table, edge cases, fuzz, property-based
-  * API WEB : mock, contrat, VCR, fake d'API
-  * gros Postgres legacy, nouvelle feature
-
----
-
-# 5. Conclusion
+# Conclusion
 
 Notes:
 * expertise indispensable, il faut s'y mettre, dans un environnement semi-hostile (vocab, équipe, rythme, outillage, ...) -> CI, run local. C'est une partie de l'ingénierie
 
 ---
 
-# 6. Nos recommandations
+# Nos recommandations
 
 * TODO @jonathan d'autres à rajouter ?
 * TODO @julien sort par catégories + multi-pages
