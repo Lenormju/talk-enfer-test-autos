@@ -258,6 +258,7 @@ Faut bien l'avouer !
 Notes:
 * TODO: formuler les sections de façon à répondre au chemin de crête ?
 * TODO: ajouter des exemples concrets à chacun
+* TODO @jonathan mettre des bouts de paradis
 
 -v-
 
@@ -358,6 +359,7 @@ Notes:
   * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? 😈 <!-- .element: class="fragment" -->
   * Plus de pyramides de tests qu'en Egypte ! 😈 <!-- .element: class="fragment" -->
   * Quel métier ? QA, testeur, dev, IVVQ, quality manager ?  😈 <!-- .element: class="fragment" -->
+* Faut en parler ensemble pour se mettre d'accord !
 
 Notes:
 * personne n'est d'accord sur rien : 47 pyramides différentes, le vocabulaire du test,~~les perspectives tech~~, les rôles, les niveaux de test
@@ -691,13 +693,17 @@ Notes:
 * Exemple de raisons de tester : <!-- .element: class="fragment" -->
   * Garantir la qualité <!-- .element: class="fragment" -->
   * Eviter les régressions <!-- .element: class="fragment" -->
-  * Valider les spécifications <!-- .element: class="fragment" -->
+  * Valider les spécifications/exigences <!-- .element: class="fragment" -->
   * Se rassurer <!-- .element: class="fragment" -->
   * Apprendre à tester, essayer le TDD <!-- .element: class="fragment" -->
   * Diluer les responsabilités <!-- .element: class="fragment" -->
   * Cocher une case <!-- .element: class="fragment" -->
 * Deuxième question : quelles sont mes contraintes et mes ressources ? <!-- .element: class="fragment" -->
 * Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ? <!-- .element: class="fragment" -->
+* Quatrième question : dans mon périmètre, comment puis-je le découper ?
+
+-v-
+
 * Maintenant on peut définir quel code on va tester, et jusqu'où <!-- .element: class="fragment" -->
   * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs
     * plein de petits tests de fonctions, quelques tests de l'ensemble
@@ -727,7 +733,7 @@ Notes:
 
 ## Renoncer
 
-> Choisir, c'est renoncer -- citation fausse d'André Gide
+> Choisir, c'est renoncer -- citation d'André Gide (déformée)
 
 * Impossible de tout tester, tester c'est choisir <!-- .element: class="fragment" -->
   * Impossible de tester toutes les entrées possibles <!-- .element: class="fragment" -->
@@ -781,6 +787,18 @@ Notes:
 
 ## Architecture testable
 
+* si ce n'est pas un objectif, alors ce sera négligé
+* si le code n'est pas facilement testable, alors les tests seront difficiles
+
+* bien définir les interfaces et contrat (cf juste après)
+* identifier les "seams" (couture, lignes de faille, ...)
+* privilégier les fonctions "pures" (sans effets de bord) quand c'est possible
+  * "functional core, imperative shell"
+  * limiter la mutabilité
+  * tout l'inverse de la programmation orientée-objet ?
+* choisir quand limiter le couplage
+  * inversion de dépendance
+
 Notes:
 * sinon architecture intestable ou semi-testable
 * seams (cf Michale feathers, Working effectively with legacy code) versus scalpel et pied-de-biche
@@ -807,6 +825,17 @@ Notes:
 
 > good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
 > -- grugbrain.dev
+
+* interface = surface de contact entre deux systèmes
+  * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
+* interface = abstraction
+* tout est une API
+* surface large = trop de choses à tester
+  * garder le minimum (SRP)
+  * (complique le refactoring)
+  * la profondeur c'est OK
+* tester l'interface, pas l'implémentation
+  * contravariance des tests (refactoring !)
 
 Notes:
 * TODO: sous-partie de l'architecture testable ?
@@ -974,6 +1003,7 @@ Notes:
       * user acceptance
     * security testing
       * exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners
+    * smoke test / sanity test
     * test de perf
       * rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario
       * typologie selon https://grafana.com/load-testing/types-of-load-testing/ : smoke, average load, stress, soak, breakpoint, spike, ...
@@ -1077,7 +1107,6 @@ Notes:
 
 # Nos recommandations
 
-* TODO @jonathan d'autres à rajouter ?
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
 * [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
 * [Dwayne Richard Hipp - How SQLite Is Tested](https://www.sqlite.org/testing.html) : un exemple de comment n'avoir quasi aucun bug pour un des logiciels les plus utilisé au monde
@@ -1086,7 +1115,6 @@ Notes:
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
-* [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 Notes:
 * et + en annexe !
@@ -1172,6 +1200,13 @@ Notes:
 * [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
 * [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
 * [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : TODO @Julien
+* [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
+
+---
+
+# Plus de techniques avancées !
+
+TODO julien
 
 ---
 
