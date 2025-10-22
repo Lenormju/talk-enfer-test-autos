@@ -258,6 +258,7 @@ Faut bien l'avouer !
 Notes:
 * TODO: formuler les sections de façon à répondre au chemin de crête ?
 * TODO: ajouter des exemples concrets à chacun
+* TODO @jonathan mettre des bouts de paradis
 
 -v-
 
@@ -358,6 +359,7 @@ Notes:
   * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? 😈 <!-- .element: class="fragment" -->
   * Plus de pyramides de tests qu'en Egypte ! 😈 <!-- .element: class="fragment" -->
   * Quel métier ? QA, testeur, dev, IVVQ, quality manager ?  😈 <!-- .element: class="fragment" -->
+* Faut en parler ensemble pour se mettre d'accord !
 
 Notes:
 * personne n'est d'accord sur rien : 47 pyramides différentes, le vocabulaire du test,~~les perspectives tech~~, les rôles, les niveaux de test
@@ -691,7 +693,7 @@ Notes:
 * Exemple de raisons de tester : <!-- .element: class="fragment" -->
   * Garantir la qualité <!-- .element: class="fragment" -->
   * Eviter les régressions <!-- .element: class="fragment" -->
-  * Valider les spécifications <!-- .element: class="fragment" -->
+  * Valider les spécifications/exigences <!-- .element: class="fragment" -->
   * Se rassurer <!-- .element: class="fragment" -->
   * Apprendre à tester, essayer le TDD <!-- .element: class="fragment" -->
   * Diluer les responsabilités <!-- .element: class="fragment" -->
@@ -827,15 +829,11 @@ Notes:
 * interface = surface de contact entre deux systèmes
   * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
 * interface = abstraction
-* API = Application Programming Interface
+* tout est une API
 * surface large = trop de choses à tester
   * garder le minimum (SRP)
   * (complique le refactoring)
-* matrice : profondeur (quantité de code) versus largeur
-  * shallow-thin : pertinent de tester ?
-  * shallow-large : découper ?
-  * deep-thin : perfect !
-  * deep-large : découper en sous-systèmes ?
+  * la profondeur c'est OK
 * tester l'interface, pas l'implémentation
   * contravariance des tests (refactoring !)
 
@@ -1005,6 +1003,7 @@ Notes:
       * user acceptance
     * security testing
       * exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners
+    * smoke test / sanity test
     * test de perf
       * rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario
       * typologie selon https://grafana.com/load-testing/types-of-load-testing/ : smoke, average load, stress, soak, breakpoint, spike, ...
