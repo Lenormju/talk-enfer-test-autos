@@ -23,6 +23,9 @@ Notes:
 - Kaizen Solutions
 - TODO sponsors DevFest Toulouse
 
+Notes:
+* TODO: logo Kaizen
+
 -v-
 
 ## Présentation
@@ -55,7 +58,6 @@ Notes:
 Notes:
 * TODO :
   * illustration de chapitre ?
-  * @Julien refaire une passe sur les répétitions (cf réunion du mercredi 08 octobre)
 
 -v-
 
@@ -67,7 +69,6 @@ Notes:
   * quel stimulus ?  <!-- .element: class="fragment" -->
   * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
 * plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
-
 
 Notes:
 * c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
@@ -85,9 +86,11 @@ Notes:
 
 ## Pourquoi tester ?
 
-* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
-    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
-    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
+Qualité avec un grand Q :  <!-- .element: class="fragment" -->
+* ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
+* Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
+
+La qualité n'est pas automatique, surtout pour du logiciel.
 
 Notes:
 * Faire du logiciel ce n'est pas si simple
@@ -96,7 +99,7 @@ Notes:
 
 ## Fiabilité du code
 
-* Le logiciel est particulier : complexe, fluide, immatériel  <!-- .element: class="fragment" -->
+* Le logiciel est particulier : complexe, immatériel, fluide  <!-- .element: class="fragment" -->
   + complexe  <!-- .element: class="fragment" -->
     - chaque ligne est une action
     - nécessairement des effets de bord
@@ -173,7 +176,7 @@ Notes:
 * Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : <!-- .element: class="fragment" -->
   * Google, Microsoft, Netflix, Apple le font !!!  <!-- .element: class="fragment" -->
-  * et tous les projets libres qu'on utilise tous les jours !!!!  <!-- .element: class="fragment" -->
+  * et tous les projets libres qu'on utilise tous les jours !!!  <!-- .element: class="fragment" -->
 * se concentrer sur des tâches à forte valeur ajoutée  <!-- .element: class="fragment" -->
 
 Notes:
@@ -264,13 +267,7 @@ Notes:
 
 Notes:
 * métaphore du chemin de crête : facile de tomber
-* @Julien : une crête a 2 versants, ça donne l'image qu'on peut tomber de chaque côté.
-  Ici on peut surtout tomber d'un côté (code qui a bien grandi, et pas de test),
-  mais l'autre côté n'est pas symétrique (trop de tests, du temps perdu, surqualité ?).
-  Proposition de métaphore : tourner autour d'un trou noir. Tant que je fais l'effort,
-  je reste en orbite, si je me relâche, je spirale vers le bas, et il faut bcp de boulot
-  pour remonter.
-* @Julien : en fait je trouve qu'on a même pas besoin de cette image
+* TODO: garder cette métphore ?
 
 -v-
 
@@ -350,6 +347,7 @@ Notes:
       * @Julien TODO zip de quentin pigné
 * "missing semester" ?
 * Apprentissage théorique (en études ingé) versus apprentissage empirique de l'informatique (sur le terrain), en particulier du test
+* TODO @Julien bibliographie
 
 -v-
 
@@ -942,6 +940,7 @@ Notes:
 
 Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
+  * TODO: @Julien mettre en annexe
   * types de test
     * TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
       * 3 axes :
@@ -1062,7 +1061,6 @@ Notes:
 # Nos recommandations
 
 * TODO @jonathan d'autres à rajouter ?
-* TODO @julien sort par catégories + multi-pages
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
 * [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
 * [Dwayne Richard Hipp - How SQLite Is Tested](https://www.sqlite.org/testing.html) : un exemple de comment n'avoir quasi aucun bug pour un des logiciels les plus utilisé au monde
@@ -1071,7 +1069,6 @@ Notes:
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
-* [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : TODO @Julien
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 Notes:
@@ -1105,17 +1102,21 @@ Manquants :
 
 # Crédits photos
 
-Notes:
 * [mème de source inconnue, sur yaplakal.com](https://s00.yaplakal.com/pics/pics_preview/4/4/7/10845744.jpg)
 * [image de crète, sur Wikimedia](https://commons.wikimedia.org/wiki/File:Starorobocia%C5%84ski_Wierch_a3.jpg)
-* TODO later
+* [mèmes de "test en prod", via Google Images](https://www.google.com/search?udm=2&q=test+en+prod)
 
 ---
 
 # Remerciements
 
-Notes:
-* Damien Roulier, Eric Papazian, Mathieu Mattringe, Rachel Da Silva, Francky Flamant, Fanny Velsin, Victor Lambret
+* Damien Roulier
+* Eric Papazian
+* Mathieu Mattringe
+* Rachel Da Silva
+* Francky Flamant
+* Fanny Velsin
+* Victor Lambret
 
 ---
 
@@ -1123,7 +1124,7 @@ Notes:
 
 Notes:
 * TODO image
-* TODO lien vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
+* TODO lien + QRcode vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
 
 ---
 
@@ -1153,6 +1154,7 @@ Notes:
 * [Seb Rose - Making a meal of architectural alignment and the test-induced-design-damage fallacy](https://claysnow.co.uk/architectural-alignment-and-test-induced-design-damage-fallacy/) : une bonne leçon d'équilibre et de pragmatisme
 * [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
 * [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
+* [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : TODO @Julien
 
 ---
 
