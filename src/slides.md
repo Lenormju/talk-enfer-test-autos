@@ -627,21 +627,17 @@ Notes:
 
 -v-
 
-
 ## Investissement
 
-* Tamis successifs pour attraper les bugs : du besoin à la prod, et toutes les étapes intermédiaires
-
-* une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
-* il s'agit d'un second système, qui sert à stabiliser le premier
-  * il n'apporte pas de valeur en soi, mais aide le premier à continuer d'en apporter (comme la doc, la CI, le marketing, ...)
-  * il nécessite de l'investissement (temps, compétences, argent, ...)
-  * le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
-  * il est d'autant plus rentable qu'on l'utilise (enabler !)
-  * (il peut être une gêne si on préfère une extrême flexibilité : sécurité versus frein)
-  * il engendre des risques
-  * analyse coût-bénéfice, ROI (return on time invested)
-* exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
+* Une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre
+* Il s'agit d'un second système, qui sert à stabiliser le premier
+  * Il n'apporte pas de valeur directe au client, mais aide le premier à en apporter (comme la doc, la CI, le marketing...)
+  * Il engendre des risques
+* C'est un investissement (temps, compétences, argent, ...)
+  * Le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui
+  * Il est d'autant plus rentable qu'on l'utilise (enabler !)
+  * Analyse coût-bénéfice, ROI (return on time invested)
+* Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod
 
 -v-
 
@@ -676,6 +672,24 @@ Notes:
 
 ## Stratégie de test
 
+* Première question : *pourquoi* je teste ? Qu'est-que je veux obtenir ?
+* Exemple de raisons de tester :
+  * Garantir la qualité
+  * Eviter les régressions
+  * Valider les spécifications
+  * Se rassurer
+  * Apprendre à tester, essayer le TDD
+  * Diluer les responsabilités
+  * Cocher une case
+* Deuxième question : quelles sont mes contraintes et mes ressources ?
+* Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ?
+* Maintenant on peut définir quel code on va tester, et jusqu'où
+  * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs
+    * plein de petits tests de fonctions, quelques tests de l'ensemble
+    * du besoin à la prod, et toutes les étapes intermédiaires
+* Une stratégie à écrire !
+* Une stratégie à faire évoluer au fur et à mesure !
+
 Notes:
 * quoi pourquoi pour quoi comment qui quand ...
 * spécifications, Exigences et Requirements, business (value stream) et risques business, quadrants, matrice confiance versus risque, moyens (et toute la suite)
@@ -699,6 +713,8 @@ Notes:
 ## Renoncer
 
 > Choisir, c'est renoncer -- citation fausse d'André Gide
+
+* Impossible de tout tester (explosion combinatoire...)
 
 Notes:
 * renoncer à tout automatiser (quadrants, moyens insuffisants, ...), ROI
