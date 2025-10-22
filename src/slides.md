@@ -769,7 +769,18 @@ Notes:
 
 ## Scénarios
 
-* stuff
+* On sait pourquoi on teste, ce qu'on teste, et avec quel moyens. Quels tests alors ?
+
+* Test globaux
+  * Cas d'usage utilisateur
+  * Test end-to-end : test de l'ensemble du système, à partir de son interface utilisateur
+  * 😇 Assez court à écrire, test beaucoup de code
+  * 😈 Tend à être fragile, à ne tester que le chemin d'exécution attendu
+* Tests de function
+  * Appel une fonction/méthode et vérifie sa sortie
+  * Le plus souvent isolé du reste du système en coupant les effets de bords
+  * 😇 Spécifique, facile à garder en tête, indépendant
+  * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
 
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
