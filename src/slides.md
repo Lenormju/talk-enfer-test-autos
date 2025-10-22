@@ -18,9 +18,20 @@ Notes:
 
 -v-
 
-## Disclaimer
+## Merci aux sponsors
+
+TODO
+
+## Présentation
+
+Julien Lenormand 😇
+
+Jonathan Gaffiot 😈
+@ Kaizen Solutions
 
 Notes:
+* plutôt qu'un disclaimer, penser à expliciter qu'on a le choix entre :
+  écrire ses tests, ou tester manuellement, et bien souvent en prod
 * on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
 
 -v-
@@ -32,33 +43,42 @@ Notes:
 
 -v-
 
-## Présentation
 
-Julien Lenormand 😇
+## C'est quoi tester ?
 
-Jonathan Gaffiot 👹
-@ Kaizen Solutions
-
-Notes:
-* TODO :
-  * garder cette section ici ?
-
--v-
-
-## Tester ?
+* c'est toujours difficile (et chiant !) les définitions  <!-- .element: class="fragment" -->
+* tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier  <!-- .element: class="fragment" -->
+  * réponse attendue ?  <!-- .element: class="fragment" -->
+  * certain état ?  <!-- .element: class="fragment" -->
+  * quel stimulus ?  <!-- .element: class="fragment" -->
+  * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
 
 Notes:
 * c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
-* action, réaction, stimuli, SUT
+* action, réaction, stimuli, SUT, oracle
   * définiton test = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier
-* Qualité avec un grand Q : (d'après Rambo Python) fiabilité, maintenabilité, évolutivité, sécurité
-    * mentionner ISO-truc pour une autre définition (plus large)
+  * expliciter les pièges :
+    + réponse attendue ? oui mais quand effet de bord ? LLM ? résultat de simu ? (besoin d'un oracle)
+    + certain état ? c'est quoi les états de mon système ? comment je mets mon système dans un état particulier ?
+    + quel stimulus ? quelle réponse ? comment j'y accède ?
+    + et les effets de bords de mon système ? ses dépdendances à d'autres systèmes ?
+
+-v-
+
+## Pourquoi tester ?
+
+* Qualité avec un grand Q :  <!-- .element: class="fragment" -->
+    * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
+    * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
+* Faire du logiciel ce n'est pas si simple  <!-- .element: class="fragment" -->
 
 ---
 
 # 1. Pourquoi c'est important les tests autos ?
 
-il faut le rappeller !
+😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
+
+😈 qui veut mettre en prod 2 ans de code jamais testé ?
 
 Notes:
 * TODO :
@@ -69,29 +89,28 @@ Notes:
 
 ## Confiance
 
-* vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
-* vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
-* vérifier que tout fonctionne encore  <!-- .element: class="fragment" -->
-* mise en prod le vendredi ?  <!-- .element: class="fragment" -->
-* 😌  <!-- .element: class="fragment" -->
+* 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
+* 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
+* 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
+* 😇 mise en prod le vendredi !  <!-- .element: class="fragment" -->
 
 Notes:
 * sérénité
-* mise en prod le vendredi après-midi
-* confiance dans ce qui a changé, confiance dans ce qui n'a pas changé
 
 -v-
 
 ## Feedback rapide
 
-* 😕 bug trouvé lors de la PR  <!-- .element: class="fragment" -->
-* 😩 bug trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
-* 😢 bug trouvé en prod  <!-- .element: class="fragment" -->
+* UN BUG 😈 !  <!-- .element: class="fragment" -->
+  - 😐 trouvé lors de la PR  <!-- .element: class="fragment" -->
+  - 😩 trouvé lors des tests en pré-prod  <!-- .element: class="fragment" -->
+  - 😢 trouvé en prod  <!-- .element: class="fragment" -->
 
-.  <!-- .element: class="fragment" -->
-
-* facile à exécuter  <!-- .element: class="fragment" -->
-* indépendance, pas besoin de "QA"  <!-- .element: class="fragment" -->
+* Un feedback rapide 😇 <!-- .element: class="fragment" -->
+  - facile à exécuter  <!-- .element: class="fragment" -->
+  - résultat rapide <!-- .element: class="fragment" -->
+  - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
+  - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
 
 Notes:
 * ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
@@ -99,17 +118,21 @@ Notes:
 
 -v-
 
-## Qualité (fiabilité) du code
+## Fiabilité du code
 
-* le code, c'est compliqué : erreurs de design, dette technique, ...  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : chacun doit se familiariser longuement avec la codebase  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : il faut tout le temps le changer !  <!-- .element: class="fragment" -->
-* le code, c'est compliqué : ça casse tout le temps  <!-- .element: class="fragment" -->
-* les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
+* Le logiciel est une industrie particulière : complexité, fluidité, immatériel  <!-- .element: class="fragment" -->
+  + complexité => chaque ligne est une action, effets de bord, combinatoire  <!-- .element: class="fragment" -->
+  + immatériel => pas d'expérience immédiate, visuelle, du système  <!-- .element: class="fragment" -->
+  + fluidité => changements rapides et tout le temps  <!-- .element: class="fragment" -->
+* 😈 le code c'est trop dur pour vos petites cervelles d'humains !  <!-- .element: class="fragment" -->
+* 😇 les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
   * on peut refactorer ou faire évoluer le code en confiance  <!-- .element: class="fragment" -->
   * on a des preuves qu'il fonctionne correctement  <!-- .element: class="fragment" -->
   * d'autres personnes peuvent le modifier  <!-- .element: class="fragment" -->
-* les tests sont un ingrédient pour la scalabilité :  <!-- .element: class="fragment" -->
+
+-v-
+
+* les tests sont un ingrédient pour la stabilité :  <!-- .element: class="fragment" -->
   * dans le temps  <!-- .element: class="fragment" -->
   * à travers les technologies  <!-- .element: class="fragment" -->
   * malgré les évolutions  <!-- .element: class="fragment" -->
@@ -140,19 +163,17 @@ Notes:
 
 ## Éthique professionnelle
 
-* le code peut être une passion  <!-- .element: class="fragment" -->
-* ... et donc une torture !  <!-- .element: class="fragment" -->
+* le code peut être une passion 😇   <!-- .element: class="fragment" -->
+* ... et donc une torture ! 😈   <!-- .element: class="fragment" -->
 * responsabilité perso/pro/presta  <!-- .element: class="fragment" -->
 * "élever le niveau" - devise des crafteurs  <!-- .element: class="fragment" -->
 * une question de maturité pro ?  <!-- .element: class="fragment" -->
 
 Notes:
-* (cf Craft), déontologie
-* responsabilité en tant que dev, que Crafteur, que prestataire; que ...
+* cf Craft et déontologie
 * critère de validité de ce qui est livré ("si c'est pas testé, c'est réputé ne pas marcher")
 * pas obligé de faire comme les autres
 * livraison, recette
-* maturité professionnelle
 
 -v-
 
@@ -161,6 +182,7 @@ Notes:
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
 * Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : Google, Microsoft, Netflix, Apple le font !!!!!!!!  <!-- .element: class="fragment" -->
+  * et tous les projets libres qu'on utilise tous les jours !  <!-- .element: class="fragment" -->
 * se concentrer sur des tâches à forte valeur ajoutée  <!-- .element: class="fragment" -->
 * seul moyen de tenir la cadence  <!-- .element: class="fragment" -->
 
@@ -204,7 +226,22 @@ Notes:
 
 Notes:
 * métaphore du chemin de crête : facile de tomber
-* TODO @jonathan : si tu as une meilleure image que celle-ci, hésite pas
+* @Julien : une crête a 2 versants, ça donne l'image qu'on peut tomber de chaque côté.
+  Ici on peut surtout tomber d'un côté (code qui a bien grandi, et pas de test),
+  mais l'autre côté n'est pas symétrique (trop de tests, du temps perdu, surqualité ?).
+  Proposition de métaphore : tourner autour d'un trou noir. Tant que je fais l'effort,
+  je reste en orbite, si je me relâche, je spirale vers le bas, et il faut bcp de boulot
+  pour remonter.
+
+-v-
+
+## Pas le temps
+
+* Pas prévu dans le planning/sprint
+* Mon chef/Product truc me dit de faire des features
+* Deadline en vue
+* Jamais budgeté, jamais valorisé
+* Projet géré par le marketing sans aucune expérience de la technique
 
 -v-
 
@@ -212,6 +249,7 @@ Notes:
 
 Notes:
 * sauf pour les testeurs de métier, les moldus s'en passeront bien ?
+* et encore les testeurs apprennent pas les TU
 * pas de formation dans la plupart des cursus master, ou bien théorique ou très court
 * assez peu présent dans la littérature généraliste, malgré sa prévalence et importance (cf biblio)
 * pas un sujet "sexy" (formation continue, conférences, ...)
@@ -251,12 +289,12 @@ Notes:
         * test de performance et test de charge
         * test d'interface
         * test de sécurité.
-      * Cours de génie logiciel abordant notamment les cycles de développement : cela permet de situer correctement le test dans une activité de développement.  
-      * Bonnes connaissances en algorithmique et programmation : être capable d'analyser un programme, de l'exécuter symboliquement "à la main", fait partie des activités du testeur et est une compétence indispensable pour comprendre les techniques fondées sur l'analyse du code.  
+      * Cours de génie logiciel abordant notamment les cycles de développement : cela permet de situer correctement le test dans une activité de développement.
+      * Bonnes connaissances en algorithmique et programmation : être capable d'analyser un programme, de l'exécuter symboliquement "à la main", fait partie des activités du testeur et est une compétence indispensable pour comprendre les techniques fondées sur l'analyse du code.
       * Langages et automates : une partie du cours porte sur de modèles et en particulier des machines d'états finis exploitées pour engendrer des tests de conformité.
       * Bibliographie :
-        * Aditya P. Mathur:Foundations of Spftware Testing, Pearson 2008.  
-        * J-F. Pradat-Peyre, J. Printz: Pratique des tests logiciels, Dunod 2009.  
+        * Aditya P. Mathur:Foundations of Spftware Testing, Pearson 2008.
+        * J-F. Pradat-Peyre, J. Printz: Pratique des tests logiciels, Dunod 2009.
         * Myers, G.J. : The Art of Software Testing. Wiley 1979; réédité 2004.
     * le cours de dernière année
       * @Julien TODO zip de quentin pigné
@@ -475,7 +513,7 @@ Notes:
 * culture qualité, formation (cours, conférences, livres, exercices, katas, ...)
 * cf nos recos à la fin, expérience (empirisme)
 * compréhension du business et des stakeholders,
-* tournure d'esprit (cf joke "un testeur rentre dans un bar, il commande -1 bière, NaN bière, demande où sont les toilettes ..."), "vicieux" pour "casser le code" et non pas seulement montrer qu'il fonctionne 
+* tournure d'esprit (cf joke "un testeur rentre dans un bar, il commande -1 bière, NaN bière, demande où sont les toilettes ..."), "vicieux" pour "casser le code" et non pas seulement montrer qu'il fonctionne
 * exemple : SQLite testing, test code ratio, test harnesses, ... (+évolution dans le temps)
 * le code il faut le malmener
 * la qualité c'est un ensemble de tamis successifs : empilement de couches pour attraper les bugs, du besoin, design, archi, implem, test, validation, déploiement
@@ -550,7 +588,7 @@ Notes:
 * hybrid possible aussi (soit manuel assisté par autom, soit autom avec verif manuelle) : continuum Automatisé-automatisable-manuel
 * Sans jugement : un pas après l'autre, on hérite de codebases, on essaye de faire mieux
   * incrémental
-* tester ne prouve pas l'absence de bugs, mais en élimine certains  
+* tester ne prouve pas l'absence de bugs, mais en élimine certains
 * process avec des rendements décroissants, trouver le bon curseur, le bon équilibre
 * garder des tests qu'on apprécie : rapides (ou moins rapides en CI mais + couvrants), fiables, maintenables, estimer le ROI
 * OK de supprimer un test inutile
@@ -930,42 +968,20 @@ Notes:
 
 # 6. Nos recommandations
 
-Notes:
 * TODO @jonathan d'autres à rajouter ?
 * TODO @julien sort par catégories + multi-pages
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
 * [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
-* [Joel "on Software" Spolsky - Hard-assed Bug Fixin’](https://www.joelonsoftware.com/2001/07/31/hard-assed-bug-fixin/) : est-ce que tous les bugs devraient être corrigés ? ça dépend.
-* [Mathieu Eveillard - 50 shades of tests](https://www.mathieueveillard.com/blog/50-shades-of-tests) : des définitions plutôt claires pour différents types de test, leur positionnement sur 3 dimensions, au-delà de la pyramide de tests
-* [Marc Hage Chahine (La Taverne du Testeur) - Que doit-on attendre d’un testeur ?](https://latavernedutesteur.fr/2025/09/15/que-doit-on-attendre-dun-testeur/) : les différentes dimensions du métier de testeur
-* [Arnaud Lemaire - From code to consequences](https://www.youtube.com/watch?v=muRdH9u7gO4) : en quoi les "full cycle engineers" sont importants pour mener à bien des projets
-* [Colin Damon - Ma typologie de tests et leur équilibrage](https://www.linkedin.com/posts/colin-damon_mettre-en-place-une-strat%C3%A9gie-de-tests-qui-activity-7343525861444247552-6BJY) : un exemple de "pyramide" dans un contexte précis
 * [Dwayne Richard Hipp - How SQLite Is Tested](https://www.sqlite.org/testing.html) : un exemple de comment n'avoir quasi aucun bug pour un des logiciels les plus utilisé au monde
-* [Redowan Delowar - Test state, not interactions](http://rednafi.com/go/test-state-not-interactions/) : pourquoi les tests proposés par des LLMs ne sont pas nécessairement les bons, et comment faire mieux (par exemple privilégier les fakes aux mocks)
-* [Jeff Atwood (CodingHorror) - Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) : comment ne plus avoir besoin de se battre pour que la qualité ne dégringole pas ?
-* [Antoine Mazure - Tests pragmatiques : comment presque arrêter les tests automatisés ?](https://www.youtube.com/watch?app=desktop&v=ohV6GvCIeLY) : un exemple de tester la mauvaise chose, et de comment mieux tester avec pourtant moins de tests
-* [Jules Poissonnet et Antoine Caron - Tester c'est tricher)](https://www.youtube.com/watch?v=I_zNxGqRI3w) : une vision d'ensemble, claire et illustrée, de la démarche de test, du vocabulaire et des difficultés
-* [Christophe Bréheret-Girardin - Comment une architecture influence votre stratégie de test ?](https://m.youtube.com/watch?v=IeOa6XWxkxg)
-* [Ham Vocke - The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) : des exemples concrets dans un contexte clair de différents types de test, et des limitations de la pyramide de Mike Cohn
-* [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) : définitions claires de tous les "*test doubles*" (dummy, stub, fake, spy, mock) par Martin Fowler
-  * [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
-* [Anaël Lefebvre - Comment en finir avec la fragilité des tests unitaires](https://www.sqli.com/fr-fr/insights/comment-en-finir-avec-la-fragilite-des-tests-unitaires) : un contexte clair, une explication de FIRST, et une méthodo ("ZOMBIES") pour identifier les cas de test
-* [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selontleurs propriétés techniques
+* [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selon leurs propriétés techniques
 * [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html) : un ensemble de conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
-* [The Grug Brained Developer - Testing](https://grugbrain.dev/#grug-on-testing) : des conseils de programmation pertinents, mais rédigés par "Grug" qui a une capacité limitée, et qui le revendique (!)
-* [Qalisty et Anaïs Fournier - Comment s’en sortir lorsqu’on est 1 testeuse face à 25 développeurs ?](https://open.spotify.com/episode/1nwA9nLdezVk6mzWu39T7a) : des techniques concrètes pour mettre en place une culture qualité et une stratégie
-* [Victor Lambret - Le TDD sans commencer par les tests](https://www.youtube.com/watch?v=Ddarw3wUXQY) : TODO @julien mon avis
-* [Mike Wacker - Just Say No to More End-to-End Tests](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) : les tests unitaires seraient ceux qui compte le plus, du point de vue des utilisateurs (!)
-* [Simon Stewart - Test Sizes](https://testing.googleblog.com/2010/12/test-sizes.html) : caractérisation des tests (en un tableau), non pas en unitaires versus end-to-end, mais en small versus big, en fonction de leurs IO
-* [Igor Roztropiński - Unit, Integration, E2E, Contract, X tests: what should we focus on?](https://binaryigor.com/unit-integration-e2e-contract-x-tests-what-should-we-focus-on.html) : de l'intérêt de favoriser les tests d'intégration ("in-between", n'étant pas extrêmes), et les tests de contrat
-* [Kent C. Dodds - Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) : introduit la pyramide "trophy" (en incluant les tests statiques) pour des applis JS, avec surtout des tests d'intégration
-* [Seb Rose - Making a meal of architectural alignment and the test-induced-design-damage fallacy](https://claysnow.co.uk/architectural-alignment-and-test-induced-design-damage-fallacy/) : une bonne leçon d'équilibre et de pragmatisme
-* [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
-* [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
+
+Notes:
+* et + en annexe !
 
 ---
 
@@ -1014,6 +1030,35 @@ Notes:
 Notes:
 * TODO image
 * TODO lien vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
+
+---
+
+# Plus de recommandations !!
+
+* [Joel "on Software" Spolsky - Hard-assed Bug Fixin’](https://www.joelonsoftware.com/2001/07/31/hard-assed-bug-fixin/) : est-ce que tous les bugs devraient être corrigés ? ça dépend.
+* [Mathieu Eveillard - 50 shades of tests](https://www.mathieueveillard.com/blog/50-shades-of-tests) : des définitions plutôt claires pour différents types de test, leur positionnement sur 3 dimensions, au-delà de la pyramide de tests
+* [Marc Hage Chahine (La Taverne du Testeur) - Que doit-on attendre d’un testeur ?](https://latavernedutesteur.fr/2025/09/15/que-doit-on-attendre-dun-testeur/) : les différentes dimensions du métier de testeur
+* [Arnaud Lemaire - From code to consequences](https://www.youtube.com/watch?v=muRdH9u7gO4) : en quoi les "full cycle engineers" sont importants pour mener à bien des projets
+* [Colin Damon - Ma typologie de tests et leur équilibrage](https://www.linkedin.com/posts/colin-damon_mettre-en-place-une-strat%C3%A9gie-de-tests-qui-activity-7343525861444247552-6BJY) : un exemple de "pyramide" dans un contexte précis
+* [Redowan Delowar - Test state, not interactions](http://rednafi.com/go/test-state-not-interactions/) : pourquoi les tests proposés par des LLMs ne sont pas nécessairement les bons, et comment faire mieux (par exemple privilégier les fakes aux mocks)
+* [Jeff Atwood (CodingHorror) - Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) : comment ne plus avoir besoin de se battre pour que la qualité ne dégringole pas ?
+* [Antoine Mazure - Tests pragmatiques : comment presque arrêter les tests automatisés ?](https://www.youtube.com/watch?app=desktop&v=ohV6GvCIeLY) : un exemple de tester la mauvaise chose, et de comment mieux tester avec pourtant moins de tests
+* [Jules Poissonnet et Antoine Caron - Tester c'est tricher)](https://www.youtube.com/watch?v=I_zNxGqRI3w) : une vision d'ensemble, claire et illustrée, de la démarche de test, du vocabulaire et des difficultés
+* [Christophe Bréheret-Girardin - Comment une architecture influence votre stratégie de test ?](https://m.youtube.com/watch?v=IeOa6XWxkxg)
+* [Ham Vocke - The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) : des exemples concrets dans un contexte clair de différents types de test, et des limitations de la pyramide de Mike Cohn
+* [Martin Fowler - Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html) : définitions claires de tous les "*test doubles*" (dummy, stub, fake, spy, mock) par Martin Fowler
+  * [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
+* [Anaël Lefebvre - Comment en finir avec la fragilité des tests unitaires](https://www.sqli.com/fr-fr/insights/comment-en-finir-avec-la-fragilite-des-tests-unitaires) : un contexte clair, une explication de FIRST, et une méthodo ("ZOMBIES") pour identifier les cas de test
+* [The Grug Brained Developer - Testing](https://grugbrain.dev/#grug-on-testing) : des conseils de programmation pertinents, mais rédigés par "Grug" qui a une capacité limitée, et qui le revendique (!)
+* [Qalisty et Anaïs Fournier - Comment s’en sortir lorsqu’on est 1 testeuse face à 25 développeurs ?](https://open.spotify.com/episode/1nwA9nLdezVk6mzWu39T7a) : des techniques concrètes pour mettre en place une culture qualité et une stratégie
+* [Victor Lambret - Le TDD sans commencer par les tests](https://www.youtube.com/watch?v=Ddarw3wUXQY) : TODO @julien mon avis
+* [Mike Wacker - Just Say No to More End-to-End Tests](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) : les tests unitaires seraient ceux qui compte le plus, du point de vue des utilisateurs (!)
+* [Simon Stewart - Test Sizes](https://testing.googleblog.com/2010/12/test-sizes.html) : caractérisation des tests (en un tableau), non pas en unitaires versus end-to-end, mais en small versus big, en fonction de leurs IO
+* [Igor Roztropiński - Unit, Integration, E2E, Contract, X tests: what should we focus on?](https://binaryigor.com/unit-integration-e2e-contract-x-tests-what-should-we-focus-on.html) : de l'intérêt de favoriser les tests d'intégration ("in-between", n'étant pas extrêmes), et les tests de contrat
+* [Kent C. Dodds - Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) : introduit la pyramide "trophy" (en incluant les tests statiques) pour des applis JS, avec surtout des tests d'intégration
+* [Seb Rose - Making a meal of architectural alignment and the test-induced-design-damage fallacy](https://claysnow.co.uk/architectural-alignment-and-test-induced-design-damage-fallacy/) : une bonne leçon d'équilibre et de pragmatisme
+* [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
+* [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
 
 ---
 
