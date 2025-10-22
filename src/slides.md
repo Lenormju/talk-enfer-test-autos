@@ -4,9 +4,9 @@ Notes:
 * TODO :
   * exemples concrets tout du long
   * exemples de code/archi à la fin
-  * images
-  * FIXME: the slides should be vertical (cf mkslides_config.yml)
+  * ajouter des images
   * pimper la présentation avec un peu de CSS (cf le mkslides_config.yml)
+  * voir si on garde ou pas le chemin de crète
 
 ---
 
@@ -21,7 +21,7 @@ Notes:
 ## Merci aux sponsors
 
 - Kaizen Solutions
-- ?
+- TODO sponsors DevFest Toulouse
 
 -v-
 
@@ -134,7 +134,7 @@ Notes:
 
 ## Confiance et sérénité
 
-* les tests aident à résoudre ces problèmes :
+* les tests aident à résoudre ces problèmes :  <!-- .element: class="fragment" -->
   + 😇 vérifier que ce que j'ai changé fonctionne correctement  <!-- .element: class="fragment" -->
   + 😇 vérifier que ce que je n'ai pas changé continue de fonctionner  <!-- .element: class="fragment" -->
   + 😇 vérifier que l'ensemble fonctionne <!-- .element: class="fragment" -->
@@ -154,7 +154,7 @@ Notes:
 
 * le code peut être une passion 😇   <!-- .element: class="fragment" -->
 * ... et donc une torture ! 😈   <!-- .element: class="fragment" -->
-* livrer du "bon" code :
+* livrer du "bon" code :  <!-- .element: class="fragment" -->
   * responsabilité perso/pro  <!-- .element: class="fragment" -->
   * "élever le niveau" - devise des crafteurs  <!-- .element: class="fragment" -->
   * une question de maturité ?  <!-- .element: class="fragment" -->
@@ -187,8 +187,8 @@ Notes:
 
 ## Pourquoi c'est important les tests autos en particulier ?
 
-😇 Pour garder la maitrise de son code au fur et à mesure de son développement !
- * exécution automatique et systématique -> pas d'oubli ! pas de flemme !
+😇 Pour garder la maitrise de son code au fur et à mesure de son développement !  <!-- .element: class="fragment" -->
+ * exécution automatique et systématique -> pas d'oubli ! pas de flemme !  <!-- .element: class="fragment" -->
 
 -v-
 
@@ -227,7 +227,7 @@ Sondage : <!-- .element: class="fragment" -->
 
 😈 Qui veut mettre en prod 2 ans de code jamais testé ? <!-- .element: class="fragment" -->
 
-😈😈😈 Qui veut faire les tests de 2 ans code d'un coup ? 😈😈😈  <!-- .element: class="fragment" -->
+😈😈😈 Qui veut faire les tests de 2 ans de code d'un coup ? 😈😈😈  <!-- .element: class="fragment" -->
 
 -v-
 
@@ -276,19 +276,19 @@ Notes:
 
 ## Pas le temps
 
-* Pas prévu dans le planning/sprint
-* Mon chef/Product Truc me dit de faire des features
-* Deadline en vue
-* Jamais budgeté, jamais valorisé
-* Projet géré par le marketing sans aucune expérience de la technique
-* De toute façon y'aura bie une validation du produit final...
-
--v-
+* Pas prévu dans le planning/sprint  <!-- .element: class="fragment" -->
+* Mon chef/Product Truc me dit de faire des features  <!-- .element: class="fragment" -->
+* Deadline en vue  <!-- .element: class="fragment" -->
+* Jamais budgeté, jamais valorisé  <!-- .element: class="fragment" -->
+* Projet géré par le marketing sans aucune expérience de la technique  <!-- .element: class="fragment" -->
+* De toute façon y'aura bien une validation du produit final...  <!-- .element: class="fragment" -->
 
 Notes:
 * convaincre (le management et/ou les devs) que c'est utile, avant de se manger une mise-en-prod foirée
 * dépense versus économie
 * Résultats intangibles
+
+-v-
 
 ## Pas appris
 
@@ -407,7 +407,7 @@ Notes:
 
 ## Trop de tests, pas assez ?
 
-* 😈 Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)
+* 😈 Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)  <!-- .element: class="fragment" -->
   * Mais ils prennent des plombes ! 😈 <!-- .element: class="fragment" -->
   * Et ils cassent tout le temps ! 😈 <!-- .element: class="fragment" -->
   * Et je peux pas les automatiser, il faut que je rentre mes identifiants !  😈 <!-- .element: class="fragment" -->
@@ -895,6 +895,7 @@ quelques règles d'écriture pour les tests :
 * une seule action ou plusieurs actions ?
 * FIRST = Fast, Independant, Repeatable, Self-Checking, Timely
 * différencier "erreur" (pas de résultat de test) versus "échec" (résultat négatif)
+* attention au sens actual/expected selon le framework d'assertion
 
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
@@ -1070,6 +1071,7 @@ Notes:
 * [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
 * [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
+* [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : TODO @Julien
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
 
 Notes:
