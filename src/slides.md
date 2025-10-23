@@ -253,16 +253,6 @@ Notes:
 
 -v-
 
-## Chemin de crête
-
-![](./Starorobociański_Wierch_a3.jpg)
-
-Notes:
-* métaphore du chemin de crête : facile de tomber
-* TODO: garder cette métphore ?
-
--v-
-
 ## Pas le temps
 
 * Pas prévu dans le planning/sprint  <!-- .element: class="fragment" -->
@@ -460,10 +450,26 @@ Je peux pas tester...
 * c'est pas reproductible <!-- .element: class="fragment" -->
 
 Notes:
+* Ennemis :
+  * side-effects ("spooky action at a distance", "que fait cette méthode ?"),
+  * (global/static) state,
+  * IO,
+  * singletons,
+  * time,
+  * locale,
+  * network,
+  * files,
+  * env,
+  * GPU,
+  * unclear pre/post-conditions,
+  * non-determinism,
+  * (G)UI vs API,
+  * concurrency et threading,
+  * random (non-deterministic),
+  * complex outputs and high dimensionality
 * imitations techniques, matérielles, de coût, ... variabilité selon les environnements, pas de données de test (réalistes)
 * exemple board farm Schneider
 * exemple Windows 10 LTSC 2019 à Thales
-* Ennemis : side-effects ("spooky action at a distance", "que fait cette méthode ?"), (global/static) state, IO, singletons, time, locale, network, files, env, GPU, unclear pre/post-conditions, non-determinism, (G)UI vs API, concurrency et threading, random (non-deterministic), complex outputs and high dimensionality
 * différence entre "c'est compliqué de réaliser le test" (limitations tech) versus "c'est compliqué d'écrire le test" (iceberg, gorille)
 * exemple : code des bornes qui échoue le 29 Février
 * exemple : code du Edge qui est correct sur la timezone 6 mois par an
@@ -548,7 +554,7 @@ Notes:
 
 ---
 
-# Redescendre sur Terre
+# Tracer la Voie
 
 Comment faire pour bien tester auto ? Il faut s'aider !
 
@@ -565,8 +571,11 @@ Notes:
 
 ## Chemin de crête
 
+[](./Starorobociański_Wierch_a3.jpg)
+
 Notes:
-* TODO remettre la photo ?
+* métaphore du chemin de crête : facile de redescendre, difficile de rester au bon endroit
+* TODO: métaphore escalade ?
 * comment le naviguer ? comment être/devenir/rester rigoureux ?
   * discipline d'un moine bouddhiste, ou d'un garde de la reine d'Angleterre
 
@@ -994,6 +1003,7 @@ Notes:
 * le test est indispensable
 * le test n'est pas simple
 * il faut l'initier
+* construire du consensus
 * ingénierie
 
 Notes:
@@ -1011,7 +1021,7 @@ Notes:
 * [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html)
 * [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA)
 * [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries)
-* et + en annexe !
+* ... et 27 autres en annexe !
 
 Notes:
 * Avis de Julien, pourquoi recommander :
