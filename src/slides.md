@@ -24,8 +24,6 @@ Notes:
 
 ## Merci aux sponsors
 
-[Documentation](https://revealjs.com/backgrounds/)
-
 - TODO sponsors DevFest Toulouse
 
 Notes:
@@ -53,7 +51,6 @@ Notes:
 
 * Qui trouve que les tests c'est l'enfer ? <!-- .element: class="fragment" -->
 * Qui trouve que c'est le paradis ? <!-- .element: class="fragment" -->
-* Le monde des mortels entre les deux ? <!-- .element: class="fragment" -->
 
 ---
 
@@ -609,7 +606,7 @@ Notes:
   * implication de toutes les parties prenantes <!-- .element: class="fragment" -->
   * démarche commune et adoptée, pas juste avoir un casse-pied de service <!-- .element: class="fragment" -->
   * tournure d'esprit requise pour malmener le code ("vicieux") <!-- .element: class="fragment" -->
-    * "un testeur rentre dans un bar, il commande ..." <!-- .element: class="fragment" -->
+    * "un testeur rentre dans un bar, il commande ..."
   * humilité <!-- .element: class="fragment" -->
   * responsabilité individuelle + équipe <!-- .element: class="fragment" -->
 * Avoir de l'expérience est un vrai plus <!-- .element: class="fragment" -->
@@ -655,13 +652,14 @@ Notes:
 * Une suite de tests autos est un logiciel, dont le but est de vérifier le bon fonctionnement d'un autre <!-- .element: class="fragment" -->
 * Il s'agit d'un second système, qui sert à stabiliser le premier <!-- .element: class="fragment" -->
   * Il n'apporte pas de valeur directe au client, mais aide le premier à en apporter (comme la doc, la CI, le marketing...) <!-- .element: class="fragment" -->
-  * Il engendre des risques <!-- .element: class="fragment" -->
 * C'est un investissement <!-- .element: class="fragment" -->
-  * Il faut des ressources : temps, compétences, hardware, runner de CI, données... <!-- .element: class="fragment" -->
+  * Il faut des ressources : temps, compétences, hardware, runner de CI, données...
   * Le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui <!-- .element: class="fragment" -->
   * Il est d'autant plus rentable qu'on l'utilise (enabler !) <!-- .element: class="fragment" -->
   * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
 * Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod <!-- .element: class="fragment" -->
+
+-v-
 
 ![xkcd 974 "The General problem"](./the_general_problem.png) <!-- .element: class="fragment" -->
 
@@ -733,7 +731,7 @@ Notes:
 * Une stratégie à faire évoluer au fur et à mesure ! <!-- .element: class="fragment" -->
 * La suite de test est un sous-projet en soi, à considérer en tant que tel.<!-- .element: class="fragment" -->
 
-![](Perceval.jpg)
+![](Perceval.jpg)  <!-- .element: class="fragment" -->
 
 Notes:
 * quoi pourquoi pour quoi comment qui quand ...
@@ -807,11 +805,11 @@ Notes:
     * 😇 Spécifique, facile à garder en tête, indépendant
     * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
   * Tout le reste entre les deux ! <!-- .element: class="fragment" -->
-    * Une feature = un test ?  <!-- .element: class="fragment" -->
-    * Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
-        * Juste vérifier que le code compile et s'exécute ?
-        * Décliner les spec ? (top-down)
-        * Ajouter un test à chaque bug ? (bottom-up)
+  * Une feature = un test ?  <!-- .element: class="fragment" -->
+  * Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
+      * Juste vérifier que le code compile et s'exécute ?
+      * Décliner les spec ? (top-down)
+      * Ajouter un test à chaque bug ? (bottom-up)
 
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
@@ -836,7 +834,6 @@ Notes:
 * privilégier les fonctions "pures" (sans effets de bord) quand c'est possible   <!-- .element: class="fragment" -->
   * "functional core, imperative shell"
   * limiter la mutabilité
-  * tout l'inverse de la programmation orientée-objet ?
 * choisir quand limiter le couplage   <!-- .element: class="fragment" -->
   * inversion de dépendance
 
@@ -949,6 +946,11 @@ Notes:
 * Identifier les "pain points" et les résoudre 😇  <!-- .element: class="fragment" -->
   * ajouter un test doit être simple et rapide
   * lancer les tests doit être simple et rapide
+
+-v-
+
+## Accélérer ses tests ?
+
 * Tests trop lents (~15 min), alors refactorisation de la suite de test 😇 <!-- .element: class="fragment" -->
   * Parallélisme ?
   * Optimisation des tests lents ?
@@ -973,12 +975,11 @@ Notes:
 Quelques règles d'écriture pour les tests :
 
 * setup et teardown pour préparer/décomissionner les ressources nécessaires <!-- .element: class="fragment" -->
-* structure du test en Assert-Arrange-Act ou Given-When-Then <!-- .element: class="fragment" -->
+* structure du test en Arrange-Act-Assert ou Given-When-Then <!-- .element: class="fragment" -->
 * au moins un assert par test <!-- .element: class="fragment" -->
 * tenter de tester une seule chose par test plutôt qu'une suite de stimuli <!-- .element: class="fragment" -->
 * FIRST = Fast, Independant, Repeatable, Self-Checking, Timely <!-- .element: class="fragment" -->
 * différencier "erreur" (plantage, pas de résultat de test) versus "échec" (résultat négatif) <!-- .element: class="fragment" -->
-* attention au sens actual/expected selon le framework d'assertion <!-- .element: class="fragment" -->
 
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
@@ -996,8 +997,9 @@ Notes:
 Le minimum à maîtriser selon nous :
 
 * la mise en place de son environnement de test, en local et en CI <!-- .element: class="fragment" -->
-  * peut être très simple avec certains projet
+  * peut être très simple avec certains projet, moins pour d'autres
 * le framework de test standard de son langage <!-- .element: class="fragment" -->
+  * vous n'êtes pas seuls avec vos problèmes de tests 😇
 * les techniques d'isolation des effets de bord : fakes, mocks, TestContainers... <!-- .element: class="fragment" -->
 * les techniques de lisibilité et de factorisation des tests <!-- .element: class="fragment" -->
 
@@ -1014,12 +1016,12 @@ Notes:
 
 ## Techniques avancées
 
+* IA pour les tests <!-- .element: class="fragment" -->
 * couverture de test  <!-- .element: class="fragment" -->
 * snapshot testing  <!-- .element: class="fragment" -->
 * fuzzing  <!-- .element: class="fragment" -->
 * tests d'architecture  <!-- .element: class="fragment" -->
 * tests de performance et de charge  <!-- .element: class="fragment" -->
-* IA <!-- .element: class="fragment" -->
 * Page Object Model (POM) pour les tests d'UI  <!-- .element: class="fragment" -->
 * Accelerate <!-- .element: class="fragment" -->
 * ...   <!-- .element: class="fragment" -->
