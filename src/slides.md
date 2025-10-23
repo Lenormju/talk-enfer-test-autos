@@ -1,5 +1,9 @@
 # L'enfer des tests autos
 
+<section data-background-image="./enfer-paradis.jpg">
+</section>
+
+
 ![](./logo-kaizen.png)
 
 Notes:
