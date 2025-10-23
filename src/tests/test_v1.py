@@ -50,9 +50,14 @@ def test_process_daily_report_v1(
     # mock_database_connection.add_daily_number_of_dvds_available.assert_called_with(
     #     "2025-10-23", 17
     # )
-    actual_db_content = list_table_available_dvds(postgres_database_for_test.get_connection_url())
+    actual_db_content = list_table_available_dvds(
+        postgres_database_for_test.get_connection_url()
+    )
     assert actual_db_content == [
-        ("toto", "titi",)
+        (
+            "2025-10-23",
+            17,
+        )
     ]
 
     # TODO: test the MCU movie ?
@@ -90,13 +95,16 @@ def mock_database_connection(monkeypatch: _pytest.monkeypatch.MonkeyPatch) -> Mo
 
 
 @pytest.fixture
-def postgres_database_for_test(monkeypatch: _pytest.monkeypatch.MonkeyPatch) -> Iterator[PostgresContainer]:
-    db = PostgresContainer(image="docker.io/postgres:latest",
-                           port=5432,
-                           username="postgres",
-                           password="muchsecure",
-                           dbname="postgres",
-                           ).with_bind_ports(5432, 5432)
+def postgres_database_for_test(
+    monkeypatch: _pytest.monkeypatch.MonkeyPatch,
+) -> Iterator[PostgresContainer]:
+    db = PostgresContainer(
+        image="docker.io/postgres:latest",
+        port=5432,
+        username="postgres",
+        password="muchsecure",
+        dbname="postgres",
+    ).with_bind_ports(5432, 5432)
     db.start()
     # setup DB
     connection = psycopg2.connect(db.get_connection_url().replace("+psycopg2", ""))
@@ -111,7 +119,7 @@ def postgres_database_for_test(monkeypatch: _pytest.monkeypatch.MonkeyPatch) -> 
 
 
 def list_table_available_dvds(db_connection_url) -> list[tuple[Any, ...]]:
-    connection = psycopg2.connect(db_connection_url)
+    connection = psycopg2.connect(db_connection_url.replace("+psycopg2", ""))
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM daily_number_of_dvds")
     return cursor.fetchall()

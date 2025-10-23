@@ -21,10 +21,8 @@ def process_daily_report_v1() -> None:
     print(f"DVDs en stock : {number_of_dvds_available}")
 
     # write it in the monthly report file and database
-    month_date_str = today_date.strftime('%Y-%m')
-    monthly_report_filepath = (
-        reports_dirpath / f"{month_date_str}_monthly.txt"
-    )
+    month_date_str = today_date.strftime("%Y-%m")
+    monthly_report_filepath = reports_dirpath / f"{month_date_str}_monthly.txt"
     with open(monthly_report_filepath, "a") as monthly_report_file:  # append!
         monthly_report_file.write(
             f"{today_date.strftime('%m-%d')}: {number_of_dvds_available}\n"
