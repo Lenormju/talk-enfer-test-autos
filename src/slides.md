@@ -1,5 +1,7 @@
 # L'enfer des tests autos
 
+![](./logo-kaizen.png)
+
 Notes:
 * TODO :
   * exemples/anecdotes concrets tout du long
@@ -16,7 +18,6 @@ Notes:
 
 ## Merci aux sponsors
 
-- Kaizen Solutions
 - TODO sponsors DevFest Toulouse
 
 Notes:
@@ -30,6 +31,8 @@ Julien Lenormand 😇
 
 Jonathan Gaffiot 😈
 @ Kaizen Solutions
+
+![](./logo-kaizen.png)
 
 Notes:
 * on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
@@ -346,7 +349,7 @@ Notes:
   * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? <!-- .element: class="fragment" -->
   * Plus de pyramides de tests qu'en Egypte ! <!-- .element: class="fragment" -->
   * Quel métier ? QA, testeur, dev, IVVQ, quality manager ? <!-- .element: class="fragment" -->
-* Faut en parler ensemble pour se mettre d'accord ! 😇 
+* Faut en parler ensemble pour se mettre d'accord ! 😇  <!-- .element: class="fragment" -->
 
 Notes:
 * TODO: ajouter des images de pyramides !
@@ -549,10 +552,10 @@ Trop difficile de savoir quoi faire, comment faire, de le faire, à exécuter, �
 
 On test en prod alors ???  <!-- .element: class="fragment" -->
 
+![](./test-in-prod5.jpeg)  <!-- .element: class="fragment stacked" -->
+![](./test-in-prod2.jpeg)  <!-- .element: class="fragment stacked" -->
 ![](./test-in-prod7.jpeg)  <!-- .element: class="fragment stacked" -->
 ![](./test-in-prod.png)  <!-- .element: class="fragment stacked" -->
-![](./test-in-prod2.jpeg)  <!-- .element: class="fragment stacked" -->
-![](./test-in-prod5.jpeg)  <!-- .element: class="fragment stacked" -->
 ![](./test-in-prod6.jpeg)  <!-- .element: class="fragment stacked" -->
 ![](./test-in-prod3.jpeg)  <!-- .element: class="fragment stacked" -->
 ![](./test-in-prod4.jpeg)  <!-- .element: class="fragment stacked" -->
@@ -565,7 +568,7 @@ Notes:
 
 ---
 
-# Tracer la Voie
+# Trouver la Voie
 
 Comment faire pour bien tester auto ? Il faut s'aider !
 
@@ -609,9 +612,9 @@ Notes:
 
 Petit florilège :
 
-> Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités  <!-- .element: class="fragment" -->
+> Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités <!-- .element: class="fragment" -->
 
-> you get paid for "software", not "maintainable software" -- joncroks, https;//news.ycombinator.com/item?id=13130991  <!-- .element: class="fragment" -->
+> you get paid for "software", not "maintainable software" -- joncroks sur news.ycombinator.com <!-- .element: class="fragment" -->
 
 > Move fast and break things -- Facebook (jusqu'en 2014)  <!-- .element: class="fragment" -->
 
@@ -654,6 +657,8 @@ Notes:
   * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
 * Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod <!-- .element: class="fragment" -->
 
+![xkcd 974 "The General problem"](./the_general_problem.png)
+
 Notes:
 * Pas de spec ...
 * Pas le temps ...
@@ -668,9 +673,7 @@ Notes:
 
 -v-
 
-![xkcd 974 "The General problem"](./the_general_problem.png)  <!-- .element: class="fragment" -->
-
-> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.  <!-- .element: class="fragment" -->
+> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
 
 ![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)  <!-- .element: class="fragment" -->
 
@@ -710,9 +713,11 @@ Notes:
   * Cocher une case <!-- .element: class="fragment" -->
 * Deuxième question : quelles sont mes contraintes et mes ressources ? <!-- .element: class="fragment" -->
 * Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ? <!-- .element: class="fragment" -->
-* Quatrième question : dans mon périmètre, comment puis-je le découper ?  <!-- .element: class="fragment" -->
+* Quatrième question : dans mon périmètre, comment puis-je le découper ? <!-- .element: class="fragment" -->
 
 -v-
+
+## Stratégie de test 2
 
 * Maintenant on peut définir quel code on va tester, et jusqu'où <!-- .element: class="fragment" -->
   * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs  <!-- .element: class="fragment" -->
@@ -720,6 +725,9 @@ Notes:
     * du besoin à la prod, et toutes les étapes intermédiaires  <!-- .element: class="fragment" -->
 * Une stratégie à écrire ! <!-- .element: class="fragment" -->
 * Une stratégie à faire évoluer au fur et à mesure ! <!-- .element: class="fragment" -->
+* La suite de test est un sous-projet en soi, à considérer en tant que tel.<!-- .element: class="fragment" -->
+
+![](Perceval.jpg)
 
 Notes:
 * quoi pourquoi pour quoi comment qui quand ...
@@ -749,11 +757,12 @@ Notes:
   * Impossible de tester toutes les entrées possibles <!-- .element: class="fragment" -->
   * Impossible de tester tous les chemins d'exécution   <!-- .element: class="fragment" -->
   * Pas forcément pertinent de viser les 100% de couverture <!-- .element: class="fragment" -->
-* Pas toujours pertinent d'automatiser : trop compliqué, trop cher... <!-- .element: class="fragment" -->
-  * Il faut alors prévoir une procédure de tests manuels ! <!-- .element: class="fragment" -->
+  * Pas toujours pertinent d'automatiser : trop compliqué, trop cher... <!-- .element: class="fragment" -->
+    * Il faut alors prévoir une procédure de tests manuels !
 * Mettre les efforts sur les parties critiques <!-- .element: class="fragment" -->
 * Tenir compte du retour d'expérience (qu'est-ce qui a buggué méchamment ?) <!-- .element: class="fragment" -->
 * On peut supprimer des tests : pas fiables, trop lents, redondants... <!-- .element: class="fragment" -->
+* On doit refactorer ses tests, leur faire suivre la croissance du logiciel <!-- .element: class="fragment" -->
 
 Notes:
 * renoncer à tout automatiser (quadrants, moyens insuffisants, ...), ROI
@@ -780,17 +789,23 @@ Notes:
 ## Scénarios
 
 * On sait pourquoi on teste, ce qu'on teste, et avec quel moyens. Quels tests alors ?
-
-* Test globaux
-  * Cas d'usage utilisateur
-  * Test end-to-end : test de l'ensemble du système, à partir de son interface utilisateur
-  * 😇 Assez court à écrire, test beaucoup de code
-  * 😈 Tend à être fragile, à ne tester que le chemin d'exécution attendu
-* Tests de function
-  * Appel une fonction/méthode et vérifie sa sortie
-  * Le plus souvent isolé du reste du système en coupant les effets de bords
-  * 😇 Spécifique, facile à garder en tête, indépendant
-  * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
+  * Test globaux <!-- .element: class="fragment" -->
+    * Exemple : Cas d'usage utilisateur, test end-to-end
+    * Test de l'ensemble du système, à partir de son interface utilisateur
+    * 😇 Assez court à écrire, test beaucoup de code d'un coup
+    * 😈 Tend à être fragile, à ne tester que le chemin d'exécution attendu
+  * Tests de function <!-- .element: class="fragment" -->
+    * Appel une fonction/méthode et vérifie sa sortie
+    * Le plus souvent isolé du reste du système en coupant les effets de bords
+      * Idéal pour les fonctions sans effet de bord (maths...)
+    * 😇 Spécifique, facile à garder en tête, indépendant
+    * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
+  * Tout le reste entre les deux ! <!-- .element: class="fragment" -->
+    * Une feature = un test ?  <!-- .element: class="fragment" -->
+    * Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
+        * Juste vérifier que le code compile et s'exécute ?
+        * Décliner les spec ? (top-down)
+        * Ajouter un test à chaque bug ? (bottom-up)
 
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
@@ -808,16 +823,15 @@ Notes:
 
 ## Architecture testable
 
-* si ce n'est pas un objectif, alors ce sera négligé
-* si le code n'est pas facilement testable, alors les tests seront difficiles
-
-* bien définir les interfaces et contrat (cf juste après)
-* identifier les "seams" (couture, lignes de faille, ...)
-* privilégier les fonctions "pures" (sans effets de bord) quand c'est possible
+* si ce n'est pas un objectif, alors ce sera négligé 
+* si le code n'est pas facilement testable, alors les tests seront difficiles   <!-- .element: class="fragment" -->
+* bien définir les interfaces et contrat (cf juste après)   <!-- .element: class="fragment" -->
+* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
+* privilégier les fonctions "pures" (sans effets de bord) quand c'est possible   <!-- .element: class="fragment" -->
   * "functional core, imperative shell"
   * limiter la mutabilité
   * tout l'inverse de la programmation orientée-objet ?
-* choisir quand limiter le couplage
+* choisir quand limiter le couplage   <!-- .element: class="fragment" -->
   * inversion de dépendance
 
 Notes:
@@ -847,16 +861,16 @@ Notes:
 > good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
 > -- grugbrain.dev
 
-* interface = surface de contact entre deux systèmes
+* interface = surface de contact entre deux systèmes <!-- .element: class="fragment" -->
   * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
-* interface = abstraction
-* tout est une API
-* surface large = trop de choses à tester
+* interface = abstraction <!-- .element: class="fragment" -->
+* tout est une API <!-- .element: class="fragment" -->
+* surface large = trop de choses à tester <!-- .element: class="fragment" -->
   * garder le minimum (SRP)
   * (complique le refactoring)
   * la profondeur c'est OK
-* tester l'interface, pas l'implémentation
-  * contravariance des tests (refactoring !)
+* tester l'interface, pas l'implémentation <!-- .element: class="fragment" -->
+  * contravariance des tests (refactoring !) 
 
 Notes:
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
@@ -882,25 +896,24 @@ Notes:
 
 * les tests sont les premiers utilisateurs de notre code
   * du code peu testable se voit immédiatement ! et ça se propage !
-* A la fin du dev, il est parfois très tard pour corriger le tir : Shift Left
+* A la fin du dev, il est parfois trop TARD pour corriger le tir : Shift Left <!-- .element: class="fragment" -->
   * il fallait le prendre en compte lors de l'implémentation, du design, du poker, de la story ...
-* A la fin du dev, il est parfois trop tôt pour corriger le tir : Shift Right
+* A la fin du dev, il est parfois trop TOT pour corriger le tir : Shift Right <!-- .element: class="fragment" -->
   * ça part en prod en on surveille (feature toggle, monitoring, metrics)
   * (beaucoup plus sérieux que dire "je teste en prod")
-* le test est une considération tout du long du process : TestOps, Full Cycle
-  * éviter la loi de Conway : les testeurs testent, les autres s'en fichent (cf Culture)
+* le test est une considération tout du long du process : TestOps, Full Cycle <!-- .element: class="fragment" -->
+  * éviter la loi de Conway : les testeurs testent, les autres s'en fichent
+* le bon test : il ne passe tout le temps ni n'échoue tout le temps, il échoue pour les bonnes raisons  <!-- .element: class="fragment" -->
+  * le bon chasseur ...
 
--v-
 
+
+Notes:
 * un test qui pète, c'est une bonne nouvelle : un bug de moins en prod !
-* les bugs ne sont pas que dans le code, mais aussi dans la code review, la spec, le process, les communications ...
+* les bugs viennent aussi de la code review, la spec, le process, les communications...
 * les bugs ne sont pas que des erreurs mais aussi des occasions d'améliorer
   * (beaucoup plus sérieux que dire "c'est pas un bug mais une feature")
 * un signal (au sens de la "théorie de l'information")
-* le bon test : il ne passe tout le temps ni n'échoue tout le temps, il échoue pour les bonnes raisons
-  * le bon chasseur ...
-
-Notes:
 * fast feedback + CI/CD + DevOps (monitoring, observability), frequent deployment, Monitoring, debuggability (shift right)
 * Feedback lors du dev, test, code review, design, recette, bugs en prod : tout renseigne sur ce qui mérite d'être testé et comment (shift left)
 * tester en prod avec le devops : canary, green-blue, ...
@@ -916,30 +929,31 @@ Notes:
 
 ## Rester fluide
 
-Pente glissante de la qualité :
-* Si les tests sont difficiles à lancer, ils ne le seront pas souvent, de moins en moins
-* Si les résultats des tests sont peu fiables/lisibles, ils ne seront pas beaucoup regardés, de moins en moins
-* Si les tests sont lents à s'exécuter, les tests rajoutés seront lents aussi, de plus en plus
-
 > Docteur, quand j'appuie là, j'ai mal !
 > Alors n'appuyez pas là.
 > -- blague
 
--v-
-
 > If it hurts, do it more often.
 > -- core XP principle
 
-Identifier les "pain points" et les résoudre :
-* ajouter un test doit être simple et rapide
-* lancer les tests doit être simple et rapide
-
-Corolaire : éviter (ant que possible)
-
-* les micro-services
-* les submodules
-* les tests dans un repo à part
-* ...
+* Pente glissante de la qualité 😈 <!-- .element: class="fragment" -->
+  * Si les tests sont difficiles à lancer, ils le seront de moins en moins  <!-- .element: class="fragment" -->
+  * Si les tests ne sont pas fiables, ils seront de moins en moins regardés  <!-- .element: class="fragment" --> 
+  * Si les tests sont lents, la suite de test sera de plus en plus lente <!-- .element: class="fragment" -->
+* Identifier les "pain points" et les résoudre 😇  <!-- .element: class="fragment" -->
+  * ajouter un test doit être simple et rapide
+  * lancer les tests doit être simple et rapide
+* Tests trop lents (~15 min), alors refactorisation de la suite de test 😇 <!-- .element: class="fragment" -->
+  * Parallélisme ?
+  * Optimisation des tests lents ?
+  * Séparation en 2 suites, une rapide et une complète ?
+  * Framework de test plus évolué ?
+  * Lancement sélectif des tests selon les fichiers modifiés ?
+* Corollaire : éviter (autant que possible) 😈  <!-- .element: class="fragment" -->
+  * les micro-services
+  * les submodules
+  * les tests dans un repo à part
+  * ...
 
 Notes:
 * ne pas être capable de réaliser les tests rapidement diminue l'itérativité, la qualité, l'agréabilité, ... la probabilité qu'ils soient écrit tout court
@@ -950,15 +964,15 @@ Notes:
 
 ## Ecriture
 
-quelques règles d'écriture pour les tests :
+Quelques règles d'écriture pour les tests :
 
-* setup et teardown pour préparer/décomissionner les ressources nécessaires
-* structure du test en Assert-Arrange-Act (ou Given-When-Then)
-* au moins un assert (ou composite)
-* une seule action ou plusieurs actions ?
-* FIRST = Fast, Independant, Repeatable, Self-Checking, Timely
-* différencier "erreur" (pas de résultat de test) versus "échec" (résultat négatif)
-* attention au sens actual/expected selon le framework d'assertion
+* setup et teardown pour préparer/décomissionner les ressources nécessaires <!-- .element: class="fragment" -->
+* structure du test en Assert-Arrange-Act ou Given-When-Then <!-- .element: class="fragment" -->
+* au moins un assert par test <!-- .element: class="fragment" -->
+* tenter de tester une seule chose par test plutôt qu'une suite de stimuli <!-- .element: class="fragment" -->
+* FIRST = Fast, Independant, Repeatable, Self-Checking, Timely <!-- .element: class="fragment" -->
+* différencier "erreur" (plantage, pas de résultat de test) versus "échec" (résultat négatif) <!-- .element: class="fragment" -->
+* attention au sens actual/expected selon le framework d'assertion <!-- .element: class="fragment" -->
 
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
@@ -975,10 +989,11 @@ Notes:
 
 Le minimum à maîtriser selon nous :
 
-* la mise en place de son environnement de test, en local et en CI
-* le framework de test standard de son langage
-* les techniques d'isolation des effets de bord : fakes, mocks, TestContainers...
-* les techniques de lisibilité et de factorisation des tests
+* la mise en place de son environnement de test, en local et en CI <!-- .element: class="fragment" -->
+  * peut être très simple avec certains projet
+* le framework de test standard de son langage <!-- .element: class="fragment" -->
+* les techniques d'isolation des effets de bord : fakes, mocks, TestContainers... <!-- .element: class="fragment" -->
+* les techniques de lisibilité et de factorisation des tests <!-- .element: class="fragment" -->
 
 Notes:
 * ce qu'on considère le minimum à maîtriser pour tester
@@ -993,16 +1008,20 @@ Notes:
 
 ## Techniques avancées
 
-* couverture de test
-* snapshot testing
-* fuzzing
-* tests d'architecture
-* tests de performance et de charge
-* IA
-* Page Object Model (POM) pour les tests d'UI
-* Accelerate
-* ...
-* juste le sommet de l'iceberg (le reste en annexe et dans les sources des slides)
+* couverture de test  <!-- .element: class="fragment" -->
+* snapshot testing  <!-- .element: class="fragment" -->
+* fuzzing  <!-- .element: class="fragment" -->
+* tests d'architecture  <!-- .element: class="fragment" -->
+* tests de performance et de charge  <!-- .element: class="fragment" -->
+* IA <!-- .element: class="fragment" -->
+* Page Object Model (POM) pour les tests d'UI  <!-- .element: class="fragment" -->
+* Accelerate <!-- .element: class="fragment" -->
+* ...   <!-- .element: class="fragment" -->
+
+Juste le sommet de l'iceberg ! <!-- .element: class="fragment" -->
+
+
+(le reste en annexe et dans les sources des slides)  <!-- .element: class="fragment" -->
 
 Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
@@ -1011,11 +1030,10 @@ Notes:
 
 # Conclusion
 
-* le test est indispensable
-* le test n'est pas simple
-* il faut l'initier
-* construire du consensus
-* ingénierie
+* Le test est indispensable, l'automatisation (partielle) aussi
+* Le test n'est pas simple, il faut l'apprendre et acquérir de l'expertise
+* Il faut l'initier, construire du consensus quand on n'est que dev
+* Le test fait partie intégrante de l'ingénierie logicielle
 
 Notes:
 * expertise indispensable, il faut s'y mettre, dans un environnement semi-hostile (vocab, équipe, rythme, outillage, ...) -> CI, run local. C'est une partie de l'ingénierie
