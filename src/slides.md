@@ -2,7 +2,7 @@
 
 Notes:
 * TODO :
-  * exemples concrets tout du long
+  * exemples/anecdotes concrets tout du long
   * exemples de code/archi à la fin
   * ajouter des images
   * pimper la présentation avec un peu de CSS (cf le mkslides_config.yml)
@@ -11,10 +11,6 @@ Notes:
 ---
 
 # Introduction
-
-Notes:
-* TODO :
-  * illustration de chapitre ?
 
 -v-
 
@@ -48,16 +44,11 @@ Notes:
 * Qui trouve que c'est le paradis ? <!-- .element: class="fragment" -->
 * Le monde des mortels entre les deux ? <!-- .element: class="fragment" -->
 
-
 ---
 
 # Tester c'est le Bien
 
 😇 😇 😇
-
-Notes:
-* TODO :
-  * illustration de chapitre ?
 
 -v-
 
@@ -181,10 +172,10 @@ Notes:
 
 Notes:
 * Accelerate
-* TODO autres preuves d'efficacité ? (cf scientific proofs)
+* autres preuves d'efficacité ? (cf scientific proofs)
 * se concentrer sur des activités à forte valeur ajoutée, par rapport à répéter des tests
 * Seul moyen de tenir la cadence
-* TODO: est-ce qu'il est vrai que les bugs coûtent + cher à corriger s'ils sont découverts plus tard ? (preuves !!)
+* est-ce qu'il est vrai que les bugs coûtent + cher à corriger s'ils sont découverts plus tard ? (preuves !!)
 
 -v-
 
@@ -246,7 +237,7 @@ Notes:
 * une fois qu'on s'est dit ça, ça paraît vachement bien, donc y'a aucune raison de pas en faire
 * meme avec l'image recto/verso, ville en feu, bébé zombie
   * "Kid Thrown In The Air Meme: How Dad Sees It Vs How Mom Sees It" cf https://i.imgur.com/qL915f0.jpeg
-* Stop au masochisme ! (TODO: autre section ?)
+* Stop au masochisme !
 * transition vers la partie suivante
 
 ---
@@ -345,10 +336,10 @@ Notes:
         * J-F. Pradat-Peyre, J. Printz: Pratique des tests logiciels, Dunod 2009.
         * Myers, G.J. : The Art of Software Testing. Wiley 1979; réédité 2004.
     * le cours de dernière année
-      * @Julien TODO zip de quentin pigné
+      * zip de quentin pigné
 * "missing semester" ?
 * Apprentissage théorique (en études ingé) versus apprentissage empirique de l'informatique (sur le terrain), en particulier du test
-* TODO @Julien bibliographie
+* cf analyse de la ibliographie
 
 -v-
 
@@ -362,6 +353,7 @@ Notes:
 * Faut en parler ensemble pour se mettre d'accord !
 
 Notes:
+* TODO: ajouter des images de pyramides !
 * personne n'est d'accord sur rien : 47 pyramides différentes, le vocabulaire du test,~~les perspectives tech~~, les rôles, les niveaux de test
 * lister et illustrer avec différents types de pyramides
     * blague illuminatis (pyramide)
@@ -384,7 +376,7 @@ Notes:
 * essayons de poser une définition, dans notre contexte, des mots que nous employons
     * différences entre ISTQB et CFTL, cf mon stage Sogeti
 * tous les différents types de test : carac, fonc, integ, unit, acceptance, user-testing, accessibility, composant-unitaire versus composant-UI, e2e-stack ou e2e-scénario...
-    * TODO more
+    * faire une liste exhaustive des noms ?
     * charge : soak, breakpoint, ... (cf doc de k6 avec de jolis graphiques)
         * K6 typologie : breakpoint, soak, stress, load, ...
     * cf ISO 15010
@@ -505,6 +497,7 @@ Notes:
 -v-
 
 ## L'enfer !
+
 <style>
   /* Définition de la classe pour empiler les images */
   .stacked {
@@ -561,10 +554,7 @@ Comment faire pour bien tester auto ? Il faut s'aider !
 
 Notes:
 * TODO:
-  * orienté solution cf partie précédente orienté problème ?
-  * le formuler de façon à répondre au chemin de crête
-    * osef ?
-  * @julien à chaque section mettre un exemple !!!
+  * @julien à chaque section mettre un exemple + anecdote !!!
 * TODO : exemples de test
   * fonction pure (mais avec de la complexité interne), quelques cas d'erreur prévus -> tests fonc, table, edge cases, fuzz, property-based
   * fonction qui lit un fichier
@@ -599,9 +589,9 @@ Notes:
 
 Petit florilège :
 
-> Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités
+> Le test n'apporte pas de valeur (argent) par rapport aux fonctionnalités  <!-- .element: class="fragment" -->
 
-> you get paid for "software", not "maintainable software" -- joncroks, https://news.ycombinator.com/item?id=13130991  <!-- .element: class="fragment" -->
+> you get paid for "software", not "maintainable software" -- joncroks, https;//news.ycombinator.com/item?id=13130991  <!-- .element: class="fragment" -->
 
 > Move fast and break things -- Facebook (jusqu'en 2014)  <!-- .element: class="fragment" -->
 
@@ -658,11 +648,11 @@ Notes:
 
 -v-
 
-![xkcd 974 "The General problem"](./the_general_problem.png)
+![xkcd 974 "The General problem"](./the_general_problem.png)  <!-- .element: class="fragment" -->
 
-> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
+> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.  <!-- .element: class="fragment" -->
 
-![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)
+![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)  <!-- .element: class="fragment" -->
 
 Notes:
 * investissement dans un second logiciel pour mieux produire le premier
@@ -689,7 +679,7 @@ Notes:
 
 ## Stratégie de test
 
-* Première question : *pourquoi* je teste ? Qu'est-que je veux obtenir ?
+* Première question : *pourquoi* je teste ? Qu'est-que je veux obtenir ?  <!-- .element: class="fragment" -->
 * Exemple de raisons de tester : <!-- .element: class="fragment" -->
   * Garantir la qualité <!-- .element: class="fragment" -->
   * Eviter les régressions <!-- .element: class="fragment" -->
@@ -700,14 +690,14 @@ Notes:
   * Cocher une case <!-- .element: class="fragment" -->
 * Deuxième question : quelles sont mes contraintes et mes ressources ? <!-- .element: class="fragment" -->
 * Troisième question : quel est mon périmètre ? Qu'est-ce qui dépend de moi ou pas ? <!-- .element: class="fragment" -->
-* Quatrième question : dans mon périmètre, comment puis-je le découper ?
+* Quatrième question : dans mon périmètre, comment puis-je le découper ?  <!-- .element: class="fragment" -->
 
 -v-
 
 * Maintenant on peut définir quel code on va tester, et jusqu'où <!-- .element: class="fragment" -->
-  * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs
-    * plein de petits tests de fonctions, quelques tests de l'ensemble
-    * du besoin à la prod, et toutes les étapes intermédiaires
+  * Souvent on tombe sur une pyramide, des tamis successifs pour attraper les bugs  <!-- .element: class="fragment" -->
+    * plein de petits tests de fonctions, quelques tests de l'ensemble  <!-- .element: class="fragment" -->
+    * du besoin à la prod, et toutes les étapes intermédiaires  <!-- .element: class="fragment" -->
 * Une stratégie à écrire ! <!-- .element: class="fragment" -->
 * Une stratégie à faire évoluer au fur et à mesure ! <!-- .element: class="fragment" -->
 
@@ -849,7 +839,6 @@ Notes:
   * contravariance des tests (refactoring !)
 
 Notes:
-* TODO: sous-partie de l'architecture testable ?
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
 * Tester aux frontières d'une interface, que ce soit une méthode privée, publique, classe, module, programme, sous-système, système, sur-systeme
 * facile pour des modules narrow-interface mais deep, impossible pour des hubs
@@ -993,123 +982,19 @@ Notes:
 * Page Object Model (POM) pour les tests d'UI
 * Accelerate
 * ...
-* juste le sommet de l'iceberg (le reste dans les sources)
+* juste le sommet de l'iceberg (le reste en annexe et dans les sources des slides)
 
 Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
-  * TODO: @Julien mettre en annexe
-  * types de test
-    * TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
-      * 3 axes :
-        * vérification de la valeur de retour
-        * vérification de l'état
-        * vérification de la collaboration
-    * ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
-    * Bdd mindset versus bdd outil
-    * snapshot/golden-master/approval
-      * normatif versus descriptif
-      * Approval Testing == Snapshot Testing == Golden Master ?
-    * en prod : canary release, alpha testing, beta testing, blue-green, ...
-      * Field testing (schneider)
-      * user acceptance
-    * security testing
-      * exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners
-    * smoke test / sanity test
-    * test de perf
-      * rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario
-      * typologie selon https://grafana.com/load-testing/types-of-load-testing/ : smoke, average load, stress, soak, breakpoint, spike, ...
-    * full simulation (à la Matrix)
-      * [What's the big deal about Deterministic Simulation Testing?](https://notes.eatonphil.com/2024-08-20-deterministic-simulation-testing.html)
-      * [Pierre Zemb : Et si on faisait du simulation-driven development ?](https://www.youtube.com/watch?v=12LO_l90vDk)
-    * contract testing
-      * Test d'interface d'une third-party (comportement fidèle aux attentes, rupture d'API, ...), un d'un composant interne à un autre
-    * property-based testing + fuzzing
-      * property vs fuzzing (cf [article sur la différence](https://www.tedinski.com/2018/12/11/fuzzing-and-property-testing.html))
-      * oracle parfois difficile à obtenir, parfois évident
-      * monkey testing (des inputs au hasard, le test n'est pas structuré, aucun scénario)
-    * tests de maintenabilité ISO 25010 (= modularité + réutilisabilité + analysabilité + modifiabilité + testabilité), cf https://latavernedutesteur.fr/2018/11/19/types-de-tests-iso-25-010-les-tests-de-maintenabilite-7-8/
-    * test d'accessibilité
-    * Formal methods, preuves
-    * [ISO 25010](https://iso25000.com/images/figures/iso_25010_en.png) et [ISO 25019 orienté usage](https://latavernedutesteur.fr/wp-content/uploads/2023/07/image-1-1024x217.png)
-    * Black box / white /glass
-    * tests d'architecture (Java = ArchUnit, Python = PyTestArch)
-    * test data management
-    * tests "statiques" (versus dynamiques) :Linter, typechecker, SonarQube, ... (compilation)
-      * des tests qu'il n'y a pas besoin d'écrire, et qui peuvent s'exécuter sans exécuter le code (statiques)
-      * Rust, tooling
-    * Test d'échafaudage (scaffolding)
-      * on les met le temps des travaux, puis on les enlève
-    * test hybride : test auto avec vérif humaine, ou test manuel avec assistance autom
-    * test des logs/metrics (cf [mon post LinkedIn](https://www.linkedin.com/posts/julien-lenormand_est-ce-quil-faut-tester-les-logs-je-suis-activity-7285926322604752896-SC6z))
-    * London "Mockist"/"Behaviorist" versus Detroit "Classicist"
-      * exemple dans un post Linkedin : https://www.linkedin.com/posts/francois-baveye_met-tes-tests-unitaires-%C3%A0-la-poubelle-activity-7370443832401747968-Uc1O
-      * tests unitaires : sociables vs solitaires (est-ce que les objets testés ont leurs dépendances réelles ou mockées), from "Working Effectively with Unit Tests" de Jay Fields
-  * techniques et outils pour tester
-    * IA
-      * rôle de l'IA dans les tests ? (cf [Tao blue/red team](https://mathstodon.xyz/@tao/114915604830689046))
-    * advanced features of pytest (or your framework), know your tools
-      * fixture
-      * mock
-      * plugins
-    * mock et doublures : mock fake stub spy
-      * Cf Martin Fowler (en ref à la fin)
-    * chaos testing : chaos monkey + chaos engineering, cf Netflix + [Chaos Monkey Army](https://github.com/Netflix/SimianArmy/wiki/The-Chaos-Monkey-Army)
-    * fake time (freezegun en Python, libfaketime + LD_PRELOAD), Reactive instead of passive polling ou sleeping
-      * exemple : tester du code qui doit s'exécuter pendant des mois (harness de test d'endurance)
-    * mesure de la couverture de test
-      * Code coverage : line/branch/cond
-      * 80 ? 90 ? 99 ?
-      * Ne suffit pas !!!
-      * Cf "1 / 0" avec 100% de coverage.
-      * Ou "foo.update()" si foo est null
-      * Il y a des branches invisibles (exceptions, données mal modelées)
-      * test guidé par la couverture (sans mention de pourcentage), pour orienter les tests
-    * table testing
-    * recording/replaying (VCR)
-    * mother object, method factories for test objects, data builders, ... https://martinfowler.com/bliki/ObjectMother.html
-    * parallélisation de tests
-    * mutation testing
-      * du code de prod, et du code de test, pour mesurer la sensibilité et spécificité des tests à la base de code
-    * boundary analysis et extreme values
-    * règle du : "0, 1, 2 (many), 99999 (too many), error/exception"
-    * Page object model (POM)
-    * Pairwise pour la couverture, en contrant l'explosion combinatoire (produit cartésien des paramètres)
-    * historisation (visuelle) des résultats, pour repérer les tendances, les patterns
-    * Technique de refactoring du sandwich (snowcamp) : push IO to the edge (functional core, imperative shell)
-    * systrace/ptrace pour interception et fake des appels systèmes (cf libfaketime pour exemple)
-    * HTTPS Man-in-the-Middle (MITM proxy par exemple) plutôt que `ssl_verify=False`
-    * trucage DNS via `/etc/hosts` ou `/etc/resolv.conf`
-    * anonymiser des données (de prod)
-    * risk-based testing : détermination de quels tests exécuter en fonction de la criticité de la fonctionnalité couverte
-    * test impact analysis : détermination de quels tests exécuter en fonction de quel code a été modifié
-  * techniques de design
-    * TDD (cf on peut pas oublier de les faire à la fin si on les fait au début), différents sens du mot TDD, ...
-      * cf slides ABC + Discovery Day
-      * Mon tddd : testable design
-      * "Tdd malgrè son nom n'est pas une technique de test mais de design"
-    * [sans-io](https://sans-io.readthedocs.io/)
-    * architecture héxagonale / clean / onion / ...
-    * programmation fonctionnelle
-    * profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
-      * surveiller la performance des tests autos, ne correspond pas aux tests de performance
-    * trunk-based development + feature flags
-    * dependency inversion (D de SOLID), SRP
-    * inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
-  * philosophie et process
-    * Accelerate
-      * https://dora.dev/capabilities/ : **test automation + test data management**, but also indirectly code maintainability, documentation quality, job satisfaction, continuous delivery, streamlining change approval, trunk-based development, working in small batches, continuous integration
-    * DevOps (cf slide)
-    * Domain-Driven Development (DDD)
-    * [ISO/IEC 25010:2023](https://www.iso.org/fr/standard/78176.html)
-    * gestion des erreurs souvent peu poussée, manque de contexte dans les logs
-      * error model
-    * "Clean Test = 3 things : readability, readability, readability" cf Martin Fowler
-      * Evolving/surfacing a "testing language" to reveal intent
-        * = POM ?
 
 ---
 
 # Conclusion
+
+* le test est indispensable
+* le test n'est pas simple
+* il faut l'initier
+* ingénierie
 
 Notes:
 * expertise indispensable, il faut s'y mettre, dans un environnement semi-hostile (vocab, équipe, rythme, outillage, ...) -> CI, run local. C'est une partie de l'ingénierie
@@ -1118,41 +1003,34 @@ Notes:
 
 # Nos recommandations
 
-* [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA) : TODO @julien mon avis
-* [Michael feathers - Working effectively with legacy code](https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code) : spoiler ça parle énormément de test !
-* [Dwayne Richard Hipp - How SQLite Is Tested](https://www.sqlite.org/testing.html) : un exemple de comment n'avoir quasi aucun bug pour un des logiciels les plus utilisé au monde
-* [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html) : un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selon leurs propriétés techniques
-* [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html) : un ensemble de conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
-* [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and) : toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
-* [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
-* [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries) : comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
-
-Notes:
+* Titus Winters, Tom Manschrek et Hyrum Wright - Software Engineering at Google ([online](https://abseil.io/resources/swe-book))
+* Michael feathers - Working effectively with legacy code
+* [BiteCode - Testing with Python (part 4): why and what to test?](https://www.bitecode.dev/p/testing-with-python-part-4-why-and)
+* [Dwayne Richard Hipp - How SQLite Is Tested](https://www.sqlite.org/testing.html)
+* [Adam Bender - SMURF: Beyond the Test Pyramid](https://testing.googleblog.com/2024/10/smurf-beyond-test-pyramid.html)
+* [Miško Hevery - Writing Testable Code](https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html)
+* [Jeremy Sorent - J'écris de tests sans pleurer maintenant](https://www.youtube.com/watch?v=2S9TxoTE8BA)
+* [Gary Bernhardt - Boundaries](https://www.destroyallsoftware.com/talks/boundaries)
 * et + en annexe !
 
----
-
-# Bibliographie (et quantité pertinente)
-
-* Titus Winters, Tom Manschrek et Hyrum Wright - Software Engineering at Google ([online](https://abseil.io/resources/swe-book))
-* TODO @Julien Software Craft (Dunod)
-* TODO @Julien Clean Code 2008
-* TODO @Julien Software Architecture in practice
-* TODO @Julien A philosophy of software design
-* TODO @Julien Working effectively with legacy code
-  * (recommandé auparavant)
-* TODO @Julien Test-Driven Development By Example
-* TODO @Julien Itérations Product(ives)
-* TODO @Julien Pourquoi votre stratégie de tests end-to-end échoue ?
-* Refactoring, Martin Fowler, 2ème édition française, 2019 (410 pages)
-  * Chapitre 4 "Création des tests" (15 pages)
-
-Manquants :
-* TODO @Julien Agile Testing - Lisa Crispin et Janet Gregory
-* Growing Object-Oriented Software Guided by Tests - ... TODO @julien
-* Unit Testing - Baptiste Lyet TODO @julien
-* How to test legacy code - emily bache TODO @julien
-* Can we test it? Yes we can - Mitchell Hashimoto TODO @julien
+Notes:
+* Avis de Julien, pourquoi recommander :
+  * Jeremy Sorent - J'écris de tests sans pleurer maintenant
+    * un talk assez similaire à celui-ci dans l'intention, mais recentré sur le design du code
+  * Michael feathers - Working effectively with legacy code
+    * ça parle beaucoup beaucoup de test, et surtout de comment reprendre le contrôle une fois que ça a dérapé !
+  * Dwayne Richard Hipp - How SQLite Is Tested
+    * un exemple de comment n'avoir quasi aucun bug pour un des logiciels les plus utilisé au monde
+  * Adam Bender - SMURF: Beyond the Test Pyramid
+    * un exemple par Google de détricoter la pyramide des tests dans une vision complémentaire des tests selon leurs propriétés techniques
+  * Miško Hevery - Writing Testable Code
+    * un ensemble de bons conseils pour rendre son code testable, dont le premier point ("Mixing object graph construction with application logic") est trop méconnu
+  * BiteCode - Testing with Python (part 4): why and what to test?
+    * pas si spécifique à Python, toute la série d'articles vaut le détour, mais cet épisode s'attarde sur, sans le nommer ainsi, la stratégie de test
+  * Gary Bernhardt - Boundaries
+    * comment découper son application pour faciliter sa testabilité (notion de "context domain" du DDD)
+  * Titus Winters, Tom Manschrek et Hyrum Wright - Software Engineering at Google
+    * de très bonne qualité, et parle significativement de test
 
 ---
 
@@ -1178,9 +1056,10 @@ Manquants :
 
 # Questions
 
+Slides : [https://github.com/Lenormju/talk-enfer-test-autos/](https://github.com/Lenormju/talk-enfer-test-autos/)
+
 Notes:
-* TODO image
-* TODO lien + QRcode vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
+* TODO QRcode vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
 
 ---
 
@@ -1193,6 +1072,9 @@ Notes:
 * [Colin Damon - Ma typologie de tests et leur équilibrage](https://www.linkedin.com/posts/colin-damon_mettre-en-place-une-strat%C3%A9gie-de-tests-qui-activity-7343525861444247552-6BJY) : un exemple de "pyramide" dans un contexte précis
 * [Redowan Delowar - Test state, not interactions](http://rednafi.com/go/test-state-not-interactions/) : pourquoi les tests proposés par des LLMs ne sont pas nécessairement les bons, et comment faire mieux (par exemple privilégier les fakes aux mocks)
 * [Jeff Atwood (CodingHorror) - Falling Into The Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) : comment ne plus avoir besoin de se battre pour que la qualité ne dégringole pas ?
+
+-v-
+
 * [Antoine Mazure - Tests pragmatiques : comment presque arrêter les tests automatisés ?](https://www.youtube.com/watch?app=desktop&v=ohV6GvCIeLY) : un exemple de tester la mauvaise chose, et de comment mieux tester avec pourtant moins de tests
 * [Jules Poissonnet et Antoine Caron - Tester c'est tricher)](https://www.youtube.com/watch?v=I_zNxGqRI3w) : une vision d'ensemble, claire et illustrée, de la démarche de test, du vocabulaire et des difficultés
 * [Christophe Bréheret-Girardin - Comment une architecture influence votre stratégie de test ?](https://m.youtube.com/watch?v=IeOa6XWxkxg)
@@ -1201,23 +1083,198 @@ Notes:
   * [Martin Fowler - Test Double](https://martinfowler.com/bliki/TestDouble.html) : en version ultra-abrégée
 * [Anaël Lefebvre - Comment en finir avec la fragilité des tests unitaires](https://www.sqli.com/fr-fr/insights/comment-en-finir-avec-la-fragilite-des-tests-unitaires) : un contexte clair, une explication de FIRST, et une méthodo ("ZOMBIES") pour identifier les cas de test
 * [The Grug Brained Developer - Testing](https://grugbrain.dev/#grug-on-testing) : des conseils de programmation pertinents, mais rédigés par "Grug" qui a une capacité limitée, et qui le revendique (!)
+
+-v-
+
 * [Qalisty et Anaïs Fournier - Comment s’en sortir lorsqu’on est 1 testeuse face à 25 développeurs ?](https://open.spotify.com/episode/1nwA9nLdezVk6mzWu39T7a) : des techniques concrètes pour mettre en place une culture qualité et une stratégie
-* [Victor Lambret - Le TDD sans commencer par les tests](https://www.youtube.com/watch?v=Ddarw3wUXQY) : TODO @julien mon avis
-* [Mike Wacker - Just Say No to More End-to-End Tests](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) : les tests unitaires seraient ceux qui compte le plus, du point de vue des utilisateurs (!)
+* [Victor Lambret - Le TDD sans commencer par les tests](https://www.youtube.com/watch?v=Ddarw3wUXQY) : comme d'habitude avec Victor, un avis mesuré et avant tout sourcé, sur le pragmatisme à conserver face aux techniques TDD/TestFirst/TestAfter
+* [Mike Wacker - Just Say No to More End-to-End Tests](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) : les tests unitaires seraient ceux qui compte le plus, du point de vue des utilisateurs (?!), car ce sont eux qui trouvent efficacement les bugs
 * [Simon Stewart - Test Sizes](https://testing.googleblog.com/2010/12/test-sizes.html) : caractérisation des tests (en un tableau), non pas en unitaires versus end-to-end, mais en small versus big, en fonction de leurs IO
 * [Igor Roztropiński - Unit, Integration, E2E, Contract, X tests: what should we focus on?](https://binaryigor.com/unit-integration-e2e-contract-x-tests-what-should-we-focus-on.html) : de l'intérêt de favoriser les tests d'intégration ("in-between", n'étant pas extrêmes), et les tests de contrat
 * [Kent C. Dodds - Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) : introduit la pyramide "trophy" (en incluant les tests statiques) pour des applis JS, avec surtout des tests d'intégration
 * [Seb Rose - Making a meal of architectural alignment and the test-induced-design-damage fallacy](https://claysnow.co.uk/architectural-alignment-and-test-induced-design-damage-fallacy/) : une bonne leçon d'équilibre et de pragmatisme
-* [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @julien
+
+-v-
+
+* [IFTTD #43.src - Test: Tester c'est douter avec Arnaud Lemaire](https://open.spotify.com/episode/2gRex0ajRA1oVc7DZBL0B9) : TODO @Julien
 * [Cécilia Bossard et Angi Guyard - On n’aurait pas oublié un truc dans le craft !?](https://www.youtube.com/watch?v=yVmKkRH60VI) : spoiler il s'agit des tests utilisateurs
-* [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : TODO @Julien
+* [Gary Bernhardt - Fast Test, Slow Test](https://www.youtube.com/watch?v=RAxiiRPHS9k) : comment choisir entre des tests rapides et des tests lents, en fonction du feedback qu'ils donnent
 * [Brandon Rhodes - The Clean Architecture in Python](https://www.youtube.com/watch?v=DJtef410XaM) : à quels problèmes elle répond et comment la mettre en place
+* [J.B. Rainsberger - Integrated Tests Are A Scam](https://www.youtube.com/watch?v=fhFa4tkFUFw) : une vision très centrée sur les tests de contrat, pour pousser les "tests d'intégration" à ne porter que sur l'anneau externe de l'application, en interaction avec son environnement (runtime, dépendances externes, ...), tout le reste est couvert par du test "unitaire" de contrat + des mocks de collaborateurs
 
 ---
 
 # Plus de techniques avancées !
 
-TODO julien
+### Types de test
+
+* TU : Définition de test unitaire contre-intuitive : ne pas penser microscopique/indivisible, mais cohérence/séparation-frontière
+  * 3 axes : vérification de la valeur de retour, vérification de l'état, vérification de la collaboration
+* ATDD versus BDD (parcours versus comportement segmenté, cf la Taverne)
+* BDD mindset versus BDD juste au niveau outil
+* snapshot/golden-master/approval
+  * normatif versus descriptif
+  * Approval Testing == Snapshot Testing == Golden Master ?
+* en prod : canary release, alpha testing, beta testing, blue-green, Field testing, ...
+* user acceptance
+* security testing (exemple : [ZAP Proxy](https://www.zaproxy.org/), scanners)
+* smoke test / sanity test
+
+-v-
+
+### Types de test
+
+* test de perf
+  * rendu accessible par de l'outillage, mais reste rare et hyper-spécifique en terme de scénario
+  * typologie selon https://grafana.com/load-testing/types-of-load-testing/ : smoke, average load, stress, soak, breakpoint, spike, ...
+* full simulation (à la Matrix)
+  * [What's the big deal about Deterministic Simulation Testing?](https://notes.eatonphil.com/2024-08-20-deterministic-simulation-testing.html)
+  * [Pierre Zemb : Et si on faisait du simulation-driven development ?](https://www.youtube.com/watch?v=12LO_l90vDk)
+* contract testing
+  * Test d'interface d'une third-party (comportement fidèle aux attentes, rupture d'API, ...), un d'un composant interne à un autre
+* property-based testing + fuzzing
+  * property vs fuzzing (cf [article sur la différence](https://www.tedinski.com/2018/12/11/fuzzing-and-property-testing.html))
+  * oracle parfois difficile à obtenir, parfois évident
+  * monkey testing (des inputs au hasard, le test n'est pas structuré, aucun scénario)
+* tests de maintenabilité ISO 25010 (= modularité + réutilisabilité + analysabilité + modifiabilité + testabilité), cf https://latavernedutesteur.fr/2018/11/19/types-de-tests-iso-25-010-les-tests-de-maintenabilite-7-8/
+* test d'accessibilité
+
+-v-
+
+### Types de test
+
+* Formal methods, preuves
+* [ISO 25010](https://iso25000.com/images/figures/iso_25010_en.png) et [ISO 25019 orienté usage](https://latavernedutesteur.fr/wp-content/uploads/2023/07/image-1-1024x217.png)
+* Black box / white / glass
+* tests d'architecture (Java = ArchUnit, Python = PyTestArch)
+* tests "statiques" (versus dynamiques) :Linter, typechecker, SonarQube, ... (compilation)
+  * des tests qu'il n'y a pas besoin d'écrire, et qui peuvent s'exécuter sans exécuter le code (statiques)
+  * Rust, tooling
+* Test d'échafaudage (scaffolding): on les met le temps des travaux, puis on les enlève
+* test hybride : test auto avec vérif humaine, ou test manuel avec assistance autom
+* test des logs/metrics (cf [mon post LinkedIn](https://www.linkedin.com/posts/julien-lenormand_est-ce-quil-faut-tester-les-logs-je-suis-activity-7285926322604752896-SC6z))
+* London "Mockist"/"Behaviorist" versus Detroit "Classicist"
+  * exemple dans un post Linkedin : https://www.linkedin.com/posts/francois-baveye_met-tes-tests-unitaires-%C3%A0-la-poubelle-activity-7370443832401747968-Uc1O
+  * tests unitaires : sociables vs solitaires (est-ce que les objets testés ont leurs dépendances réelles ou mockées), from "Working Effectively with Unit Tests" de Jay Fields
+
+-v-
+
+### Techniques et outils pour tester
+
+* IA
+  * rôle de l'IA dans les tests ? (cf [Tao blue/red team](https://mathstodon.xyz/@tao/114915604830689046))
+* advanced features of pytest (or your framework) : fixtures, monkeypatch et mocks, plugins
+  * know your tools
+* mock et doublures : mock/fake/stub/spy (cf Uncle Bob typology)
+* chaos testing : chaos monkey + chaos engineering, cf Netflix + [Chaos Monkey Army](https://github.com/Netflix/SimianArmy/wiki/The-Chaos-Monkey-Army)
+* fake time (freezegun en Python, libfaketime + LD_PRELOAD), Reactive instead of passive polling ou sleeping
+  * exemple : tester du code qui doit s'exécuter pendant des mois (harness de test d'endurance)
+* mesure de la couverture de test
+  * Code coverage : line/branch/cond
+  * 80 ? 90 ? 99 ? Ne suffit pas !!! (exemple : `1 / x` avec x =! 0 et pourtant 100% de coverage, `foo.update()` si foo est null) car il y a des branches "invisibles" (exceptions, données mal modelées)
+  * test guidé par la couverture (sans mention de pourcentage), pour orienter les tests
+* table testing
+* recording/replaying (VCR)
+
+-v-
+
+### Techniques et outils pour tester
+
+* mother object, method factories for test objects, data builders, ... https://martinfowler.com/bliki/ObjectMother.html
+* parallélisation de tests
+* mutation testing : du code de prod, et du code de test, pour mesurer la sensibilité et spécificité des tests à la base de code
+* boundary analysis et extreme values
+* règle du : "0, 1, 2 (many), 9999 (too many), error/exception"
+* Page object model (POM)
+* Pairwise pour la couverture, en contrant l'explosion combinatoire (produit cartésien des paramètres)
+* historisation (visuelle) des résultats, pour repérer les tendances, les patterns
+* Technique de refactoring du sandwich (cf Nicolas Carlo à Alpes Craft 2025) : push IO to the edge (functional core, imperative shell)
+
+-v-
+
+### Techniques et outils pour tester
+
+* systrace/ptrace pour interception et fake des appels systèmes (cf libfaketime pour exemple)
+* HTTPS Man-in-the-Middle (MITM proxy par exemple) plutôt que `ssl_verify=False`
+* trucage DNS via `/etc/hosts` ou `/etc/resolv.conf`
+* risk-based testing : détermination de quels tests exécuter en fonction de la criticité de la fonctionnalité couverte
+* test impact analysis : détermination de quels tests exécuter en fonction de quel code a été modifié
+* test data management
+* anonymiser des données (de prod)
+
+-v-
+
+### Techniques de design
+
+* TDD (cf on peut pas oublier de les faire à la fin si on les fait au début), différents sens du mot TDD, ...
+  * cf slides ABC + Discovery Day
+  * Mon tddd : testable design
+  * "Tdd malgrè son nom n'est pas une technique de test mais de design"
+* [sans-io](https://sans-io.readthedocs.io/)
+* architecture héxagonale / clean / onion / ...
+* programmation fonctionnelle
+* profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
+  * surveiller la performance des tests autos, ne correspond pas aux tests de performance
+* trunk-based development + feature flags
+* dependency inversion (D de SOLID), SRP
+* inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
+
+-v-
+
+### Philosophie et process
+
+* Accelerate
+  * https://dora.dev/capabilities/ : **test automation + test data management**, but also indirectly code maintainability, documentation quality, job satisfaction, continuous delivery, streamlining change approval, trunk-based development, working in small batches, continuous integration
+* DevOps (cf slide)
+* Domain-Driven Development (DDD)
+* [ISO/IEC 25010:2023](https://www.iso.org/fr/standard/78176.html)
+* gestion des erreurs souvent peu poussée, manque de contexte dans les logs
+  * error model
+* "Clean Test = 3 things : readability, readability, readability" cf Martin Fowler
+  * Evolving/surfacing a "testing language" to reveal intent
+    * = POM ?
+
+---
+
+# Analyse bibliographique
+
+* Titus Winters, Tom Manschrek et Hyrum Wright - Software Engineering at Google ([online](https://abseil.io/resources/swe-book/html/toc.html))
+  * 4 chapitres (sur 34) : Testing overview, Unit Testing, Test Doubles, Larger tests
+* Cyrille Martraire, Arnaud Thiéfaine, Dorra Bartaguiz, Fabien Hiegel - Software Craft (1ère édition, 2022, Dunod)
+  * 3 chapitres : Tester du legacy, Rendre testable le code legacy, Principes et outils pour tester efficacement
+  * 40 pages sur 270
+* Robert C. Martin "Uncle Bob" - Clean Code (2008)
+  * 1 chapitre et 1 appendice : Unit tests, Testing Multithreaded Code
+  * TODO pages sur TODO @Julien
+* Len Bass, Paul Clements, Rick Kazman - Software Architecture in practice (3rd edition, 2012)
+  * 1 chapitre et 1 sous-chapitre : Testability, Architecture and Testing
+  * 22 pages sur 550
+* John Ousterhout - A philosophy of software design (edition 2.01, 2020)
+  * 2 pages sur 175
+
+-v-
+
+* Michael feathers - Working effectively with legacy code (TODO edition)
+  * (recommandé auparavant)
+  * beaucoup de chapitres sur les tests
+* Kent Beck - Test-Driven Development By Example
+  * beaucoup d'exemples de TDD
+* Colin Damon - Itérations Product(ives)
+  * la moitié du livre est une session de TDD
+* TODO @Julien Pourquoi votre stratégie de tests end-to-end échoue ?
+* Martin Fowler - Refactoring (2ème édition française, 2019)
+  * 1 chapitre : Création des tests
+  * 15 pages sur 410
+
+-v-
+
+### Manquants
+
+* Lisa Crispin et Janet Gregory - Agile Testing
+* Ward Cunningham - Growing Object-Oriented Software Guided by Tests
+* Baptiste Lyet - Unit Testing
+* Emily Bache - How to test legacy code
+* Mitchell Hashimoto - Can we test it? Yes we can
 
 ---
 
