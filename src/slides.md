@@ -84,7 +84,7 @@ Qualité avec un grand Q :  <!-- .element: class="fragment" -->
 * ISO 9000 : aptitude d'un ensemble de caractéristiques intrinsèques d'un objet (produit, service,...) à satisfaire des exigences  <!-- .element: class="fragment" -->
 * Rambo Python : fiabilité, maintenabilité, évolutivité, sécurité  <!-- .element: class="fragment" -->
 
-La qualité n'est pas automatique, surtout pour du logiciel.
+La qualité n'est pas automatique, surtout pour du logiciel. <!-- .element: class="fragment" -->
 
 Notes:
 * Faire du logiciel ce n'est pas si simple
@@ -599,7 +599,7 @@ Notes:
 
 * Il faut avant tout changer la culture de l'organisation / de l'équipe <!-- .element: class="fragment" -->
   * implication de toutes les parties prenantes <!-- .element: class="fragment" -->
-  * démarche commune et adoptée, pas juste avoir un casse-pied de  <!-- .element: class="fragment" -->service
+  * démarche commune et adoptée, pas juste avoir un casse-pied de service <!-- .element: class="fragment" -->
   * tournure d'esprit requise pour malmener le code ("vicieux") <!-- .element: class="fragment" -->
     * "un testeur rentre dans un bar, il commande ..." <!-- .element: class="fragment" -->
   * humilité <!-- .element: class="fragment" -->
@@ -655,7 +655,7 @@ Notes:
   * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
 * Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod <!-- .element: class="fragment" -->
 
-![xkcd 974 "The General problem"](./the_general_problem.png)
+![xkcd 974 "The General problem"](./the_general_problem.png) <!-- .element: class="fragment" -->
 
 Notes:
 * Pas de spec ...
@@ -700,7 +700,7 @@ Notes:
 
 ## Stratégie de test
 
-* Première question : *pourquoi* je teste ? Qu'est-que je veux obtenir ?  <!-- .element: class="fragment" -->
+* Première question : POURQUOI je teste ? Qu'est-que je veux obtenir ?  <!-- .element: class="fragment" -->
 * Exemple de raisons de tester : <!-- .element: class="fragment" -->
   * Garantir la qualité <!-- .element: class="fragment" -->
   * Eviter les régressions <!-- .element: class="fragment" -->
@@ -821,7 +821,7 @@ Notes:
 
 ## Architecture testable
 
-* si ce n'est pas un objectif, alors ce sera négligé 
+* si ce n'est pas un objectif, alors ce sera négligé  <!-- .element: class="fragment" -->
 * si le code n'est pas facilement testable, alors les tests seront difficiles   <!-- .element: class="fragment" -->
 * bien définir les interfaces et contrat (cf juste après)   <!-- .element: class="fragment" -->
 * identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
@@ -1028,10 +1028,10 @@ Notes:
 
 # Conclusion
 
-* Le test est indispensable, l'automatisation (partielle) aussi
-* Le test n'est pas simple, il faut l'apprendre et acquérir de l'expertise
-* Il faut l'initier, construire du consensus quand on n'est que dev
-* Le test fait partie intégrante de l'ingénierie logicielle
+* Le test est indispensable, l'automatisation (partielle) aussi <!-- .element: class="fragment" -->
+* Le test n'est pas simple, il faut l'apprendre et acquérir de l'expertise <!-- .element: class="fragment" -->
+* Il faut l'initier, construire du consensus quand on n'est que dev <!-- .element: class="fragment" -->
+* Le test fait partie intégrante de l'ingénierie logicielle <!-- .element: class="fragment" -->
 
 Notes:
 * expertise indispensable, il faut s'y mettre, dans un environnement semi-hostile (vocab, équipe, rythme, outillage, ...) -> CI, run local. C'est une partie de l'ingénierie
