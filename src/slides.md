@@ -1,6 +1,12 @@
-# L'enfer des tests autos
+<style>
+.reveal h1:first-of-type {
+  color: red;
+}
+</style>
 
-![](./logo-kaizen.png)
+<!-- .slide: data-background-image="./enfer-paradis.jpg" -->
+
+# L'enfer des tests autos
 
 Notes:
 * TODO :
@@ -18,6 +24,8 @@ Notes:
 
 ## Merci aux sponsors
 
+[Documentation](https://revealjs.com/backgrounds/)
+
 - TODO sponsors DevFest Toulouse
 
 Notes:
@@ -32,7 +40,7 @@ Julien Lenormand 😇
 Jonathan Gaffiot 😈
 @ Kaizen Solutions
 
-![](./logo-kaizen.png)
+<img src="./logo-kaizen.png" style="position: absolute; right: 500px; top: 500px; width: auto; height: auto" />
 
 Notes:
 * on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
@@ -344,7 +352,7 @@ Notes:
 
 ## Mais de quoi on parle ?
 
-* Personne n'est d'accord sur rien ! 😈 
+* Personne n'est d'accord sur rien ! 😈
   * C'est quoi un test unitaire ? Combien j'en fait ? <!-- .element: class="fragment" -->
   * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? <!-- .element: class="fragment" -->
   * Plus de pyramides de tests qu'en Egypte ! <!-- .element: class="fragment" -->
@@ -821,7 +829,7 @@ Notes:
 
 ## Architecture testable
 
-* si ce n'est pas un objectif, alors ce sera négligé  <!-- .element: class="fragment" -->
+* si ce n'est pas un objectif, alors ce sera négligé
 * si le code n'est pas facilement testable, alors les tests seront difficiles   <!-- .element: class="fragment" -->
 * bien définir les interfaces et contrat (cf juste après)   <!-- .element: class="fragment" -->
 * identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
@@ -868,7 +876,7 @@ Notes:
   * (complique le refactoring)
   * la profondeur c'est OK
 * tester l'interface, pas l'implémentation <!-- .element: class="fragment" -->
-  * contravariance des tests (refactoring !) 
+  * contravariance des tests (refactoring !)
 
 Notes:
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
@@ -936,7 +944,7 @@ Notes:
 
 * Pente glissante de la qualité 😈 <!-- .element: class="fragment" -->
   * Si les tests sont difficiles à lancer, ils le seront de moins en moins  <!-- .element: class="fragment" -->
-  * Si les tests ne sont pas fiables, ils seront de moins en moins regardés  <!-- .element: class="fragment" --> 
+  * Si les tests ne sont pas fiables, ils seront de moins en moins regardés  <!-- .element: class="fragment" -->
   * Si les tests sont lents, la suite de test sera de plus en plus lente <!-- .element: class="fragment" -->
 * Identifier les "pain points" et les résoudre 😇  <!-- .element: class="fragment" -->
   * ajouter un test doit être simple et rapide
