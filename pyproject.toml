@@ -7,4 +7,6 @@ requires-python = ">=3.11"
 dependencies = [
     "pytest",
     "requests",
+    "psycopg2-binary",
+    "testcontainers",
 ]

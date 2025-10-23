@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 import requests
+import psycopg2
 
 
 reports_dirpath = Path(__file__).parent / "reports"
@@ -20,9 +21,8 @@ def process_daily_report_v1() -> None:
     print(f"DVDs en stock : {number_of_dvds_available}")
 
     # write it in the monthly report file and database
-    monthly_report_filepath = (
-        reports_dirpath / f"{today_date.strftime('%Y-%m')}_monthly.txt"
-    )
+    month_date_str = today_date.strftime("%Y-%m")
+    monthly_report_filepath = reports_dirpath / f"{month_date_str}_monthly.txt"
     with open(monthly_report_filepath, "a") as monthly_report_file:  # append!
         monthly_report_file.write(
             f"{today_date.strftime('%m-%d')}: {number_of_dvds_available}\n"
@@ -39,7 +39,18 @@ def process_daily_report_v1() -> None:
 
 class DatabaseConnection:
     def add_daily_number_of_dvds_available(self, date: str, number: int) -> None:
-        pass  # whatever
+        # docker run --rm -e 'POSTGRES_PASSWORD=muchsecure!!' -d -p 127.0.0.1:5432:5432 docker.io/postgres:latest
+        connection = psycopg2.connect(
+            database="postgres",
+            user="postgres",
+            password="muchsecure",
+            host="localhost",
+            port=5432,
+        )
+        connection.cursor().execute(
+            "INSERT INTO daily_number_of_dvds VALUES (%s, %s);", (date, number)
+        )
+        connection.commit()
 
 
 def handmade_cli() -> None:
