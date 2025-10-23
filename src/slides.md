@@ -57,7 +57,7 @@ Notes:
 * tester = s'assurer de la réponse attendue de la part du système dans un certain état à un stimuli particulier   <!-- .element: class="fragment" -->
   * réponse attendue ?  <!-- .element: class="fragment" -->
   * certain état ?  <!-- .element: class="fragment" -->
-  * quel stimulus ?  <!-- .element: class="fragment" -->
+  * quel stimuli ?  <!-- .element: class="fragment" -->
   * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
 * plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
 
