@@ -20,10 +20,16 @@ def process_daily_report_v1() -> None:
     print(f"DVDs en stock : {number_of_dvds_available}")
 
     # write it in the monthly report file and database
-    monthly_report_filepath = reports_dirpath / f"{today_date.strftime('%Y-%m')}_monthly.txt"
+    monthly_report_filepath = (
+        reports_dirpath / f"{today_date.strftime('%Y-%m')}_monthly.txt"
+    )
     with open(monthly_report_filepath, "a") as monthly_report_file:  # append!
-        monthly_report_file.write(f"{today_date.strftime('%m-%d')}: {number_of_dvds_available}\n")
-    DatabaseConnection().add_daily_number_of_dvds_available(today_date_str, number_of_dvds_available)
+        monthly_report_file.write(
+            f"{today_date.strftime('%m-%d')}: {number_of_dvds_available}\n"
+        )
+    DatabaseConnection().add_daily_number_of_dvds_available(
+        today_date_str, number_of_dvds_available
+    )
     print("sauvegarde ok!")
 
     # also, it is useful to get a reminder of when is the next Marvel movie is coming up
@@ -45,7 +51,7 @@ def handmade_cli() -> None:
     if choice == "1":
         process_daily_report_v1()
     elif choice == "2":
-        process_monthly_reports()
+        pass  # TODO: process_monthly_reports()
     elif choice == "3":
         exit()
     else:
