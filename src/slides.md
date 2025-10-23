@@ -24,8 +24,6 @@ Notes:
 
 ## Merci aux sponsors
 
-[Documentation](https://revealjs.com/backgrounds/)
-
 - TODO sponsors DevFest Toulouse
 
 Notes:
