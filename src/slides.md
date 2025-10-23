@@ -59,7 +59,7 @@ Notes:
   * certain état ?  <!-- .element: class="fragment" -->
   * quel stimulus ?  <!-- .element: class="fragment" -->
   * et les effets de bords de mon système ?  <!-- .element: class="fragment" -->
-* plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
+* 😈 plus de questions qu'avant la définition... <!-- .element: class="fragment" -->
 
 Notes:
 * c'est quoi tester ? c'est quoi tester automatiquement ? (moment chiant avec des définitions)
@@ -181,7 +181,7 @@ Notes:
 
 ## Pourquoi c'est important les tests autos en particulier ?
 
-😇 Pour garder la maitrise de son code au fur et à mesure de son développement !  <!-- .element: class="fragment" -->
+Pour garder la maitrise de son code au fur et à mesure de son développement ! 😇  <!-- .element: class="fragment" -->
  * exécution automatique et systématique -> pas d'oubli ! pas de flemme !  <!-- .element: class="fragment" -->
 
 -v-
@@ -198,7 +198,6 @@ Notes:
   - résultat rapide <!-- .element: class="fragment" -->
   - facile à exploiter : log, stracktrace, débuggueur... <!-- .element: class="fragment" -->
   - indépendant, pas besoin de "QA"  <!-- .element: class="fragment" -->
-  - seul moyen de tenir la cadence <!-- .element: class="fragment" -->
 
 Notes:
 * ownership de la qualité du code, ce n'est pas juste aux QAs, ou utilisateurs de trouver les bugs, "ça marche sur ma machine"
@@ -215,6 +214,7 @@ Notes:
   * pour détecter les régressions  <!-- .element: class="fragment" -->
   * pour survivre à une absence imprévue (bus factor)  <!-- .element: class="fragment" -->
   * pour augmenter efficacement la taille de l'équipe  <!-- .element: class="fragment" -->
+  * pour augmenter la cadence de livraison  <!-- .element: class="fragment" -->
 * pas de test automatisé = risque projet  <!-- .element: class="fragment" -->
 
 Sondage : <!-- .element: class="fragment" -->
@@ -247,7 +247,6 @@ Notes:
 Faut bien l'avouer !
 
 Notes:
-* TODO: formuler les sections de façon à répondre au chemin de crête ?
 * TODO: ajouter des exemples concrets à chacun
 * TODO @jonathan mettre des bouts de paradis
 
@@ -271,12 +270,18 @@ Notes:
 
 ## Pas appris
 
-* 😈 Rarement au programme des formations de dev <!-- .element: class="fragment" -->
-  * Et alors théorique et très court... 😈 <!-- .element: class="fragment" -->
-* 😈 Peu présent dans la littérature (livres, blogs...), les confs, les formations <!-- .element: class="fragment" -->
+* Rarement au programme des formations de dev <!-- .element: class="fragment" -->
+  * Ou alors théorique et très court... 😈 <!-- .element: class="fragment" -->
+  * Mais ça s'améliore 😇 <!-- .element: class="fragment" -->
+* Peu présent dans la littérature (livres, blogs...), les confs, les formations <!-- .element: class="fragment" -->
   * Alors que c'est souvent ~50% des LoC 😈 <!-- .element: class="fragment" -->
+  * Mais on en parle aujourd'hui ! 😇 <!-- .element: class="fragment" -->
 
 Notes:
+* JULIEN: anecdote Ensimag, importance pro
+* JULIEN: biblio, conférences
+
+<!--
 * sauf pour les testeurs de métier, les moldus s'en passeront bien ?
 * et encore les testeurs apprennent pas les TU
 * pas de formation dans la plupart des cursus master, ou bien théorique ou très court
@@ -330,17 +335,18 @@ Notes:
 * "missing semester" ?
 * Apprentissage théorique (en études ingé) versus apprentissage empirique de l'informatique (sur le terrain), en particulier du test
 * cf analyse de la ibliographie
+-->
 
 -v-
 
 ## Mais de quoi on parle ?
 
-* 😈 Personne n'est d'accord sur rien !
-  * C'est quoi un test unitaire ? Combien j'en fait ? 😈 <!-- .element: class="fragment" -->
-  * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? 😈 <!-- .element: class="fragment" -->
-  * Plus de pyramides de tests qu'en Egypte ! 😈 <!-- .element: class="fragment" -->
-  * Quel métier ? QA, testeur, dev, IVVQ, quality manager ?  😈 <!-- .element: class="fragment" -->
-* Faut en parler ensemble pour se mettre d'accord !
+* Personne n'est d'accord sur rien ! 😈 
+  * C'est quoi un test unitaire ? Combien j'en fait ? <!-- .element: class="fragment" -->
+  * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? <!-- .element: class="fragment" -->
+  * Plus de pyramides de tests qu'en Egypte ! <!-- .element: class="fragment" -->
+  * Quel métier ? QA, testeur, dev, IVVQ, quality manager ? <!-- .element: class="fragment" -->
+* Faut en parler ensemble pour se mettre d'accord ! 😇 
 
 Notes:
 * TODO: ajouter des images de pyramides !
@@ -389,20 +395,20 @@ Notes:
 
 ## Trop de tests, pas assez ?
 
-* 😈 Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)  <!-- .element: class="fragment" -->
-  * Mais ils prennent des plombes ! 😈 <!-- .element: class="fragment" -->
-  * Et ils cassent tout le temps ! 😈 <!-- .element: class="fragment" -->
-  * Et je peux pas les automatiser, il faut que je rentre mes identifiants !  😈 <!-- .element: class="fragment" -->
+* Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)  😈 <!-- .element: class="fragment" -->
+  * Mais ils prennent des plombes ! <!-- .element: class="fragment" -->
+  * Et ils cassent tout le temps ! <!-- .element: class="fragment" -->
+  * Et je peux pas les automatiser, il faut que je rentre mes identifiants ! <!-- .element: class="fragment" -->
     * (bon on va créer un user de test... harcoder son mdp quelque part... chut ! 😈) <!-- .element: class="fragment" -->
 
-* 😈 10 ans de tests accumulés <!-- .element: class="fragment" -->
-  * Chaque fonction est testée 10 fois ! 😈 <!-- .element: class="fragment" -->
-  * Plus de 1000 exigences dans le plan de test ! 😈 <!-- .element: class="fragment" -->
-  * Ça prend des plombes ! 😈 <!-- .element: class="fragment" -->
-  * Y'en a toujours 4 ou 5 qui plantent, évidemment qu'on regarde plus si c'est rouge ! 😈 <!-- .element: class="fragment" -->
-  * Chaque fois que je touche une ligne j'ai 10 tests à modifier ! 😈 <!-- .element: class="fragment" -->
+* 10 ans de tests accumulés 😈 <!-- .element: class="fragment" -->
+  * Chaque fonction est testée 10 fois ! <!-- .element: class="fragment" -->
+  * Plus de 1000 exigences dans le plan de test ! <!-- .element: class="fragment" -->
+  * Ça prend des plombes ! <!-- .element: class="fragment" -->
+  * Y'en a toujours 4 ou 5 qui plantent, évidemment qu'on regarde plus si c'est rouge ! <!-- .element: class="fragment" -->
+  * Chaque fois que je touche une ligne j'ai 10 tests à modifier ! <!-- .element: class="fragment" -->
 
-* 😈 Et pourtant on découvre toujours des bugs ! <!-- .element: class="fragment" -->
+* Et pourtant on découvre toujours des bugs ! 😈 <!-- .element: class="fragment" -->
 
 Notes:
 * explosion combinatoire
@@ -423,10 +429,10 @@ Notes:
 
 ## Punition ou mauvaise volonté ?
 
-* 😈 J'ai pas envie d'écrire des tests, j'ai testé à la mano ça marche !  <!-- .element: class="fragment" -->
-* 😈 Mes specs sont dans un Word de 200 pages, je peux pas les tester une par une ! <!-- .element: class="fragment" -->
-* 😈 Pas mon boulot les tests E2E, je fais que mes tests unitaires sur mon code ! <!-- .element: class="fragment" -->
-* 😈 De toute façon c'est du C++, c'est trop chiant de gérer les effets de bord !  <!-- .element: class="fragment" -->
+* J'ai pas envie d'écrire des tests, j'ai testé à la mano ça marche ! 😈  <!-- .element: class="fragment" -->
+* Mes specs sont dans un Word de 200 pages, je peux pas les tester une par une ! 😈 <!-- .element: class="fragment" -->
+* Pas mon boulot les tests E2E, je fais que mes tests unitaires sur MON code ! 😈 <!-- .element: class="fragment" -->
+* De toute façon c'est du C++, c'est trop chiant de gérer les effets de bord ! 😈  <!-- .element: class="fragment" -->
 
 Notes:
 * des tonnes d'outils différents, les différents types de tests évoqués, les différents métiers, l'insertion dans le process de production, ...
@@ -450,6 +456,7 @@ Je peux pas tester...
 * c'est pas reproductible <!-- .element: class="fragment" -->
 
 Notes:
+* JULIEN: anecdote "juste" ajouter une route sur API
 * Ennemis :
   * side-effects ("spooky action at a distance", "que fait cette méthode ?"),
   * (global/static) state,
@@ -491,14 +498,18 @@ Notes:
 * Ça sert à rien de tester ma feature, le reste est pas testé, pis ça m'a pris tellement de temps ! <!-- .element: class="fragment" -->
 * Comment j'injecte mon code de test ? Y'a rien qu'est prévu ! <!-- .element: class="fragment" -->
 * Comment je sais ce qui se passe ? Y'a à peine de logs et on peut se brancher sur rien ! <!-- .element: class="fragment" -->
-* Je teste quoi ? Que ça marce comme maintenant ? Parce que c'est pas clair ce que ça devrait faire ! <!-- .element: class="fragment" -->
+* Je teste quoi ? Que ça marche comme maintenant ? Parce que c'est pas clair ce que ça devrait faire ! <!-- .element: class="fragment" -->
 
 Notes:
+* JULIEN: anecdote procès
+
+<!--
 * descriptivism vs prescriptivism (cf Romeu)
 * test de caractérisation OK, mais est-ce que c'est ce que ça devrait vraiment faire ? 🤷
   * bug ou feature ?
   * xkcd workflow https://xkcd.com/1172/
 * source de vérité = code ou spec Word ?
+-->
 
 -v-
 
