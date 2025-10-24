@@ -15,6 +15,15 @@ Notes:
   * ajouter des images
   * pimper la présentation avec un peu de CSS (cf le mkslides_config.yml)
   * voir si on garde ou pas le chemin de crète
+* TODO feedback meetup Julien :
+  * réutiliser l'image de la qualité selon Rambo
+  * mentionner "conduite du changement" lorsqu'on parle de la Culture ?
+  * ajouter photo d'Omar Sy "pas de bras, pas de chocolat"
+  * la slide sur le feedback fait un peu redite ?
+  * ajouter image du bon chasseur
+  * mettre l'IDE en light mode, préparer les onglets, ...
+  * il y a une slide "fluidité" qui a sauté ou bien ? j'ai loupé un coche
+  * trop d'informations ... (mais comment améliorer ?)
 
 ---
 
