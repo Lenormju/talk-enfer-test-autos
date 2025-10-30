@@ -1,4 +1,4 @@
-# Test de charge avec k6
+# L'enfer des tests auto
 
 Slides hébergées sur GitHub :
 
