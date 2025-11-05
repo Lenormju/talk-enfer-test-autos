@@ -24,6 +24,7 @@ Notes:
   * mettre l'IDE en light mode, préparer les onglets, ...
   * il y a une slide "fluidité" qui a sauté ou bien ? j'ai loupé un coche
   * trop d'informations ... (mais comment améliorer ?)
+  * ajouter une visualisation de la stratégie/pyramide de test (couleurs qui couvrent une archi)
 
 ---
 
