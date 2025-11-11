@@ -34,10 +34,7 @@ Notes:
 
 ## Merci aux sponsors
 
-- TODO sponsors DevFest Toulouse
-
-Notes:
-* TODO: logo Kaizen
+- Merci aux sponsors du DevFest Toulouse
 
 -v-
 
@@ -182,7 +179,6 @@ Notes:
 ## Rentabilité
 
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
-* Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : <!-- .element: class="fragment" -->
   * Google, Microsoft, Netflix, Apple le font !!!  <!-- .element: class="fragment" -->
   * et tous les projets libres qu'on utilise tous les jours !!!  <!-- .element: class="fragment" -->
@@ -839,13 +835,15 @@ Notes:
 
 * si ce n'est pas un objectif, alors ce sera négligé
 * si le code n'est pas facilement testable, alors les tests seront difficiles   <!-- .element: class="fragment" -->
-* bien définir les interfaces et contrat (cf juste après)   <!-- .element: class="fragment" -->
-* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
 * privilégier les fonctions "pures" (sans effets de bord) quand c'est possible   <!-- .element: class="fragment" -->
   * "functional core, imperative shell"
   * limiter la mutabilité
+* chercher à isoler les effets de bord du reste du code  <!-- .element: class="fragment" -->
+  * facilite le découpage des effets de bord lors des tests
 * choisir quand limiter le couplage   <!-- .element: class="fragment" -->
   * inversion de dépendance
+* les tests sont les premiers utilisateurs de notre code
+  * du code peu testable se voit immédiatement ! et ça se propage !
 
 Notes:
 * sinon architecture intestable ou semi-testable
@@ -874,16 +872,16 @@ Notes:
 > good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
 > -- grugbrain.dev
 
-* interface = surface de contact entre deux systèmes <!-- .element: class="fragment" -->
+* interface = surface de contact entre deux systèmes
   * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
 * interface = abstraction <!-- .element: class="fragment" -->
 * tout est une API <!-- .element: class="fragment" -->
-* surface large = trop de choses à tester <!-- .element: class="fragment" -->
-  * garder le minimum (SRP)
-  * (complique le refactoring)
+* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
+* surface large = trop de choses à tester, complique le refactoring <!-- .element: class="fragment" -->
+  * garder le minimum (Single Responsability Principle, faire une seule chose et le faire bien)
   * la profondeur c'est OK
 * tester l'interface, pas l'implémentation <!-- .element: class="fragment" -->
-  * contravariance des tests (refactoring !)
+  * autant que possible, toutes les interfaces fuient...
 
 Notes:
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
@@ -893,7 +891,7 @@ Notes:
 * Ne pas tester tout le code ? Cf couverture, et faire des tests croisés
 * Quantité de test versus qualité
 * contravariance, tester l'interface plutôt que l'implémentation, cf Uncle Bob https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html
-* bon test = SRP + behavior not implementation
+* bon test = Single Responsability Principle + behavior not implementation
 * niveau de test :
   * Test u = contrat dev
   * Test inté = contrat intégrateur
@@ -905,21 +903,15 @@ Notes:
 
 -v-
 
-## Feedback
+## Le temps du test : maintenant
 
-* les tests sont les premiers utilisateurs de notre code
-  * du code peu testable se voit immédiatement ! et ça se propage !
 * A la fin du dev, il est parfois trop TARD pour corriger le tir : Shift Left <!-- .element: class="fragment" -->
   * il fallait le prendre en compte lors de l'implémentation, du design, du poker, de la story ...
 * A la fin du dev, il est parfois trop TOT pour corriger le tir : Shift Right <!-- .element: class="fragment" -->
   * ça part en prod en on surveille (feature toggle, monitoring, metrics)
   * (beaucoup plus sérieux que dire "je teste en prod")
 * le test est une considération tout du long du process : TestOps, Full Cycle <!-- .element: class="fragment" -->
-  * éviter la loi de Conway : les testeurs testent, les autres s'en fichent
-* le bon test : il ne passe tout le temps ni n'échoue tout le temps, il échoue pour les bonnes raisons  <!-- .element: class="fragment" -->
-  * le bon chasseur ...
-
-
+  * éviter les silos : les testeurs testent, les autres s'en fichent
 
 Notes:
 * un test qui pète, c'est une bonne nouvelle : un bug de moins en prod !
@@ -988,8 +980,8 @@ Quelques règles d'écriture pour les tests :
 * structure du test en Arrange-Act-Assert ou Given-When-Then <!-- .element: class="fragment" -->
 * au moins un assert par test <!-- .element: class="fragment" -->
 * tenter de tester une seule chose par test plutôt qu'une suite de stimuli <!-- .element: class="fragment" -->
-* FIRST = Fast, Independant, Repeatable, Self-Checking, Timely <!-- .element: class="fragment" -->
 * différencier "erreur" (plantage, pas de résultat de test) versus "échec" (résultat négatif) <!-- .element: class="fragment" -->
+* mnémotechnique : FIRST (Fast, Independant, Repeatable, Self-Checking, Timely) <!-- .element: class="fragment" -->
 
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
@@ -1033,16 +1025,23 @@ Notes:
 * tests d'architecture  <!-- .element: class="fragment" -->
 * tests de performance et de charge  <!-- .element: class="fragment" -->
 * Page Object Model (POM) pour les tests d'UI  <!-- .element: class="fragment" -->
-* Accelerate <!-- .element: class="fragment" -->
+* Métriques DORA (équipe DevOps Research and Assessment de Google) <!-- .element: class="fragment" -->
 * ...   <!-- .element: class="fragment" -->
 
 Juste le sommet de l'iceberg ! <!-- .element: class="fragment" -->
-
 
 (le reste en annexe et dans les sources des slides)  <!-- .element: class="fragment" -->
 
 Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
+
+-v-
+
+## Bonus
+
+- Les tests peuvent être intéressants, avec de belles solutions techniques à mettre en place
+- Les tests nous font mieux apprendre le langage
+- Les tests deviennent de plus en plus facile, on acquiert des automatismes
 
 ---
 
@@ -1273,7 +1272,7 @@ Notes:
 * profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
   * surveiller la performance des tests autos, ne correspond pas aux tests de performance
 * trunk-based development + feature flags
-* dependency inversion (D de SOLID), SRP
+* dependency inversion (D de SOLID), Single Responsability Principle
 * inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
 
 -v-
