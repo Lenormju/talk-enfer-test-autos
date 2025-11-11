@@ -667,7 +667,15 @@ Notes:
 
 -v-
 
-![xkcd 974 "The General problem"](./the_general_problem.png) <!-- .element: class="fragment" -->
+## Mais investissement judicieux !
+
+![xkcd 974 "The General problem"](./the_general_problem.png)
+
+> I find that when someone's taking time to do something right in the present,
+> they're a perfectionist with no ability to prioritize,
+> whereas when someone
+> took time to do something right in the past, they're a master artisan of great foresight.
+
 
 Notes:
 * Pas de spec ...
@@ -680,14 +688,6 @@ Notes:
 * humains, techniques, temporels, ...
 * outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
 * avoir des specs ! (claires)
-
--v-
-
-> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
-
-![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)  <!-- .element: class="fragment" -->
-
-Notes:
 * investissement dans un second logiciel pour mieux produire le premier
 * outils de test
 * investir dans le futur
@@ -811,11 +811,6 @@ Notes:
     * 😇 Spécifique, facile à garder en tête, indépendant
     * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
   * Tout le reste entre les deux ! <!-- .element: class="fragment" -->
-  * Une feature = un test ?  <!-- .element: class="fragment" -->
-  * Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
-      * Juste vérifier que le code compile et s'exécute ?
-      * Décliner les spec ? (top-down)
-      * Ajouter un test à chaque bug ? (bottom-up)
 
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
@@ -831,6 +826,20 @@ Notes:
 
 -v-
 
+## Scénarios 2
+
+* Beaucoup de méthodes disponibles
+  * Une feature = un test ?
+  * Juste vérifier que le code compile et s'exécute ?
+  * Décliner les spec ? (top-down)
+  * Ajouter un test à chaque bug ? (bottom-up)
+* Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
+  * Si projet complétement spécifié (rare, critique) : décliner les specs
+  * Le plus souvent : les tests suivent les évolutions du logiciel
+  * Les tests ne peuvent pas et ne doivent pas chercher à "voir plus loin" que le projet lui-même
+
+-v-
+
 ## Architecture testable
 
 * si ce n'est pas un objectif, alors ce sera négligé
@@ -842,7 +851,7 @@ Notes:
   * facilite le découpage des effets de bord lors des tests
 * choisir quand limiter le couplage   <!-- .element: class="fragment" -->
   * inversion de dépendance
-* les tests sont les premiers utilisateurs de notre code
+* les tests sont les premiers utilisateurs de notre code  <!-- .element: class="fragment" -->
   * du code peu testable se voit immédiatement ! et ça se propage !
 
 Notes:
@@ -869,19 +878,16 @@ Notes:
 
 ## Surface d'interface
 
-> good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
-> -- grugbrain.dev
-
 * interface = surface de contact entre deux systèmes
   * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
-* interface = abstraction <!-- .element: class="fragment" -->
-* tout est une API <!-- .element: class="fragment" -->
-* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
-* surface large = trop de choses à tester, complique le refactoring <!-- .element: class="fragment" -->
+  * interface = abstraction, tout est une API <!-- .element: class="fragment" -->
+* surface large = trop de choses à tester, refactoring compliqué<!-- .element: class="fragment" -->
   * garder le minimum (Single Responsability Principle, faire une seule chose et le faire bien)
   * la profondeur c'est OK
-* tester l'interface, pas l'implémentation <!-- .element: class="fragment" -->
-  * autant que possible, toutes les interfaces fuient...
+* tester l'interface, pas l'implémentation  (autant que possible, vu que toutes les interfaces fuient...)<!-- .element: class="fragment" -->
+* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
+
+![](test_app.excalidraw.png)   <!-- .element: class="fragment" -->
 
 Notes:
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
@@ -900,14 +906,16 @@ Notes:
   * ok pour du e2e
   * un désastre pour en tester des sous-parties (banane, gorille, jungle)
 * "mock roles, not objects" - in "Growing Object-Oriented Software, Guided by Tests" by Steve Freeman and Nat Pryce
+> good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
+> -- grugbrain.dev
 
 -v-
 
 ## Le temps du test : maintenant
 
-* A la fin du dev, il est parfois trop TARD pour corriger le tir : Shift Left <!-- .element: class="fragment" -->
+* A la fin du dev, il est parfois trop TARD pour corriger le tir <!-- .element: class="fragment" -->
   * il fallait le prendre en compte lors de l'implémentation, du design, du poker, de la story ...
-* A la fin du dev, il est parfois trop TOT pour corriger le tir : Shift Right <!-- .element: class="fragment" -->
+* A la fin du dev, il est parfois trop TOT pour corriger le tir <!-- .element: class="fragment" -->
   * ça part en prod en on surveille (feature toggle, monitoring, metrics)
   * (beaucoup plus sérieux que dire "je teste en prod")
 * le test est une considération tout du long du process : TestOps, Full Cycle <!-- .element: class="fragment" -->
@@ -991,6 +999,46 @@ Notes:
 * un test sans assert = red flag
 * unit test = focus, sinon scénario utilisateur end-to-end
   * sinon "Shotgun unit testing" : le test fait tout et n'importe quoi
+
+-v-
+
+## Exemple
+
+<style>
+ .column {
+  float: left;
+  width: 50%;
+}
+</style>
+
+ <div class="row">
+  <div class="column">
+
+```python
+class Manager:
+
+    def __init__(self):
+        self._db = DatabaseConnection()
+
+    def save_daily_report(number: int) -> None:
+        DatabaseConnection().add_daily_number(number)
+        print("sauvegarde ok!")
+
+```
+
+  </div>
+  <div class="column">
+
+```python
+def test_save_daily_report_v1():
+    with patch("DatabaseConnection") as mock_db:
+        manager = Manager()  # Given
+        manager.save_daily_report(10) # When
+        assert mock_db.add_daily_number.assert_called_with(10) # Then
+```
+
+  </div>
+</div>
 
 -v-
 
