@@ -1009,6 +1009,10 @@ Notes:
   float: left;
   width: 50%;
 }
+/*we can also switch the background to dark grey, so that the green text is visible*/
+.reveal code {
+  color: #000
+}
 </style>
 
 
