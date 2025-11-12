@@ -1002,7 +1002,7 @@ Notes:
 
 -v-
 
-## Exemple
+## Exemple : écriture de fichier
 
 <style>
  .column {
@@ -1011,33 +1011,165 @@ Notes:
 }
 </style>
 
- <div class="row">
-  <div class="column">
+
+<div class="row">
+<div class="column">
+
+Code :
+
+```python
+def main_v1() -> int:
+    result: dict = compute_stuff()
+    
+    # Appel à une fonction builtin, avec un chemin hard-codé :
+    #  difficile à tester
+    with open("/path/to/file", "w") as file:
+        json.dump(result, file)
+    return 0
+```
+
+Refacto :
+
+```python
+def write_to_json(content: dict, path: Path) -> None:
+    with open(path, "w") as file:
+        json.dump(content, file)
+    
+
+def main_v2(result_path: Path) -> int:
+    result: dict = compute_stuff()
+    write_to_json(result, path)
+```
+
+</div>
+<div class="column">
+
+Test avec un mock :
+
+```python
+def test_main_with_mock():
+    with patch("write_to_json") as mock_write:
+        result_file = Path("/path/to/result.json")
+        main_v2(result_file)
+        mock_write.assert_called_with(result_file)
+```
+
+Test avec un fichier temporaire :
+
+```python
+def test_main_with_tmp_dir_from_stdlib():
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        result_file = tmp_dir / "result.json"
+        main_v2(result_file)
+        assert result_file.isfile()
+
+# Automatically get a tmp directory from the test framework
+def test_main_with_tmp_dir_from_test_framework(tmp_path: Path):
+    result_file = tmp_path / "result.json"
+    main_v2(result_file)
+    assert result_file.isfile()
+```
+
+</div>
+</div>
+
+-v-
+
+## Exemple : base de données
+
+<div class="row">
+<div class="column">
+
+Code :
 
 ```python
 class Manager:
 
-    def __init__(self):
-        self._db = DatabaseConnection()
+    def __init__(self, host):
+        self._db = DatabaseConnection(host)
 
     def save_daily_report(number: int) -> None:
-        DatabaseConnection().add_daily_number(number)
+        self._db.add_daily_number(number)
         print("sauvegarde ok!")
-
+        
+    def retrieve_report() -> int:
+        return self._db.get_daily_number()
 ```
 
-  </div>
-  <div class="column">
+</div>
+<div class="column">
+
+Test avec container :
+
+```shell
+docker run --port 8000 my-awesome-db-image:latest
+```
+```python
+def test_manager_with_container():
+    manager = Manager("localhost:8000")  # Given
+    manager.save_daily_report(10) # When
+    assert mock_db.get_daily_number() == 10 # Then
+```
+
+Test avec une vraie base de données, en read-only:
 
 ```python
-def test_save_daily_report_v1():
-    with patch("DatabaseConnection") as mock_db:
-        manager = Manager()  # Given
-        manager.save_daily_report(10) # When
-        assert mock_db.add_daily_number.assert_called_with(10) # Then
+def test_manager_with_container():
+    manager = Manager()
+    assert mock_db.get_daily_number() >= 0
 ```
 
-  </div>
+</div>
+</div>
+
+-v-
+
+
+## Exemple : base de données 2
+
+<div class="row">
+<div class="column">
+
+Code :
+
+```python
+class Manager:
+
+    def __init__(self, host):
+        self._db = DatabaseConnection(host)
+
+    def save_daily_report(number: int) -> None:
+        self._db.add_daily_number(number)
+        print("sauvegarde ok!")
+        
+    def retrieve_report() -> int:
+        return self._db.get_daily_number()
+```
+
+</div>
+<div class="column">
+
+Test avec container :
+
+```shell
+docker run --port 8000 my-awesome-db-image:latest
+```
+```python
+def test_manager_with_container():
+    manager = Manager("localhost:8000")  # Given
+    manager.save_daily_report(10) # When
+    assert manager.retrieve_report() == 10 # Then
+```
+
+Test avec une vraie base de données, en read-only:
+
+```python
+def test_manager_with_container():
+    manager = Manager()
+    assert manager.retrieve_report() >= 0
+```
+
+</div>
 </div>
 
 -v-
