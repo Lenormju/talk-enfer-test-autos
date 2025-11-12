@@ -1,5 +1,5 @@
 slides:
-  theme: "white"  # custom CSS filepath/URL, or https://revealjs.com/themes/
+  theme: "dracula"  # custom CSS filepath/URL, or https://revealjs.com/themes/
   highlight_theme: "stackoverflow-light"  # custom CSS filepath/URL, or https://highlightjs.org/examples
   separator_vertical: ^\s*-v-\s*$
 revealjs:  # https://revealjs.com/config/
