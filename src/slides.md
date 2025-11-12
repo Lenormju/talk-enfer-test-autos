@@ -826,7 +826,7 @@ Notes:
 
 -v-
 
-## Scénarios 2
+## Mais quels scénarios ?
 
 * Beaucoup de méthodes disponibles
   * Une feature = un test ?
