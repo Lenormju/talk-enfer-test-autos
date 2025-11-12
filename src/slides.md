@@ -375,7 +375,7 @@ Notes:
 
 * Personne n'est d'accord sur rien ! 😈
   * C'est quoi un test unitaire ? Combien j'en fait ? <!-- .element: class="fragment" -->
-  * C'est quoi les autres catégories ? Intégration, validation, recette ? C'est quoi la différence ? <!-- .element: class="fragment" -->
+  * C'est quoi les autres catégories ? Intégration, validation, recette, fonctionnel, acceptation ? C'est quoi la différence ? <!-- .element: class="fragment" -->
   * Plus de pyramides de tests qu'en Egypte ! <!-- .element: class="fragment" -->
   * Quel métier ? QA, testeur, dev, IVVQ, quality manager ? <!-- .element: class="fragment" -->
 * Faut en parler ensemble pour se mettre d'accord ! 😇  <!-- .element: class="fragment" -->
@@ -422,57 +422,6 @@ Notes:
 * [le glossaire ISTQB](https://glossary.istqb.org/en_US/search?term=) donne 601 résultats en anglais, 559 en français
 * personne n'est d'accord sur les tests, car personne n'utilise les mêmes définition
   * démonstration : pain au chocolat
-
--v-
-
-## Trop de tests, pas assez ?
-
-* Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)  😈 <!-- .element: class="fragment" -->
-  * Mais ils prennent des plombes ! <!-- .element: class="fragment" -->
-  * Et ils cassent tout le temps ! <!-- .element: class="fragment" -->
-  * Et je peux pas les automatiser, il faut que je rentre mes identifiants ! <!-- .element: class="fragment" -->
-    * (bon on va créer un user de test... harcoder son mdp quelque part... chut ! 😈) <!-- .element: class="fragment" -->
-
-* 10 ans de tests accumulés 😈 <!-- .element: class="fragment" -->
-  * Chaque fonction est testée 10 fois ! <!-- .element: class="fragment" -->
-  * Plus de 1000 exigences dans le plan de test ! <!-- .element: class="fragment" -->
-  * Ça prend des plombes ! <!-- .element: class="fragment" -->
-  * Y'en a toujours 4 ou 5 qui plantent, évidemment qu'on regarde plus si c'est rouge ! <!-- .element: class="fragment" -->
-  * Chaque fois que je touche une ligne j'ai 10 tests à modifier ! <!-- .element: class="fragment" -->
-
-* Et pourtant on découvre toujours des bugs ! 😈 <!-- .element: class="fragment" -->
-
-Notes:
-* explosion combinatoire
-* cible mouvante et floue
-* L'explosion combinatoire rend l'exhaustivité impossible
-* couplage versus maintenabilité en carton, tests cassés pas réparés ("vitre cassée"), maintenance des tests vécue comme un fardeau
-  * le summum : test de mock !
-* Tester le mauvais 80% : métaphore du streetlight problem ("plus simple de chercher dans la lumière")
-* test flaky
-  * l'équivalent de "ptèt bin qu'oui, ptèt bin qu'non"
-  * suffit de les relancer plusieurs fois mdr, ~zéro confiance
-* lenteur, car tests lents et/ou trop de tests
-* exemple de Xavier Nopre (cf [post LinkedIn](https://www.linkedin.com/posts/xnopre_pourquoi-jai-mis-plus-de-3-jours-%C3%A0-trouver-activity-7316027544934191104-Otww)), je lui ai dit qu'il y avait un problème, c'est pas censé être aussi lent
-* exemple de Schneider : board farms
-* exemple de Schneider : code dont le run dure des centaines jours !! (à travers les timezones :p)
-
--v-
-
-## Punition ou mauvaise volonté ?
-
-* J'ai pas envie d'écrire des tests, j'ai testé à la mano ça marche ! 😈  <!-- .element: class="fragment" -->
-* Mes specs sont dans un Word de 200 pages, je peux pas les tester une par une ! 😈 <!-- .element: class="fragment" -->
-* Pas mon boulot les tests E2E, je fais que mes tests unitaires sur MON code ! 😈 <!-- .element: class="fragment" -->
-* De toute façon c'est du C++, c'est trop chiant de gérer les effets de bord ! 😈  <!-- .element: class="fragment" -->
-
-Notes:
-* des tonnes d'outils différents, les différents types de tests évoqués, les différents métiers, l'insertion dans le process de production, ...
-* s'organiser, planifier et réaliser sont des tâches complexes
-* l'absence de testeur/expertise/culture dans les projets (des gens formés, motivés, avec le mindset adéquat)
-* > On peut conduire un cheval à l'abreuvoir, mais pas le forcer à boire
-* certifications ISTQB par le CFTL
-* casse-pied de service
 
 -v-
 
@@ -524,17 +473,57 @@ Notes:
 
 -v-
 
-## Trop tard
+## Trop de tests, pas assez ?
 
-* De toute façon y'a jamais eu de tests sur ce projet, c'est trop tard ! <!-- .element: class="fragment" -->
-* Ça sert à rien de tester ma feature, le reste est pas testé, pis ça m'a pris tellement de temps ! <!-- .element: class="fragment" -->
-* Comment j'injecte mon code de test ? Y'a rien qu'est prévu ! <!-- .element: class="fragment" -->
-* Comment je sais ce qui se passe ? Y'a à peine de logs et on peut se brancher sur rien ! <!-- .element: class="fragment" -->
-* Je teste quoi ? Que ça marche comme maintenant ? Parce que c'est pas clair ce que ça devrait faire ! <!-- .element: class="fragment" -->
+* Quelques tests "end-to-end (enfin... plus ou moins... sauf pour la GUI...)  😈 <!-- .element: class="fragment" -->
+  * Mais ils prennent des plombes ! <!-- .element: class="fragment" -->
+  * Et ils cassent tout le temps ! <!-- .element: class="fragment" -->
+  * Et je peux pas les automatiser, il faut que je rentre mes identifiants ! <!-- .element: class="fragment" -->
+    * (bon on va créer un user de test... harcoder son mdp quelque part... chut ! 😈) <!-- .element: class="fragment" -->
+  * Je teste quoi ? Que ça marche comme maintenant ? Parce que c'est pas clair ce que ça devrait faire ! <!-- .element: class="fragment" -->
+
+* 10 ans de tests accumulés 😈 <!-- .element: class="fragment" -->
+  * Chaque fonction est testée 10 fois ! <!-- .element: class="fragment" -->
+  * Plus de 1000 exigences dans le plan de test ! En Word ! <!-- .element: class="fragment" -->
+  * Ça prend des plombes ! <!-- .element: class="fragment" -->
+  * Y'en a toujours 4 ou 5 qui plantent, évidemment qu'on regarde plus si c'est rouge ! <!-- .element: class="fragment" -->
+  * Chaque fois que je touche une ligne j'ai 10 tests à modifier ! <!-- .element: class="fragment" -->
+
+* Et pourtant on découvre toujours des bugs ! 😈 <!-- .element: class="fragment" -->
 
 Notes:
-* JULIEN: anecdote procès
+* explosion combinatoire
+* cible mouvante et floue
+* L'explosion combinatoire rend l'exhaustivité impossible
+* couplage versus maintenabilité en carton, tests cassés pas réparés ("vitre cassée"), maintenance des tests vécue comme un fardeau
+  * le summum : test de mock !
+* Tester le mauvais 80% : métaphore du streetlight problem ("plus simple de chercher dans la lumière")
+* test flaky
+  * l'équivalent de "ptèt bin qu'oui, ptèt bin qu'non"
+  * suffit de les relancer plusieurs fois mdr, ~zéro confiance
+* lenteur, car tests lents et/ou trop de tests
+* exemple de Xavier Nopre (cf [post LinkedIn](https://www.linkedin.com/posts/xnopre_pourquoi-jai-mis-plus-de-3-jours-%C3%A0-trouver-activity-7316027544934191104-Otww)), je lui ai dit qu'il y avait un problème, c'est pas censé être aussi lent
+* exemple de Schneider : board farms
+* exemple de Schneider : code dont le run dure des centaines jours !! (à travers les timezones :p)
 
+-v-
+
+## Punition ou mauvaise volonté ?
+
+* J'ai pas envie d'écrire des tests, j'ai testé à la mano ça marche ! 😈  <!-- .element: class="fragment" -->
+* Comment j'injecte mon code de test ? Y'a rien qu'est prévu ! 😈 <!-- .element: class="fragment" -->
+* Comment je sais ce qui se passe ? Y'a à peine de logs et on peut se brancher sur rien ! 😈 <!-- .element: class="fragment" -->
+* Pas mon boulot les tests E2E, je fais que mes tests unitaires sur MON code ! 😈 <!-- .element: class="fragment" -->
+* Ça sert à rien de tester ma feature, le reste est pas testé ! 😈 <!-- .element: class="fragment" -->
+* De toute façon y'a jamais eu de tests sur ce projet, c'est trop tard ! 😈 <!-- .element: class="fragment" -->
+
+Notes:
+* des tonnes d'outils différents, les différents types de tests évoqués, les différents métiers, l'insertion dans le process de production, ...
+* s'organiser, planifier et réaliser sont des tâches complexes
+* l'absence de testeur/expertise/culture dans les projets (des gens formés, motivés, avec le mindset adéquat)
+* > On peut conduire un cheval à l'abreuvoir, mais pas le forcer à boire
+* certifications ISTQB par le CFTL
+* casse-pied de service
 <!--
 * descriptivism vs prescriptivism (cf Romeu)
 * test de caractérisation OK, mais est-ce que c'est ce que ça devrait vraiment faire ? 🤷
@@ -633,7 +622,6 @@ Notes:
     * "un testeur rentre dans un bar, il commande ..."
   * humilité <!-- .element: class="fragment" -->
   * responsabilité individuelle + équipe <!-- .element: class="fragment" -->
-* Avoir de l'expérience est un vrai plus <!-- .element: class="fragment" -->
 
 -v-
 
@@ -678,9 +666,9 @@ Notes:
   * Il n'apporte pas de valeur directe au client, mais aide le premier à en apporter (comme la doc, la CI, le marketing...) <!-- .element: class="fragment" -->
 * C'est un investissement <!-- .element: class="fragment" -->
   * Il faut des ressources : temps, compétences, hardware, runner de CI, données...
+  * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
   * Le meilleur moment pour investir dedans, c'était hier, le second meilleur c'est aujourd'hui <!-- .element: class="fragment" -->
   * Il est d'autant plus rentable qu'on l'utilise (enabler !) <!-- .element: class="fragment" -->
-  * Analyse coût-bénéfice, ROI (return on time invested) <!-- .element: class="fragment" -->
 * Exemple (extrême !) de SQLite : 590x plus de code de test que de code de prod <!-- .element: class="fragment" -->
 
 -v-
@@ -850,11 +838,11 @@ Notes:
   * Une feature = un test ?
   * Juste vérifier que le code compile et s'exécute ?
   * Décliner les spec ? (top-down)
+    * Nécessite un projet complètement spécifié (rare, code critique) 
   * Ajouter un test à chaque bug ? (bottom-up)
-* Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
-  * Si projet complétement spécifié (rare, critique) : décliner les specs
+    * Mais y'a-t-il encore une stratégie de test ? 
+* **Ça dépend !** Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
   * Le plus souvent : les tests suivent les évolutions du logiciel
-  * Les tests ne peuvent pas et ne doivent pas chercher à "voir plus loin" que le projet lui-même
 
 -v-
 
@@ -1046,7 +1034,7 @@ def main_v1() -> int:
     # Appel à une fonction builtin, avec un chemin hard-codé :
     #  difficile à tester
     with open("/path/to/file", "w") as file:
-        json.dump(result, file)
+        json.dump(result, file) 
     return 0
 ```
 
@@ -1079,12 +1067,6 @@ def test_main_with_mock():
 Test avec un fichier temporaire :
 
 ```python
-def test_main_with_tmp_dir_from_stdlib():
-    with tempfile.TemporaryDirectory() as tmp_dir:
-        result_file = tmp_dir / "result.json"
-        main_v2(result_file)
-        assert result_file.isfile()
-
 # Automatically get a tmp directory from the test framework
 def test_main_with_tmp_dir_from_test_framework(tmp_path: Path):
     result_file = tmp_path / "result.json"
