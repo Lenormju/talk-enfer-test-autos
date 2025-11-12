@@ -34,10 +34,7 @@ Notes:
 
 ## Merci aux sponsors
 
-- TODO sponsors DevFest Toulouse
-
-Notes:
-* TODO: logo Kaizen
+- Merci aux sponsors du DevFest Toulouse
 
 -v-
 
@@ -182,7 +179,6 @@ Notes:
 ## Rentabilité
 
 * pas simple à mesurer (scientifiquement)  <!-- .element: class="fragment" -->
-* Accelerate ?  <!-- .element: class="fragment" -->
 * argument d'autorité : <!-- .element: class="fragment" -->
   * Google, Microsoft, Netflix, Apple le font !!!  <!-- .element: class="fragment" -->
   * et tous les projets libres qu'on utilise tous les jours !!!  <!-- .element: class="fragment" -->
@@ -671,7 +667,15 @@ Notes:
 
 -v-
 
-![xkcd 974 "The General problem"](./the_general_problem.png) <!-- .element: class="fragment" -->
+## Mais investissement judicieux !
+
+![xkcd 974 "The General problem"](./the_general_problem.png)
+
+> I find that when someone's taking time to do something right in the present,
+> they're a perfectionist with no ability to prioritize,
+> whereas when someone
+> took time to do something right in the past, they're a master artisan of great foresight.
+
 
 Notes:
 * Pas de spec ...
@@ -684,14 +688,6 @@ Notes:
 * humains, techniques, temporels, ...
 * outils de test, formations, avoir le temps, déployabilité, disponibilité du hardware, dispo des data, ...
 * avoir des specs ! (claires)
-
--v-
-
-> I find that when someone's taking time to do something right in the present, they're a perfectionist with no ability to prioritize, whereas when someone took time to do something right in the past, they're a master artisan of great foresight.
-
-![xkcd 1205 "Is it worth the time?"](./is_it_worth_the_time.png)  <!-- .element: class="fragment" -->
-
-Notes:
 * investissement dans un second logiciel pour mieux produire le premier
 * outils de test
 * investir dans le futur
@@ -815,11 +811,6 @@ Notes:
     * 😇 Spécifique, facile à garder en tête, indépendant
     * 😈 Beaucoup de tests à écrire, peut ne pas tester grand chose
   * Tout le reste entre les deux ! <!-- .element: class="fragment" -->
-  * Une feature = un test ?  <!-- .element: class="fragment" -->
-  * Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
-      * Juste vérifier que le code compile et s'exécute ?
-      * Décliner les spec ? (top-down)
-      * Ajouter un test à chaque bug ? (bottom-up)
 
 Notes:
 * scénarios de test (nominaux, critiques, ...) décidés, "use cases" (orientés "utilisateur" de l'interface)
@@ -835,17 +826,33 @@ Notes:
 
 -v-
 
+## Mais quels scénarios ?
+
+* Beaucoup de méthodes disponibles
+  * Une feature = un test ?
+  * Juste vérifier que le code compile et s'exécute ?
+  * Décliner les spec ? (top-down)
+  * Ajouter un test à chaque bug ? (bottom-up)
+* Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
+  * Si projet complétement spécifié (rare, critique) : décliner les specs
+  * Le plus souvent : les tests suivent les évolutions du logiciel
+  * Les tests ne peuvent pas et ne doivent pas chercher à "voir plus loin" que le projet lui-même
+
+-v-
+
 ## Architecture testable
 
 * si ce n'est pas un objectif, alors ce sera négligé
 * si le code n'est pas facilement testable, alors les tests seront difficiles   <!-- .element: class="fragment" -->
-* bien définir les interfaces et contrat (cf juste après)   <!-- .element: class="fragment" -->
-* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
 * privilégier les fonctions "pures" (sans effets de bord) quand c'est possible   <!-- .element: class="fragment" -->
   * "functional core, imperative shell"
   * limiter la mutabilité
+* chercher à isoler les effets de bord du reste du code  <!-- .element: class="fragment" -->
+  * facilite le découpage des effets de bord lors des tests
 * choisir quand limiter le couplage   <!-- .element: class="fragment" -->
   * inversion de dépendance
+* les tests sont les premiers utilisateurs de notre code  <!-- .element: class="fragment" -->
+  * du code peu testable se voit immédiatement ! et ça se propage !
 
 Notes:
 * sinon architecture intestable ou semi-testable
@@ -871,19 +878,16 @@ Notes:
 
 ## Surface d'interface
 
-> good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
-> -- grugbrain.dev
-
-* interface = surface de contact entre deux systèmes <!-- .element: class="fragment" -->
+* interface = surface de contact entre deux systèmes
   * les méthodes publiques d'une classe, les fonctions d'un module, leurs types et exceptions
-* interface = abstraction <!-- .element: class="fragment" -->
-* tout est une API <!-- .element: class="fragment" -->
-* surface large = trop de choses à tester <!-- .element: class="fragment" -->
-  * garder le minimum (SRP)
-  * (complique le refactoring)
+  * interface = abstraction, tout est une API <!-- .element: class="fragment" -->
+* surface large = trop de choses à tester, refactoring compliqué<!-- .element: class="fragment" -->
+  * garder le minimum (Single Responsability Principle, faire une seule chose et le faire bien)
   * la profondeur c'est OK
-* tester l'interface, pas l'implémentation <!-- .element: class="fragment" -->
-  * contravariance des tests (refactoring !)
+* tester l'interface, pas l'implémentation  (autant que possible, vu que toutes les interfaces fuient...)<!-- .element: class="fragment" -->
+* identifier les "seams" (couture, lignes de faille, ...)   <!-- .element: class="fragment" -->
+
+![](test_app.excalidraw.png)   <!-- .element: class="fragment" -->
 
 Notes:
 * un critère primordial pour faciliter la testabilité : maîtriser la surface (de test) du code
@@ -893,7 +897,7 @@ Notes:
 * Ne pas tester tout le code ? Cf couverture, et faire des tests croisés
 * Quantité de test versus qualité
 * contravariance, tester l'interface plutôt que l'implémentation, cf Uncle Bob https://blog.cleancoder.com/uncle-bob/2017/10/03/TestContravariance.html
-* bon test = SRP + behavior not implementation
+* bon test = Single Responsability Principle + behavior not implementation
 * niveau de test :
   * Test u = contrat dev
   * Test inté = contrat intégrateur
@@ -902,24 +906,20 @@ Notes:
   * ok pour du e2e
   * un désastre pour en tester des sous-parties (banane, gorille, jungle)
 * "mock roles, not objects" - in "Growing Object-Oriented Software, Guided by Tests" by Steve Freeman and Nat Pryce
+> good cut point has narrow interface with rest of system: small number of functions or abstractions that hide complexity demon internally, like trapped in crystal
+> -- grugbrain.dev
 
 -v-
 
-## Feedback
+## Le temps du test : maintenant
 
-* les tests sont les premiers utilisateurs de notre code
-  * du code peu testable se voit immédiatement ! et ça se propage !
-* A la fin du dev, il est parfois trop TARD pour corriger le tir : Shift Left <!-- .element: class="fragment" -->
+* A la fin du dev, il est parfois trop TARD pour corriger le tir <!-- .element: class="fragment" -->
   * il fallait le prendre en compte lors de l'implémentation, du design, du poker, de la story ...
-* A la fin du dev, il est parfois trop TOT pour corriger le tir : Shift Right <!-- .element: class="fragment" -->
+* A la fin du dev, il est parfois trop TOT pour corriger le tir <!-- .element: class="fragment" -->
   * ça part en prod en on surveille (feature toggle, monitoring, metrics)
   * (beaucoup plus sérieux que dire "je teste en prod")
 * le test est une considération tout du long du process : TestOps, Full Cycle <!-- .element: class="fragment" -->
-  * éviter la loi de Conway : les testeurs testent, les autres s'en fichent
-* le bon test : il ne passe tout le temps ni n'échoue tout le temps, il échoue pour les bonnes raisons  <!-- .element: class="fragment" -->
-  * le bon chasseur ...
-
-
+  * éviter les silos : les testeurs testent, les autres s'en fichent
 
 Notes:
 * un test qui pète, c'est une bonne nouvelle : un bug de moins en prod !
@@ -988,8 +988,8 @@ Quelques règles d'écriture pour les tests :
 * structure du test en Arrange-Act-Assert ou Given-When-Then <!-- .element: class="fragment" -->
 * au moins un assert par test <!-- .element: class="fragment" -->
 * tenter de tester une seule chose par test plutôt qu'une suite de stimuli <!-- .element: class="fragment" -->
-* FIRST = Fast, Independant, Repeatable, Self-Checking, Timely <!-- .element: class="fragment" -->
 * différencier "erreur" (plantage, pas de résultat de test) versus "échec" (résultat négatif) <!-- .element: class="fragment" -->
+* mnémotechnique : FIRST (Fast, Independant, Repeatable, Self-Checking, Timely) <!-- .element: class="fragment" -->
 
 Notes:
 * méthodologie d'écriture : setup/teardown, Given/When/Then, Assert/Arrange/Act, tester une seule chose plutôt qu'un scénario complet, erreur versus échec
@@ -999,6 +999,190 @@ Notes:
 * un test sans assert = red flag
 * unit test = focus, sinon scénario utilisateur end-to-end
   * sinon "Shotgun unit testing" : le test fait tout et n'importe quoi
+
+-v-
+
+## Exemple : écriture de fichier
+
+<style>
+ .column {
+  float: left;
+  width: 50%;
+}
+/*we can also switch the background to dark grey, so that the green text is visible*/
+.reveal code {
+  color: #000
+}
+</style>
+
+
+<div class="row">
+<div class="column">
+
+Code :
+
+```python
+def main_v1() -> int:
+    result: dict = compute_stuff()
+    
+    # Appel à une fonction builtin, avec un chemin hard-codé :
+    #  difficile à tester
+    with open("/path/to/file", "w") as file:
+        json.dump(result, file)
+    return 0
+```
+
+Refacto :
+
+```python
+def write_to_json(content: dict, path: Path) -> None:
+    with open(path, "w") as file:
+        json.dump(content, file)
+    
+
+def main_v2(result_path: Path) -> int:
+    result: dict = compute_stuff()
+    write_to_json(result, path)
+```
+
+</div>
+<div class="column">
+
+Test avec un mock :
+
+```python
+def test_main_with_mock():
+    with patch("write_to_json") as mock_write:
+        result_file = Path("/path/to/result.json")
+        main_v2(result_file)
+        mock_write.assert_called_with(result_file)
+```
+
+Test avec un fichier temporaire :
+
+```python
+def test_main_with_tmp_dir_from_stdlib():
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        result_file = tmp_dir / "result.json"
+        main_v2(result_file)
+        assert result_file.isfile()
+
+# Automatically get a tmp directory from the test framework
+def test_main_with_tmp_dir_from_test_framework(tmp_path: Path):
+    result_file = tmp_path / "result.json"
+    main_v2(result_file)
+    assert result_file.isfile()
+```
+
+</div>
+</div>
+
+-v-
+
+## Exemple : base de données
+
+<div class="row">
+<div class="column">
+
+Code :
+
+```python
+class Manager:
+
+    def __init__(self, host):
+        self._db = DatabaseConnection(host)
+
+    def save_daily_report(number: int) -> None:
+        self._db.add_daily_number(number)
+        print("sauvegarde ok!")
+        
+    def retrieve_report() -> int:
+        return self._db.get_daily_number()
+```
+
+</div>
+<div class="column">
+
+Test avec Mock :
+
+```python
+def test_manager_with_mock():
+    with patch("DatabaseConnection") as mock_db:
+        manager = Manager()  # Given
+        manager.save_daily_report(10) # When
+        assert mock_db.add_daily_number.assert_called_with(10) # Then
+```
+
+Test avec Fake :
+
+```python
+class FakeDatabase:
+    def __init__(self):
+        self.number = 0
+    def add_daily_number(self, number: int) -> None:
+        self.number = number
+    def get_daily_number(self) -> int:
+        return self.number
+
+def test_manager_with_fake():
+    with patch("DatabaseConnection", new=FakeDatabase) as fake_db:
+        manager = Manager()  # Given
+        manager.save_daily_report(10) # When
+        assert fake_db.number == 10 # Then
+```
+
+</div>
+</div>
+
+-v-
+
+
+## Exemple : base de données 2
+
+<div class="row">
+<div class="column">
+
+Code :
+
+```python
+class Manager:
+
+    def __init__(self, host):
+        self._db = DatabaseConnection(host)
+
+    def save_daily_report(number: int) -> None:
+        self._db.add_daily_number(number)
+        print("sauvegarde ok!")
+        
+    def retrieve_report() -> int:
+        return self._db.get_daily_number()
+```
+
+</div>
+<div class="column">
+
+Test avec container :
+
+```shell
+docker run --port 8000 my-awesome-db-image:latest
+```
+```python
+def test_manager_with_container():
+    manager = Manager("localhost:8000")  # Given
+    manager.save_daily_report(10) # When
+    assert manager.retrieve_report() == 10 # Then
+```
+
+Test avec une vraie base de données, en read-only:
+
+```python
+def test_manager_with_container():
+    manager = Manager()
+    assert manager.retrieve_report() >= 0
+```
+
+</div>
+</div>
 
 -v-
 
@@ -1033,16 +1217,24 @@ Notes:
 * tests d'architecture  <!-- .element: class="fragment" -->
 * tests de performance et de charge  <!-- .element: class="fragment" -->
 * Page Object Model (POM) pour les tests d'UI  <!-- .element: class="fragment" -->
-* Accelerate <!-- .element: class="fragment" -->
+* Métriques de perf et capacités DORA (équipe DevOps Research and Assessment de Google) <!-- .element: class="fragment" -->
 * ...   <!-- .element: class="fragment" -->
 
 Juste le sommet de l'iceberg ! <!-- .element: class="fragment" -->
-
 
 (le reste en annexe et dans les sources des slides)  <!-- .element: class="fragment" -->
 
 Notes:
 * pour aller + loin (et qui mérite chacun son 45 minutes ou +) pour développer culture et savoir-faire
+
+-v-
+
+## Bonus
+
+- Les tests peuvent être intéressants, avec de belles solutions techniques à mettre en place
+- Les tests nous font mieux maitriser le langage et ses libs <!-- .element: class="fragment" -->
+- Les tests nous font mieux comprendre le périmètre du code et ses interactions <!-- .element: class="fragment" -->
+- Les tests deviennent de plus en plus faciles à faire, on acquiert des automatismes <!-- .element: class="fragment" -->
 
 ---
 
@@ -1273,7 +1465,7 @@ Notes:
 * profile your tests ! (éviter les "slips/sleeps sales") cf snakeviz marche aussi pour les tests (cf article de Xavier et son setup de DB), tests en parallèle (cf article du blog de PyPi), être réactif plutôt que passif (cf MQTT tester de Schneider)
   * surveiller la performance des tests autos, ne correspond pas aux tests de performance
 * trunk-based development + feature flags
-* dependency inversion (D de SOLID), SRP
+* dependency inversion (D de SOLID), Single Responsability Principle
 * inclure des fonctionnalités requises par les tests dans le code de prod ? non-préférable mais acceptable
 
 -v-
