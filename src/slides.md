@@ -1217,7 +1217,7 @@ Notes:
 * tests d'architecture  <!-- .element: class="fragment" -->
 * tests de performance et de charge  <!-- .element: class="fragment" -->
 * Page Object Model (POM) pour les tests d'UI  <!-- .element: class="fragment" -->
-* Méthodes et capacités DORA (équipe DevOps Research and Assessment de Google) <!-- .element: class="fragment" -->
+* Métriques de perf et capacités DORA (équipe DevOps Research and Assessment de Google) <!-- .element: class="fragment" -->
 * ...   <!-- .element: class="fragment" -->
 
 Juste le sommet de l'iceberg ! <!-- .element: class="fragment" -->
