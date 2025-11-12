@@ -1099,24 +1099,32 @@ class Manager:
 </div>
 <div class="column">
 
-Test avec container :
-
-```shell
-docker run --port 8000 my-awesome-db-image:latest
-```
-```python
-def test_manager_with_container():
-    manager = Manager("localhost:8000")  # Given
-    manager.save_daily_report(10) # When
-    assert mock_db.get_daily_number() == 10 # Then
-```
-
-Test avec une vraie base de données, en read-only:
+Test avec Mock :
 
 ```python
-def test_manager_with_container():
-    manager = Manager()
-    assert mock_db.get_daily_number() >= 0
+def test_manager_with_mock():
+    with patch("DatabaseConnection") as mock_db:
+        manager = Manager()  # Given
+        manager.save_daily_report(10) # When
+        assert mock_db.add_daily_number.assert_called_with(10) # Then
+```
+
+Test avec Fake :
+
+```python
+class FakeDatabase:
+    def __init__(self):
+        self.number = 0
+    def add_daily_number(self, number: int) -> None:
+        self.number = number
+    def get_daily_number(self) -> int:
+        return self.number
+
+def test_manager_with_fake():
+    with patch("DatabaseConnection", new=FakeDatabase) as fake_db:
+        manager = Manager()  # Given
+        manager.save_daily_report(10) # When
+        assert fake_db.number == 10 # Then
 ```
 
 </div>
