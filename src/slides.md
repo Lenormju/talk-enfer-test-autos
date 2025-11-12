@@ -41,14 +41,32 @@ Notes:
 
 -v-
 
-## Présentation
+## Speakers
+
+<style>
+ .column {
+  float: left;
+  width: 50%;
+}
+</style>
+
+
+<div class="row">
+<div class="column">
 
 Julien Lenormand 😇
 
-Jonathan Gaffiot 😈
-@ Kaizen Solutions
+<img src="./julien_lenormand_logo.png" alt="" width="700px" style="margin-top: 200px" />
 
-<img src="./logo-kaizen.png" style="position: absolute; right: 500px; top: 500px; width: auto; height: auto" />
+</div>
+<div class="column">
+
+Jonathan Gaffiot 😈
+
+<img src="./logo-kaizen.png" alt="" width="700px" />
+
+</div>
+</div>
 
 Notes:
 * on n'est pas parfait, des fois on ne teste pas (assez), ou pas auto
@@ -1113,10 +1131,36 @@ Notes:
 
 # Questions
 
-Slides : [https://github.com/Lenormju/talk-enfer-test-autos/](https://github.com/Lenormju/talk-enfer-test-autos/)
+<style>
+ .column {
+  float: left;
+  width: 50%;
+}
+</style>
+
+
+<div class="row">
+<div class="column">
+
+Slides
+
+[https://github.com/Lenormju/talk-enfer-test-autos/tree/main/](https://github.com/Lenormju/talk-enfer-test-autos/tree/main/)
+
+<img src="qr-code-github.png" alt="" height="700px" />
+
+</div>
+<div class="column">
+
+OpenFeedback
+
+[https://openfeedback.io/devfest-toulouse-2025/2025-11-13/956790](https://openfeedback.io/devfest-toulouse-2025/2025-11-13/956790)
+
+<img src="qr-code-feedback.png" alt="" height="700px" />
+
+</div>
+</div>
 
 Notes:
-* TODO QRcode vers les slides : https://github.com/Lenormju/talk-enfer-test-autos/
 
 ---
 
