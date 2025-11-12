@@ -1220,8 +1220,9 @@ Notes:
 ## Bonus
 
 - Les tests peuvent être intéressants, avec de belles solutions techniques à mettre en place
-- Les tests nous font mieux apprendre le langage
-- Les tests deviennent de plus en plus facile, on acquiert des automatismes
+- Les tests nous font mieux maitriser le langage et ses libs <!-- .element: class="fragment" -->
+- Les tests nous font mieux comprendre le périmètre du code et ses interactions <!-- .element: class="fragment" -->
+- Les tests deviennent de plus en plus faciles à faire, on acquiert des automatismes <!-- .element: class="fragment" -->
 
 ---
 
