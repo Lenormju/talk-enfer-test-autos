@@ -835,13 +835,14 @@ Notes:
 ## Mais quels scénarios ?
 
 * Beaucoup de méthodes disponibles
-  * Une feature = un test ?
-  * Juste vérifier que le code compile et s'exécute ?
-  * Décliner les spec ? (top-down)
+  * Une feature = un test ? <!-- .element: class="fragment" -->
+  * Juste vérifier que le code compile et s'exécute ? <!-- .element: class="fragment" -->
+  * Décliner les spec ? (top-down) <!-- .element: class="fragment" -->
     * Nécessite un projet complètement spécifié (rare, code critique) 
-  * Ajouter un test à chaque bug ? (bottom-up)
+  * Ajouter un test à chaque bug ? (bottom-up) <!-- .element: class="fragment" -->
     * Mais y'a-t-il encore une stratégie de test ? 
-* **Ça dépend !** Dépend de ses objectifs, ses moyens, son expérience...  <!-- .element: class="fragment" -->
+* ÇA DÉPEND !  <!-- .element: class="fragment" -->
+  * des objectifs, des moyens, de l'expérience...
   * Le plus souvent : les tests suivent les évolutions du logiciel
 
 -v-
