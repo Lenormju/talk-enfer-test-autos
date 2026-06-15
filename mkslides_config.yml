@@ -5,7 +5,7 @@ slides:
 revealjs:  # https://revealjs.com/config/
   height: 1080
   width: 1920
-  navigationMode: "default"  # default/linear/grid
+  navigationMode: "linear"  # default/linear/grid
   mouseWheel: true
   slideNumber: c/t
   transition: slide
